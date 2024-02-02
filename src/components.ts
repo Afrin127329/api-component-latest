@@ -4,6 +4,7 @@ import { RequiredPluginOptions } from ".";
 export default (editor: Editor, opts: RequiredPluginOptions) => {
   const { Components } = editor;
   const { id, label } = opts;
+  let userData;
 
   const userPrefix = opts.classPrefix;
   const idContainer = `${id}-container`;
@@ -33,86 +34,32 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             width: 95%;
           }
 
-          .${userPrefix}-data-element {
-            margin: 0px;
-          }
-
           .${userPrefix}-idUser {
-            line-height: 35px;
+            font-size: larger;
+            font-weight: 900;
           }
 
           .${userPrefix}-idBody {
             line-height: 20px;
           }
 
-          .${userPrefix}-idTitle,
-          .${userPrefix}-idUser,
-          .${userPrefix}-idBody {
-            font-size: larger;
-            font-weight: 900;
+          .${userPrefix}-idTitle {
+            margin: 0px;
+            line-height: 35px;
           }
         `) + opts.styleAdditional,
       },
     },
-  });
-
-  Components.addType("dynamicDataRenderer", {
-    model: {
-      defaults: {
-        name: "Dynamic Data Renderer",
-        droppable: false,
-        draggable: false,
-        highlightable: false,
-        attributes: { class: `${userPrefix}-data-element` },
-      },
-    },
-    view: {
-      init() {
-        const content = this.model.get("content");
-        //@ts-ignore
-        const data = content?.data || [];
-
-        data.forEach((post: any) => {
-          const userId = post?.userId || "";
-          const title = post?.title || "";
-          const description = post?.body || "";
-
-          //@ts-ignore
-          this.model.get("components").add([
-            {
-              type: "dynamicDataElement",
-              content: { label: "User ID", value: userId },
-            },
-            {
-              type: "dynamicDataElement",
-              content: { label: "Title", value: title },
-            },
-            {
-              type: "dynamicDataElement",
-              content: { label: "Body", value: description },
-            },
-          ]);
-        });
-      },
-    },
-  });
-
-  Components.addType("dynamicDataElement", {
-    model: {
-      defaults: {
-        droppable: false,
-        draggable: false,
-        highlightable: false,
-        attributes: { class: `${userPrefix}-data-element` },
-      },
-    },
     view: {
       onRender() {
-        const content = this.model.get("content");
-        const label = content?.label || "";
-        const value = content?.value || "";
-
-        this.el.innerHTML = `<div class="${userPrefix}-data-label">${label}:</div><div class="${userPrefix}-data-value">${value}</div>`;
+        userData = this.model.attributes.data;
+        this.el.innerHTML = `<div>
+        <h1 class="${userPrefix}-idTitle">${userData.title}</h1>
+        <p class="${userPrefix}-idBody">
+        ${userData.body}
+      </p>
+      <div class="${userPrefix}-idUser">${userData.userId}</div>
+        </div>`;
       },
     },
   });
