@@ -1,12 +1,35 @@
-import { Editor } from "grapesjs";
+import { BlockProperties, Editor, Plugin } from "grapesjs";
 import loadBlocks from "./blocks";
 import loadComponents from "./components";
 
-export default (editor: Editor, opts = {}) => {
-  const options = {
-    ...{
-      // default options
-    },
+// Plugin options
+export type PluginOptions = {
+  /**
+   * ID, label, CSS(component), Additional CSS and component class prefix used to create block and component and object to extent the default block
+   * @default 'api'
+   * @default 'API'
+   * @default ''
+   * @default ''
+   * @default 'api'
+   */
+  id?: string;
+  label?: string;
+  style?: string;
+  block?: Partial<BlockProperties>;
+  styleAdditional?: string;
+  classPrefix?: string;
+};
+
+export type RequiredPluginOptions = Required<PluginOptions>;
+
+const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
+  const options: RequiredPluginOptions = {
+    id: "api",
+    label: "API",
+    block: {},
+    style: "",
+    styleAdditional: "",
+    classPrefix: "api",
     ...opts,
   };
 
@@ -25,3 +48,5 @@ export default (editor: Editor, opts = {}) => {
     )
   );
 };
+
+export default plugin;
