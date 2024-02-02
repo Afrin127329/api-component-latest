@@ -9,7 +9,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     try {
       // // API request when the block is added
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts/"
+        "https://jsonplaceholder.typicode.com/posts/1"
       );
 
       if (!response.ok) {
@@ -19,10 +19,11 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       // storing the response in variable
       const data = await response.json();
       postData = data;
+      console.log(postData);
 
       // Limiting the number of posts to 10
-      const limitedPosts = postData.slice(0, 10);
-      console.log(limitedPosts);
+      // const limitedPosts = postData.slice(0, 10);
+      // console.log(limitedPosts);
 
       // Adding the block to the editor
       editor.Blocks.add(id, {
@@ -45,7 +46,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         label,
         category: "Extra",
         select: true,
-        content: { type: id, data: limitedPosts },
+        content: { type: id, data: postData },
         ...block,
       });
     } catch (error) {

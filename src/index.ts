@@ -24,12 +24,12 @@ export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
   const options: RequiredPluginOptions = {
-    id: "api",
-    label: "API",
+    id: "user",
+    label: "USERS",
     block: {},
     style: "",
     styleAdditional: "",
-    classPrefix: "api",
+    classPrefix: "user",
     ...opts,
   };
 
