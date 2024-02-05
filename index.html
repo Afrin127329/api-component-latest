@@ -14,6 +14,7 @@
     <script src="https://unpkg.com/grapesjs-preset-webpage"></script>
     <script src="https://unpkg.com/grapesjs-plugin-forms"></script>
     <script src="https://unpkg.com/grapesjs-blocks-basic"></script>
+    <script src="https://unpkg.com/grapesjs-navbar"></script>
   </head>
   <style>
     body,
@@ -39,12 +40,41 @@
             "api-component",
             "grapesjs-plugin-forms",
             "gjs-blocks-basic",
+            "grapesjs-navbar",
           ],
-          pluginOpts: {
+          pluginsOpts: {
             "grapesjs-preset-webpage": {},
-            "grapesjs-plugin-forms": {},
+            "grapesjs-plugin-forms": {
+              blocks: ["form", "input"],
+              block: (blockId) => {
+                if (blockId === "form") {
+                  return {
+                    label: "Modified Form",
+                    style: {
+                      background: "#f2f2f2",
+                      padding: "20px",
+                    },
+                  };
+                }
+
+                return {};
+              },
+            },
           },
         });
+
+        // const existingFormBlock = editor.BlockManager.get("form");
+        // if (existingFormBlock) {
+        //   existingFormBlock.set({
+        //     style: {
+        //       background: "#e0e0e0",
+        //       border: "2px solid #333",
+        //     },
+        //   });
+
+        //   // Render the changes
+        //   existingFormBlock.render();
+        // }
       };
     </script>
   </body>
