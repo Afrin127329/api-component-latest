@@ -12,8 +12,8 @@
     <script src="https://unpkg.com/grapesjs"></script>
     <script src="path/to/grapes.min.js"></script>
     <script src="https://unpkg.com/grapesjs-preset-webpage"></script>
-    <!-- <script src="path/to/grapesjs-preset-webpage.min.js"></script>
-    <script src="./node_modules/grapesjs-preset-webpage/dist/grapesjs-preset-webpage.min.js"></script> -->
+    <script src="https://unpkg.com/grapesjs-plugin-forms"></script>
+    <script src="https://unpkg.com/grapesjs-blocks-basic"></script>
   </head>
   <style>
     body,
@@ -23,9 +23,7 @@
     }
   </style>
   <body>
-    <div id="gjs" style="height: 0px; overflow: hidden">
-      <!-- <div class="test">Test Component</div> -->
-    </div>
+    <div id="gjs" style="height: 0px; overflow: hidden"></div>
 
     <!-- Scripts  -->
     <script type="text/javascript">
@@ -36,9 +34,15 @@
           fromElement: true,
           noticeOnUnload: false,
           storageManager: false,
-          plugins: ["grapesjs-preset-webpage", "api-component"],
+          plugins: [
+            "grapesjs-preset-webpage",
+            "api-component",
+            "grapesjs-plugin-forms",
+            "gjs-blocks-basic",
+          ],
           pluginOpts: {
             "grapesjs-preset-webpage": {},
+            "grapesjs-plugin-forms": {},
           },
         });
       };

@@ -52,11 +52,5 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     } catch (error) {
       console.error("Error in Fetching Data", error);
     }
-
-    // // API request when the block is added
-    // fetch("https://jsonplaceholder.typicode.com/posts/")
-    //   .then((response) => response.json())
-    //   .then((data) => console.log(data))
-    //   .catch((error) => console.error("Error Fetching Data", error));
   }
 };

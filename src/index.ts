@@ -33,8 +33,6 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
     ...opts,
   };
 
-  // editor.Blocks.add("grapesjs-preset-webpage", {});
-
   // Add components
   loadComponents(editor, options);
   // Add blocks
