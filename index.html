@@ -8,7 +8,11 @@
       href="https://unpkg.com/grapesjs/dist/css/grapes.min.css"
       rel="stylesheet"
     />
+    <link href="path/to/grapes.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/grapesjs"></script>
+    <script src="path/to/grapes.min.js"></script>
+    <script src="path/to/grapesjs-preset-webpage.min.js"></script>
+    <script src="./node_modules/grapesjs-preset-webpage/dist/grapesjs-preset-webpage.min.js"></script>
   </head>
   <style>
     body,
@@ -19,7 +23,7 @@
   </style>
   <body>
     <div id="gjs" style="height: 0px; overflow: hidden">
-      <div class="test">Test Component</div>
+      <!-- <div class="test">Test Component</div> -->
     </div>
 
     <!-- Scripts  -->
@@ -31,7 +35,10 @@
           fromElement: true,
           noticeOnUnload: false,
           storageManager: false,
-          plugins: ["api-component"],
+          plugins: ["grapesjs-preset-webpage", "api-component"],
+          pluginOpts: {
+            "grapesjs-preset-webpage": {},
+          },
         });
       };
     </script>
