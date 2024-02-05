@@ -25,7 +25,7 @@ export type RequiredPluginOptions = Required<PluginOptions>;
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
   const options: RequiredPluginOptions = {
     id: "user",
-    label: "USERS",
+    label: "Product",
     block: {},
     style: "",
     styleAdditional: "",
