@@ -40,58 +40,22 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
   // Add blocks
   loadBlocks(editor, options);
 
-  // TODO Remove
-  // editor.on("load", () =>
-  //   editor.addComponents(
-  //     `<div style="margin:100px; padding:25px;">
-  //           Content loaded from the plugin
-  //       </div>`,
-  //     { at: 0 }
-  //   )
-  // );
+  // let postData = null;
 
-  editor.Blocks.add("form", {
-    media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 5.5c0-.3-.5-.5-1.3-.5H3.4c-.8 0-1.3.2-1.3.5v3c0 .3.5.5 1.3.5h17.4c.8 0 1.3-.2 1.3-.5v-3zM21 8H3V6h18v2zM22 10.5c0-.3-.5-.5-1.3-.5H3.4c-.8 0-1.3.2-1.3.5v3c0 .3.5.5 1.3.5h17.4c.8 0 1.3-.2 1.3-.5v-3zM21 13H3v-2h18v2z"/><rect width="10" height="3" x="2" y="15" rx=".5"/></svg>`,
-    label: "Product Form",
-    category: "Extra",
-    select: true,
+  // async function fetchData() {
+  //   try {
+  //     let response = await fetch("https://jsonplaceholder.typicode.com/posts/");
+  //     let data = await response.json();
+  //     postData = data;
 
-    content: {
-      type: "form",
-      components: [
-        {
-          components: [
-            { type: "label", components: "Name" },
-            { type: "input" },
-          ],
-        },
-        {
-          components: [
-            { type: "label", components: "Email" },
-            { type: "input", attributes: { type: "email" } },
-          ],
-        },
-        {
-          components: [
-            { type: "label", components: "Gender" },
-            { type: "checkbox", attributes: { value: "M" } },
-            { type: "label", components: "M" },
-            { type: "checkbox", attributes: { value: "F" } },
-            { type: "label", components: "F" },
-          ],
-        },
-        {
-          components: [
-            { type: "label", components: "Message" },
-            { type: "textarea" },
-          ],
-        },
-        {
-          components: [{ type: "button" }],
-        },
-      ],
-    },
-  });
+  //     return postData;
+  //   } catch (error) {
+  //     console.error("Error fetching data:", error);
+  //   }
+  // }
+
+  // postData = fetchData();
+  // console.log(postData);
 };
 
 export default plugin;

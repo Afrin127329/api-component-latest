@@ -16,11 +16,20 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       });
   };
 
+  addBlock(id[1], {
+    media: `   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 5.5c0-.3-.5-.5-1.3-.5H3.4c-.8 0-1.3.2-1.3.5v3c0 .3.5.5 1.3.5h17.4c.8 0 1.3-.2 1.3-.5v-3zM21 8H3V6h18v2zM22 10.5c0-.3-.5-.5-1.3-.5H3.4c-.8 0-1.3.2-1.3.5v3c0 .3.5.5 1.3.5h17.4c.8 0 1.3-.2 1.3-.5v-3zM21 13H3v-2h18v2z"/><rect width="10" height="3" x="2" y="15" rx=".5"/></svg>`,
+    label: label[1],
+    category: "Extra",
+    content: {
+      type: id[1],
+    },
+    ...block,
+  });
+
   // if (block) {
-  console.log(opt.blocks);
   let postData = null;
   try {
-    // // API request when the block is added
+    // API request when the block is added
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/posts/1"
     );
@@ -66,18 +75,5 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     console.error("Error in Fetching Data", error);
   }
 
-  addBlock(id[1], {
-    media: `    <svg viewBox="0 0 24 24">
-      <path d="M14.6 16.6l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z"></path>
-    </svg>`,
-    label: label[1],
-    category: "Extra",
-    select: true,
-
-    content: {
-      type: id[1],
-    },
-    ...block,
-  });
   // }
 };
