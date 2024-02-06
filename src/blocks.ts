@@ -1,10 +1,23 @@
-import { Editor } from "grapesjs";
+import { BlockProperties, Editor } from "grapesjs";
 import { RequiredPluginOptions } from ".";
 
 export default async (editor: Editor, opts: RequiredPluginOptions) => {
   const { block, label, id } = opts;
 
+  const opt = opts;
+  const bm = editor.BlockManager;
+  const addBlock = (id: string, def: BlockProperties) => {
+    opt.blocks?.indexOf(id)! >= 0 &&
+      bm.add(id, {
+        ...def,
+        category: "Extra",
+        select: true,
+        ...opts.block(id),
+      });
+  };
+
   if (block) {
+    console.log(block);
     let postData = null;
     try {
       // // API request when the block is added
@@ -26,10 +39,10 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       // console.log(limitedPosts);
 
       // Adding the block to the editor
-      editor.Blocks.add(id, {
+      addBlock(id[0], {
         media: `
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 256 256" xml:space="preserve">
-  
+
         <defs>
         </defs>
         <g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
@@ -41,16 +54,62 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
           <path d="M 26.536 32.932 v -2.385 c 0 -8.62 5.946 -15.858 13.947 -17.881 C 39.823 5.589 33.828 0 26.586 0 c -7.68 0 -13.964 6.284 -13.964 13.964 v 5.008 C 12.622 26.635 18.879 32.905 26.536 32.932 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
         </g>
         </svg>
-  
+
         `,
-        label,
+        label: label[0],
         category: "Extra",
         select: true,
-        content: { type: id, data: postData },
+        content: { type: id[0], data: postData },
         ...block,
       });
     } catch (error) {
       console.error("Error in Fetching Data", error);
     }
+
+    addBlock(id[1], {
+      media: `    <svg viewBox="0 0 24 24">
+      <path d="M14.6 16.6l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z"></path>
+    </svg>`,
+      label: label[1],
+      category: "Extra",
+      select: true,
+
+      content: {
+        type: id[1],
+        components: [
+          {
+            components: [
+              { type: "label", components: "Name" },
+              { type: "input" },
+            ],
+          },
+          {
+            components: [
+              { type: "label", components: "Email" },
+              { type: "input", attributes: { type: "email" } },
+            ],
+          },
+          {
+            components: [
+              { type: "label", components: "Gender" },
+              { type: "checkbox", attributes: { value: "M" } },
+              { type: "label", components: "M" },
+              { type: "checkbox", attributes: { value: "F" } },
+              { type: "label", components: "F" },
+            ],
+          },
+          {
+            components: [
+              { type: "label", components: "Message" },
+              { type: "textarea" },
+            ],
+          },
+          {
+            components: [{ type: "button" }],
+          },
+        ],
+      },
+      ...block,
+    });
   }
 };

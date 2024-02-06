@@ -44,22 +44,7 @@
           ],
           pluginsOpts: {
             "grapesjs-preset-webpage": {},
-            "grapesjs-plugin-forms": {
-              blocks: ["form", "input"],
-              block: (blockId) => {
-                if (blockId === "form") {
-                  return {
-                    label: "Modified Form",
-                    style: {
-                      background: "#f2f2f2",
-                      padding: "20px",
-                    },
-                  };
-                }
-
-                return {};
-              },
-            },
+            "grapesjs-plugin-forms": {},
           },
         });
 

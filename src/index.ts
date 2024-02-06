@@ -1,4 +1,4 @@
-import { BlockProperties, Editor, Plugin } from "grapesjs";
+import { Editor, Plugin } from "grapesjs";
 import loadBlocks from "./blocks";
 import loadComponents from "./components";
 
@@ -12,21 +12,23 @@ export type PluginOptions = {
    * @default ''
    * @default 'api'
    */
-  id?: string;
-  label?: string;
+  id?: string[];
+  label?: string[];
   style?: string;
-  block?: Partial<BlockProperties>;
+  block?: (blockId: string) => {};
   styleAdditional?: string;
   classPrefix?: string;
+  blocks?: string[];
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
   const options: RequiredPluginOptions = {
-    id: "user",
-    label: "Product",
-    block: {},
+    blocks: ["product", "form"],
+    id: ["product", "form"],
+    label: ["Product", "Product Form"],
+    block: () => ({}),
     style: "",
     styleAdditional: "",
     classPrefix: "user",
