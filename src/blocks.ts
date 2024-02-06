@@ -16,31 +16,31 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       });
   };
 
-  if (block) {
-    console.log(block);
-    let postData = null;
-    try {
-      // // API request when the block is added
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts/1"
-      );
+  // if (block) {
+  console.log(opt.blocks);
+  let postData = null;
+  try {
+    // // API request when the block is added
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/posts/1"
+    );
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
-      }
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
 
-      // storing the response in variable
-      const data = await response.json();
-      postData = data;
-      console.log(postData);
+    // storing the response in variable
+    const data = await response.json();
+    postData = data;
+    console.log(postData);
 
-      // Limiting the number of posts to 10
-      // const limitedPosts = postData.slice(0, 10);
-      // console.log(limitedPosts);
+    // Limiting the number of posts to 10
+    // const limitedPosts = postData.slice(0, 10);
+    // console.log(limitedPosts);
 
-      // Adding the block to the editor
-      addBlock(id[0], {
-        media: `
+    // Adding the block to the editor
+    addBlock(id[0], {
+      media: `
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24" height="24" viewBox="0 0 256 256" xml:space="preserve">
 
         <defs>
@@ -56,60 +56,28 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         </svg>
 
         `,
-        label: label[0],
-        category: "Extra",
-        select: true,
-        content: { type: id[0], data: postData },
-        ...block,
-      });
-    } catch (error) {
-      console.error("Error in Fetching Data", error);
-    }
-
-    addBlock(id[1], {
-      media: `    <svg viewBox="0 0 24 24">
-      <path d="M14.6 16.6l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z"></path>
-    </svg>`,
-      label: label[1],
+      label: label[0],
       category: "Extra",
       select: true,
-
-      content: {
-        type: id[1],
-        components: [
-          {
-            components: [
-              { type: "label", components: "Name" },
-              { type: "input" },
-            ],
-          },
-          {
-            components: [
-              { type: "label", components: "Email" },
-              { type: "input", attributes: { type: "email" } },
-            ],
-          },
-          {
-            components: [
-              { type: "label", components: "Gender" },
-              { type: "checkbox", attributes: { value: "M" } },
-              { type: "label", components: "M" },
-              { type: "checkbox", attributes: { value: "F" } },
-              { type: "label", components: "F" },
-            ],
-          },
-          {
-            components: [
-              { type: "label", components: "Message" },
-              { type: "textarea" },
-            ],
-          },
-          {
-            components: [{ type: "button" }],
-          },
-        ],
-      },
+      content: { type: id[0], data: postData },
       ...block,
     });
+  } catch (error) {
+    console.error("Error in Fetching Data", error);
   }
+
+  addBlock(id[1], {
+    media: `    <svg viewBox="0 0 24 24">
+      <path d="M14.6 16.6l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4m-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4z"></path>
+    </svg>`,
+    label: label[1],
+    category: "Extra",
+    select: true,
+
+    content: {
+      type: id[1],
+    },
+    ...block,
+  });
+  // }
 };

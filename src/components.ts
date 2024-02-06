@@ -65,4 +65,25 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       },
     },
   });
+
+  Components.addType(id[1], {
+    model: {
+      defaults: {
+        droppable: false,
+        name: label[1],
+        attributes: { class: userPrefix },
+        components: { type: idContainer },
+        styles: opts.style + opts.styleAdditional,
+      },
+    },
+    view: {
+      onRender() {
+        userData = this.model.attributes.data;
+        this.el.innerHTML = `<div>
+        <h1 class="${userPrefix}-idTitle">Hello World!</h1>
+    
+        </div>`;
+      },
+    },
+  });
 };
