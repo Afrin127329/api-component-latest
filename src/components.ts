@@ -6,7 +6,7 @@ export const typeForm = "form";
 export default (editor: Editor, opts: RequiredPluginOptions) => {
   const { Components } = editor;
   const { id, label } = opts;
-  let userData;
+  let productData;
 
   const userPrefix = opts.classPrefix;
   const idContainer = `${id}-container`;
@@ -54,13 +54,19 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
     view: {
       onRender() {
-        userData = this.model.attributes.data;
+        productData = this.model.attributes.data.data[0];
         this.el.innerHTML = `<div>
-        <h1 class="${userPrefix}-idTitle">${userData.title}</h1>
+        <h1 class="${userPrefix}-idTitle">${productData.title}</h1>
         <p class="${userPrefix}-idBody">
-        ${userData.body}
+        ${productData.category.category_name}
       </p>
-      <div class="${userPrefix}-idUser">${userData.userId}</div>
+        <p class="${userPrefix}-idBody">
+        Price: ${productData.price}
+      </p>
+        <p class="${userPrefix}-idBody">
+        Features: ${productData.product_type4}
+      </p>
+      <div class="${userPrefix}-idUser">${productData.short_description}</div>
         </div>`;
       },
     },
@@ -78,11 +84,13 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
     view: {
       onRender() {
-        userData = this.model.attributes.data;
-        this.el.innerHTML = `<div>
-        <h1 class="${userPrefix}-idTitle">Hello World!</h1>
+        productData = this.model.attributes.data;
+        console.log(this.model.attributes.data)
+
+        this.el.innerHTML = `<form>
+        <h1 class="${userPrefix}-idTitle">${productData.title}</h1>
     
-        </div>`;
+        </form>`;
       },
     },
   });
