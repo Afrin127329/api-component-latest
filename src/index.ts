@@ -25,13 +25,13 @@ export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
   const options: RequiredPluginOptions = {
-    blocks: ["product", "form"],
-    id: ["product", "form"],
-    label: ["Product", "Product Form"],
+    blocks: ["productform"],
+    id: ["productform"],
+    label: ["Product Form"],
     block: () => ({}),
     style: "",
     styleAdditional: "",
-    classPrefix: "user",
+    classPrefix: "productform",
     ...opts,
   };
 
