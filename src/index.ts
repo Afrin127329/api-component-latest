@@ -1,6 +1,7 @@
 import { Editor, Plugin } from "grapesjs";
 import loadBlocks from "./blocks";
 import loadComponents from "./components";
+// import {loadCommands} from './commands';
 
 // Plugin options
 export type PluginOptions = {
@@ -19,6 +20,7 @@ export type PluginOptions = {
   styleAdditional?: string;
   classPrefix?: string;
   blocks?: string[];
+  modalTitle?: string;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -32,12 +34,14 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
     style: "",
     styleAdditional: "",
     classPrefix: "productform",
+    modalTitle: "Please chose your product",
     ...opts,
   };
 
   // Add components & blocks
   loadComponents(editor, options);
   loadBlocks(editor, options);
+  // loadCommands(editor, options);
 };
 
 export default plugin;

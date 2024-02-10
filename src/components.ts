@@ -53,6 +53,18 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   };
 
   Components.addType(typeForm, {
+    view: {
+      onRender(){
+        productData = this.model.attributes.data;
+
+      },
+      events: {
+        submit: (e: Event)=> e.preventDefault(),
+      } as any,
+      // onRender() {
+      //   this.el.innerHTML = `<form action="/checkout">
+      // }
+    },
     model: {
       defaults: {
         tagName: 'form',
@@ -70,6 +82,9 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             ]
           },{
             name: 'action'
+          },
+          {
+            name: 'Product ID'
           }
         ],
         components: { type: idContainer },
@@ -112,15 +127,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         `) + opts.styleAdditional,
       },
     },
-    view: {
-      events: {
-        submit: (e: Event)=> e.preventDefault(),
-      } as any
-      // onRender() {
-      //   productData = this.model.attributes.data;
-      //   this.el.innerHTML = `<form action="/checkout">
-      // }
-    },
+    
   });
 
   // For Product Title

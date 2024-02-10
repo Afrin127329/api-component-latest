@@ -121,6 +121,11 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         },
         ...block,
       });
+
+      editor.on('component:drag:start', ()=> {
+        console.log('event fired')
+      })
+
     } catch (error) {
       console.error("Error in Fetching Data", error);
     }
