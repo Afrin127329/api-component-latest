@@ -1,16 +1,20 @@
 import { Editor } from "grapesjs";
 import { RequiredPluginOptions } from ".";
 
-export const typeForm = "form";
+
+export const typeForm = 'form';
+export const typeInput = 'input';
+export const typeButton = 'button';
+export const typeLabel = 'label';
 
 export default (editor: Editor, opts: RequiredPluginOptions) => {
   const { Components } = editor;
-  const { id, label } = opts;
+  const { label } = opts;
   let productData;
   const productPrefix = opts.classPrefix;
-  const idContainer = `${id}-container`;
+  const idContainer = `${typeForm}-container`;
 
-  Components.addType(id[0], {
+  Components.addType(typeForm, {
     model: {
       defaults: {
         droppable: ":not(form)",

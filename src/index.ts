@@ -12,7 +12,7 @@ export type PluginOptions = {
    * @default ''
    * @default 'api'
    */
-  id?: string[];
+  // id?: string[];
   label?: string[];
   style?: string;
   block?: (blockId: string) => {};
@@ -26,7 +26,7 @@ export type RequiredPluginOptions = Required<PluginOptions>;
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
   const options: RequiredPluginOptions = {
     blocks: ["productform"],
-    id: ["productform"],
+    // id: ["productform"],
     label: ["Product Form"],
     block: () => ({}),
     style: "",
@@ -35,27 +35,9 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
     ...opts,
   };
 
-  // Add components
+  // Add components & blocks
   loadComponents(editor, options);
-  // Add blocks
   loadBlocks(editor, options);
-
-  // let postData = null;
-
-  // async function fetchData() {
-  //   try {
-  //     let response = await fetch("https://jsonplaceholder.typicode.com/posts/");
-  //     let data = await response.json();
-  //     postData = data;
-
-  //     return postData;
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // }
-
-  // postData = fetchData();
-  // console.log(postData);
 };
 
 export default plugin;
