@@ -16,6 +16,8 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 
   const opt = opts;
   const bm = editor.BlockManager;
+  const storage = editor.Storage;
+  console.log(storage);
   const addBlock = (id: string, def: BlockProperties) => {
     opt.blocks?.indexOf(id)! >= 0 &&
       bm.add(id, {
@@ -54,7 +56,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
           type: typeForm,
           data: productData,
           components: [
-            
             {
               type: typeDiv,
               components: [
@@ -72,7 +73,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                   type: typeDiv,
                   components: [
                     { type: typeLabel, components: "Your Name:" },
-                    { type: typeInput, attributes: { type: "text", placeholder: 'Enter your Name' } },
+                    {
+                      type: typeInput,
+                      attributes: {
+                        type: "text",
+                        placeholder: "Enter your Name",
+                      },
+                    },
                   ],
                 },
               ],
@@ -83,7 +90,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                   type: typeDiv,
                   components: [
                     { type: typeLabel, components: "Phone Number:" },
-                    { type: typeInput, attributes: { type: "text", placeholder: "Enter your Number" } },
+                    {
+                      type: typeInput,
+                      attributes: {
+                        type: "text",
+                        placeholder: "Enter your Number",
+                      },
+                    },
                   ],
                 },
               ],
@@ -94,38 +107,62 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                   type: typeDiv,
                   components: [
                     { type: typeLabel, components: "Address:" },
-                    { type: typeInput, attributes: { type: "text", placeholder: 'Enter your Address' } },
+                    {
+                      type: typeInput,
+                      attributes: {
+                        type: "text",
+                        placeholder: "Enter your Address",
+                      },
+                    },
                   ],
                 },
               ],
-            }, 
+            },
             {
               type: typeHiddenDiv,
               components: [
                 {
                   type: typeHiddenDiv,
                   components: [
-                    { type: typeInput, attributes: { type: "hidden", name: "landingpage", value: 'true' }},
-                    { type: typeInput, attributes: { type: "hidden" }, components: `${productData.price}` },
-                    { type: typeInput, attributes: { type: "hidden"}, components: `${productData.qty}` },
-                    { type: typeInput, attributes: { type: "hidden"}, components: `${productData.id}`},
+                    {
+                      type: typeInput,
+                      attributes: {
+                        type: "hidden",
+                        name: "landingpage",
+                        value: "true",
+                      },
+                    },
+                    {
+                      type: typeInput,
+                      attributes: { type: "hidden" },
+                      components: `${productData.price}`,
+                    },
+                    {
+                      type: typeInput,
+                      attributes: { type: "hidden" },
+                      components: `${productData.qty}`,
+                    },
+                    {
+                      type: typeInput,
+                      attributes: { type: "hidden" },
+                      components: `${productData.id}`,
+                    },
                   ],
                 },
               ],
-            }, 
+            },
             {
-              components: [{ type: typeButton, components: "Submit"}]
-            }
+              components: [{ type: typeButton, components: "Submit" }],
+            },
             // Add Hidden components
           ],
         },
         ...block,
       });
 
-      editor.on('component:drag:start', ()=> {
-        console.log('event fired')
-      })
-
+      editor.on("component:drag:start", () => {
+        console.log("event fired");
+      });
     } catch (error) {
       console.error("Error in Fetching Data", error);
     }

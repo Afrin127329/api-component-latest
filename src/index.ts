@@ -20,7 +20,6 @@ export type PluginOptions = {
   styleAdditional?: string;
   classPrefix?: string;
   blocks?: string[];
-  modalTitle?: string;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
@@ -34,7 +33,6 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
     style: "",
     styleAdditional: "",
     classPrefix: "productform",
-    modalTitle: "Please chose your product",
     ...opts,
   };
 

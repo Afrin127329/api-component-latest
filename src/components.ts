@@ -1,18 +1,14 @@
 import { Editor } from "grapesjs";
 import { RequiredPluginOptions } from ".";
 
-
-export const typeForm = 'form';
-export const typeInput = 'input';
-export const typeButton = 'button';
-export const typeLabel = 'label';
-export const typeText = 'text';
-export const typeDesc = 'desc';
-export const typeDiv = 'div';
-export const typeHiddenDiv = 'hiddenDiv';
-
-
-  
+export const typeForm = "form";
+export const typeInput = "input";
+export const typeButton = "button";
+export const typeLabel = "label";
+export const typeText = "text";
+export const typeDesc = "desc";
+export const typeDiv = "div";
+export const typeHiddenDiv = "hiddenDiv";
 
 export default (editor: Editor, opts: RequiredPluginOptions) => {
   const { Components } = editor;
@@ -22,44 +18,43 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   const idContainer = `${typeForm}-container`;
 
   const idTrait = {
-    name: 'id',
+    name: "id",
   };
 
   const forTrait = {
-    name: 'for',
+    name: "for",
   };
 
   const nameTrait = {
-    name: 'name',
+    name: "name",
   };
 
   const placeholderTrait = {
-    name: 'placeholder',
+    name: "placeholder",
   };
 
   const valueTrait = {
-    name: 'value',
+    name: "value",
   };
 
   const requiredTrait = {
-    type: 'checkbox',
-    name: 'required',
+    type: "checkbox",
+    name: "required",
   };
 
   const checkIfInPreview = (ev: Event) => {
-    if (!editor.Commands.isActive('preview')) {
+    if (!editor.Commands.isActive("preview")) {
       ev.preventDefault();
     }
   };
 
   Components.addType(typeForm, {
     view: {
-      onRender(){
+      onRender() {
         productData = this.model.attributes.data;
-
       },
       events: {
-        submit: (e: Event)=> e.preventDefault(),
+        submit: (e: Event) => e.preventDefault(),
       } as any,
       // onRender() {
       //   this.el.innerHTML = `<form action="/checkout">
@@ -67,25 +62,29 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
     model: {
       defaults: {
-        tagName: 'form',
+        tagName: "form",
         droppable: ":not(form)",
         draggable: ":not(form)",
         name: label,
-        attributes: { class: `${productPrefix} ${productPrefix}-container`, method: 'get' },
+        attributes: {
+          class: `${productPrefix} ${productPrefix}-container`,
+          method: "get",
+        },
         traits: [
           {
-            type: 'select',
-            name: 'method',
+            type: "select",
+            name: "method",
             options: [
-              {value: 'get', name: 'GET'},
-              {value: 'post', name: 'POST'}
-            ]
-          },{
-            name: 'action'
+              { value: "get", name: "GET" },
+              { value: "post", name: "POST" },
+            ],
           },
           {
-            name: 'Product ID'
-          }
+            name: "action",
+          },
+          {
+            name: "Product ID",
+          },
         ],
         components: { type: idContainer },
         styles:
@@ -111,12 +110,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             margin-bottom: 2rem;
             padding: 3rem;
           }
-          .${productPrefix}-inputField-contain {
-            display: flex;
-            justify-content: space-between;
-            gap: 2rem;
-            
-          }
 
           @media only screen and (max-width: 600px) {
             .${productPrefix}{
@@ -127,19 +120,19 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         `) + opts.styleAdditional,
       },
     },
-    
   });
 
   // For Product Title
   Components.addType(typeText, {
-    isComponent: el => el.tagName == 'P',
+    isComponent: (el) => el.tagName == "P",
     model: {
       defaults: {
-        tagName: 'p',
+        tagName: "p",
         droppable: false,
         highlightable: false,
-        attributes: {class:  `${productPrefix}-idTitle`},
-        styles: (opts.style || 
+        attributes: { class: `${productPrefix}-idTitle` },
+        styles:
+          opts.style ||
           `
           .${productPrefix}-idTitle {
             font-size: 2.5rem;
@@ -153,22 +146,22 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   
             }
           }
-          `
-        )
-      }
-    }
-  })
+          `,
+      },
+    },
+  });
 
   // For product Description
   Components.addType(typeDesc, {
-    isComponent: el => el.tagName == 'P',
+    isComponent: (el) => el.tagName == "P",
     model: {
       defaults: {
-        tagName: 'p',
+        tagName: "p",
         droppable: false,
         highlightable: false,
-        attributes: {class: `${productPrefix}-idDesc`},
-        styles: (opts.style || 
+        attributes: { class: `${productPrefix}-idDesc` },
+        styles:
+          opts.style ||
           `
           .${productPrefix}-idDesc {
             margin: 1rem 0;
@@ -180,22 +173,22 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   
             }
           }
-          `
-        )
-      }
-    }
-  })
+          `,
+      },
+    },
+  });
 
   // For input div
   Components.addType(typeDiv, {
-    isComponent: el => el.tagName == 'DIV',
+    isComponent: (el) => el.tagName == "DIV",
     model: {
       defaults: {
-        tagName: 'div',
+        tagName: "div",
         droppable: false,
         highlightable: false,
-        attributes: {class:  `${productPrefix}-inputDiv`},
-        styles: (opts.style || 
+        attributes: { class: `${productPrefix}-inputDiv` },
+        styles:
+          opts.style ||
           `
           .${productPrefix}-inputDiv {
             display: flex;
@@ -218,55 +211,52 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   
             }
           }
-          `
-        )
-      }
-    }
-  })
-
+          `,
+      },
+    },
+  });
 
   // For hidden input div
   Components.addType(typeHiddenDiv, {
-    isComponent: el => el.tagName == 'DIV',
+    isComponent: (el) => el.tagName == "DIV",
     model: {
       defaults: {
-        tagName: 'div',
+        tagName: "div",
         droppable: false,
         highlightable: false,
-        attributes: {class:  `${productPrefix}-hiddenInput`},
-        styles: (opts.style || 
+        attributes: { class: `${productPrefix}-hiddenInput` },
+        styles:
+          opts.style ||
           `
           .${productPrefix}-hiddenInput {
             display: none;
           }
-          `
-        )
-      }
-    }
-  })
+          `,
+      },
+    },
+  });
 
   // Input Elements
   Components.addType(typeInput, {
-    isComponent: el => el.tagName == 'INPUT',
+    isComponent: (el) => el.tagName == "INPUT",
     model: {
       defaults: {
-        tagName: 'input',
+        tagName: "input",
         droppable: false,
         highlightable: false,
-        attributes: { type: 'text', class:  `${productPrefix}-inputField`},
+        attributes: { type: "text", class: `${productPrefix}-inputField` },
         traits: [
           nameTrait,
           placeholderTrait,
           {
-            type: 'select',
-            name: 'type',
-            options: [
-              {value: 'text'}
-            ]
+            type: "select",
+            name: "type",
+            options: [{ value: "text" }],
           },
-          requiredTrait
+          requiredTrait,
         ],
-        styles: (opts.style || 
+        styles:
+          opts.style ||
           `
           .${productPrefix}-inputField {
             border: 2px solid #10101033;
@@ -274,43 +264,43 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             outline: none;
             border-radius: 10px;
           } 
-          `
-        )
-      }
+          `,
+      },
     },
 
-    extendFnView: ['updateAttributes'],
+    extendFnView: ["updateAttributes"],
     view: {
-    
-      updateAttributes(){
-        this.el.setAttribute('autocomplete', 'off')
-      }
-    }
-  })
+      updateAttributes() {
+        this.el.setAttribute("autocomplete", "off");
+      },
+    },
+  });
 
   Components.addType(typeButton, {
     extend: typeInput,
-    isComponent: el => el.tagName == 'BUTTON',
+    isComponent: (el) => el.tagName == "BUTTON",
     model: {
       defaults: {
-        tagName: 'button',
-        attributes: {type: 'button', class: `${productPrefix}-inputBtn`},
-        text: 'Submit Now',
+        tagName: "button",
+        attributes: { type: "button", class: `${productPrefix}-inputBtn` },
+        text: "Submit Now",
         traits: [
           {
-            name: 'text',
-            changeProp: true
-          }, {
-            type: 'select',
-            name: 'type',
+            name: "text",
+            changeProp: true,
+          },
+          {
+            type: "select",
+            name: "type",
             options: [
-              { value: 'button' },
-              { value: 'submit' },
-              { value: 'reset' },
-            ]
-          }
+              { value: "button" },
+              { value: "submit" },
+              { value: "reset" },
+            ],
+          },
         ],
-        styles: (opts.style || 
+        styles:
+          opts.style ||
           `
           .${productPrefix}-inputBtn{
             padding: 0.5rem;
@@ -335,26 +325,10 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             }
           }
 
-          `
-        ),
-      }, 
+          `,
+      },
 
-      init(){
-
-      }
-    }
-
-
-
-  })
-
-
-
-
-
-
-
-
-
-
-}
+      init() {},
+    },
+  });
+};
