@@ -12,7 +12,7 @@ export type PluginOptions = {
    * @default ''
    * @default 'api'
    */
-  // id?: string[];
+  id?: string[];
   label?: string[];
   style?: string;
   block?: (blockId: string) => {};
@@ -26,7 +26,7 @@ export type RequiredPluginOptions = Required<PluginOptions>;
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
   const options: RequiredPluginOptions = {
     blocks: ["productform"],
-    // id: ["productform"],
+    id: ["productform"],
     label: ["Product Form"],
     block: () => ({}),
     style: "",

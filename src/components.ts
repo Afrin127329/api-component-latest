@@ -6,6 +6,7 @@ export const typeForm = 'form';
 export const typeInput = 'input';
 export const typeButton = 'button';
 export const typeLabel = 'label';
+export const typeText = 'text';
 
 export default (editor: Editor, opts: RequiredPluginOptions) => {
   const { Components } = editor;
