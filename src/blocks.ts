@@ -95,14 +95,9 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                   ],
                 },
               ],
-            },
-            {
-              components: [
-                {
-                  type: typeButton,
-                },
-              ],
-            },
+            }, {
+              components: [{ type: typeButton, components: "Submit"}]
+            }
             // Add Hidden components
           ],
         },

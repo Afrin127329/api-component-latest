@@ -91,7 +91,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 2rem;
             margin-bottom: 2rem;
             padding: 3rem;
           }
@@ -101,19 +101,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             gap: 2rem;
             
           }
-          .${productPrefix}-inputBtn{
-            padding: 0.5rem;
-            width: 23rem;
-            cursor: pointer;
-            background: transparent;
-            border: 2px solid #d9d9d9;
-            border-radius: 10px;
-
-          }
-          }
-          .${productPrefix}-inputBtn:hover{
-            background: #ddd;
-            
           }
         `) + opts.styleAdditional,
       },
@@ -269,6 +256,52 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         this.el.setAttribute('autocomplete', 'off')
       }
     }
+  })
+
+  Components.addType(typeButton, {
+    extend: typeInput,
+    isComponent: el => el.tagName == 'BUTTON',
+    model: {
+      defaults: {
+        tagName: 'button',
+        attributes: {type: 'button', class: `${productPrefix}-inputBtn`},
+        text: 'Submit Now',
+        traits: [
+          {
+            name: 'text',
+            changeProp: true
+          }, {
+            type: 'select',
+            name: 'type',
+            options: [
+              { value: 'button' },
+              { value: 'submit' },
+              { value: 'reset' },
+            ]
+          }
+        ],
+        styles: (opts.style || 
+          `
+          .${productPrefix}-inputBtn{
+            padding: 0.5rem;
+            width: 23rem;
+            cursor: pointer;
+            background: transparent;
+            border: 2px solid #d9d9d9;
+            border-radius: 10px;
+
+          }
+          `
+        ),
+      }, 
+
+      init(){
+
+      }
+    }
+
+
+
   })
 
 
