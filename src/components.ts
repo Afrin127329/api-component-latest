@@ -7,6 +7,8 @@ export const typeInput = 'input';
 export const typeButton = 'button';
 export const typeLabel = 'label';
 export const typeText = 'text';
+export const typeDesc = 'desc';
+export const typeDiv = 'div';
 
 
   
@@ -81,6 +83,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             margin: 1rem;
             outline: none !important;
             border: 2px solid #d9d9d9;
+
           }
 
           .${productPrefix}-container {
@@ -90,37 +93,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             align-items: center;
             gap: 1rem;
             margin-bottom: 2rem;
-          }
-
-          .${productPrefix}-idTitle {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 0rem;
-          }
-
-          .${productPrefix}-idDesc {
-            margin-top: 0rem;
-            margin-bottom: 2rem;
-          }
-
-          .${productPrefix}-inputField {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            font-size: 1.4rem;
-          }
-
-          .${productPrefix}-idTitle {
-            margin: 0px;
-            line-height: 35px;
-          }
-
-          .${productPrefix}-input {
-            border: 2px solid #10101033;
-            padding: 0.5rem;
-            outline: none;
-            border-radius: 10px;
-            
+            padding: 3rem;
           }
           .${productPrefix}-inputField-contain {
             display: flex;
@@ -187,6 +160,75 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // For Product Title
+  Components.addType(typeText, {
+    isComponent: el => el.tagName == 'TEXTTITLE',
+    model: {
+      defaults: {
+        tagName: 'textTitle',
+        droppable: false,
+        highlightable: false,
+        attributes: {class:  `${productPrefix}-idTitle`},
+        styles: (opts.style || 
+          `
+          .${productPrefix}-idTitle {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 0rem;
+          } 
+          `
+        )
+      }
+    }
+  })
+
+  // For product Description
+  Components.addType(typeDesc, {
+    isComponent: el => el.tagName == 'P',
+    model: {
+      defaults: {
+        tagName: 'p',
+        droppable: false,
+        highlightable: false,
+        attributes: {class: `${productPrefix}-idDesc`},
+        styles: (opts.style || 
+          `
+          .${productPrefix}-idDesc {
+            margin: 1rem 0;
+          }
+          `
+        )
+      }
+    }
+  })
+
+  // For input div
+  Components.addType(typeDiv, {
+    isComponent: el => el.tagName == 'DIV',
+    model: {
+      defaults: {
+        tagName: 'div',
+        droppable: false,
+        highlightable: false,
+        attributes: {class:  `${productPrefix}-inputDiv`},
+        styles: (opts.style || 
+          `
+          .${productPrefix}-inputDiv {
+            display: flex;
+            gap: 2 rem;
+            gap: 2rem;
+            justify-content: space-between;
+            font-size: 1.4rem;
+            align-items: center;
+            width: 23rem;
+          }
+          `
+        )
+      }
+    }
+  })
+
+  // Input Elements
   Components.addType(typeInput, {
     isComponent: el => el.tagName == 'INPUT',
     model: {
@@ -210,10 +252,10 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         styles: (opts.style || 
           `
           .${productPrefix}-inputField {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            font-size: 1.4rem;
+            border: 2px solid #10101033;
+            padding: 0.5rem;
+            outline: none;
+            border-radius: 10px;
           } 
           `
         )
@@ -225,7 +267,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     
       updateAttributes(){
         this.el.setAttribute('autocomplete', 'off')
-        this.el.setAttribute('placeholder', 'Enter Your Name')
       }
     }
   })

@@ -1,9 +1,17 @@
 import { BlockProperties, Editor } from "grapesjs";
 import { RequiredPluginOptions } from ".";
-import { typeButton, typeForm, typeInput, typeLabel, typeText } from "./components";
+import {
+  typeButton,
+  typeDesc,
+  typeDiv,
+  typeForm,
+  typeInput,
+  typeLabel,
+  typeText,
+} from "./components";
 
 export default async (editor: Editor, opts: RequiredPluginOptions) => {
-  const { block, label, id} = opts;
+  const { block, label, id } = opts;
 
   const opt = opts;
   const bm = editor.BlockManager;
@@ -31,7 +39,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       // storing the response in variable
       const data = await response.json();
       productData = data.data[0];
-      console.log(productData)
+      console.log(productData);
 
       // Limiting the number of posts to 10
       // const limitedPosts = postData.slice(0, 10);
@@ -47,35 +55,56 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
           components: [
             {
               components: [
-                {type: typeText, components: `${productData.title}`},
-                {type: typeText, components: `${productData.description}`}
-              ]
+                { type: typeText, components: `${productData.title}` },
+              ],
             },
             {
               components: [
-                {type: typeLabel, components: 'Your Name:'},
-                {type: typeInput, attributes: {type: 'text'}}
-              ]
+                { type: typeDesc, components: `${productData.description}` },
+              ],
             },
             {
               components: [
-                {type: typeLabel, components: 'Phone Number:'},
-                {type: typeInput, attributes: {type: 'text'}}
-              ]
+                {
+                  type: typeDiv,
+                  components: [
+                    { type: typeLabel, components: "Your Name:" },
+                    { type: typeInput, attributes: { type: "text", placeholder: 'Enter your Name' } },
+                  ],
+                },
+              ],
             },
             {
               components: [
-                {type: typeLabel, components: 'Address'},
-                {type: typeInput, attributes: {type: 'text'}}
-              ]
-            }, 
+                {
+                  type: typeDiv,
+                  components: [
+                    { type: typeLabel, components: "Phone Number:" },
+                    { type: typeInput, attributes: { type: "text", placeholder: "Enter your Number" } },
+                  ],
+                },
+              ],
+            },
             {
               components: [
-                {type: typeButton, attributes: {type: 'button'}, components: 'Submit Now'}
-              ]
+                {
+                  type: typeDiv,
+                  components: [
+                    { type: typeLabel, components: "Address:" },
+                    { type: typeInput, attributes: { type: "text", placeholder: 'Enter your Address' } },
+                  ],
+                },
+              ],
+            },
+            {
+              components: [
+                {
+                  type: typeButton,
+                },
+              ],
             },
             // Add Hidden components
-          ]
+          ],
         },
         ...block,
       });
