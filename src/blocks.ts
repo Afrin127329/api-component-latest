@@ -71,7 +71,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             }, 
             {
               components: [
-                {type: typeButton}
+                {type: typeButton, attributes: {type: 'button'}, components: 'Submit Now'}
               ]
             },
             // Add Hidden components
