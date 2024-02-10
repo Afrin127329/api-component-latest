@@ -9,6 +9,7 @@ export const typeLabel = 'label';
 export const typeText = 'text';
 export const typeDesc = 'desc';
 export const typeDiv = 'div';
+export const typeHiddenDiv = 'hiddenDiv';
 
 
   
@@ -101,6 +102,12 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             gap: 2rem;
             
           }
+
+          @media only screen and (max-width: 600px) {
+            .${productPrefix}{
+              width: 90%;
+  
+            }
           }
         `) + opts.styleAdditional,
       },
@@ -112,47 +119,16 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       // onRender() {
       //   productData = this.model.attributes.data;
       //   this.el.innerHTML = `<form action="/checkout">
-      //   <div class="${productPrefix}-container">
-      //   <h1 class="${productPrefix}-idTitle">Order ${productData.title}</h1>
-      //   <p class="${productPrefix}-idDesc">${productData.description}</p>
-      //     <div class="${productPrefix}-inputField">
-      //     <div class="${productPrefix}-inputField-contain">
-      //     <label class="${productPrefix}-idLabel">Your Name:</label>
-      //     <input class="${productPrefix}-input" type="text" placeholder="Enter your Name" name="name">
-      //     </div>
-      //     <div class="${productPrefix}-inputField-contain">
-      //     <label class="${productPrefix}-idLabel">Phone Number:</label>
-      //     <input class="${productPrefix}-input" type="text" placeholder="Enter your Phone Number" name="number">
-      //     </div>
-      //     <div class="${productPrefix}-inputField-contain">
-      //     <label class="${productPrefix}-idLabel">Address:</label>
-      //     <input class="${productPrefix}-input" type="text" placeholder="Address Details" name="address">
-      //     </div>
-      //     </div>
-          
-
-      //     <div class="${productPrefix}-inputField-hiddenDetails">
-      //       <input class="input" name="landingpage" value="true" type="hidden">
-      //       <input class="input" type="hidden" name="price" value="${productData.price}">
-      //       <input class="input" type="hidden" name="quantity" value="${productData.qty}">
-      //       <input class="input" type="hidden" name="productId" value="${productData.id}">
-      //     </div>
-
-      //     <button class="${productPrefix}-inputBtn" type="submit">Submit Now</button>
-
-      //   </div>
-        
-      //   </form>`;
-      // },
+      // }
     },
   });
 
   // For Product Title
   Components.addType(typeText, {
-    isComponent: el => el.tagName == 'TEXTTITLE',
+    isComponent: el => el.tagName == 'P',
     model: {
       defaults: {
-        tagName: 'textTitle',
+        tagName: 'p',
         droppable: false,
         highlightable: false,
         attributes: {class:  `${productPrefix}-idTitle`},
@@ -163,6 +139,13 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             font-weight: 900;
             margin-bottom: 0rem;
           } 
+
+          @media only screen and (max-width: 600px) {
+            .${productPrefix}-idTitle{
+              text-align: center;
+  
+            }
+          }
           `
         )
       }
@@ -182,6 +165,13 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           `
           .${productPrefix}-idDesc {
             margin: 1rem 0;
+          }
+
+          @media only screen and (max-width: 600px) {
+            .${productPrefix}-idDesc{
+              text-align: center;
+  
+            }
           }
           `
         )
@@ -208,6 +198,39 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             font-size: 1.4rem;
             align-items: center;
             width: 23rem;
+          }
+
+          
+          
+          @media only screen and (max-width: 600px) {
+            .${productPrefix}-inputDiv{
+              width: 100%;
+              font-size: 1rem;
+              flex-direction: column;
+              gap: 0.5rem;
+  
+            }
+          }
+          `
+        )
+      }
+    }
+  })
+
+
+  // For hidden input div
+  Components.addType(typeHiddenDiv, {
+    isComponent: el => el.tagName == 'DIV',
+    model: {
+      defaults: {
+        tagName: 'div',
+        droppable: false,
+        highlightable: false,
+        attributes: {class:  `${productPrefix}-hiddenInput`},
+        styles: (opts.style || 
+          `
+          .${productPrefix}-hiddenInput {
+            display: none;
           }
           `
         )
@@ -284,13 +307,27 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           `
           .${productPrefix}-inputBtn{
             padding: 0.5rem;
-            width: 23rem;
+            width: 100%;
             cursor: pointer;
             background: transparent;
             border: 2px solid #d9d9d9;
             border-radius: 10px;
+            font-size: 18px;
+
 
           }
+          .${productPrefix}-inputBtn:hover{
+            background: green;
+            color: white;
+          }
+
+          @media only screen and (max-width: 600px) {
+            .${productPrefix}-inputBtn{
+              font-size: 1rem;
+  
+            }
+          }
+
           `
         ),
       }, 

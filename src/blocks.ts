@@ -5,6 +5,7 @@ import {
   typeDesc,
   typeDiv,
   typeForm,
+  typeHiddenDiv,
   typeInput,
   typeLabel,
   typeText,
@@ -53,7 +54,9 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
           type: typeForm,
           data: productData,
           components: [
+            
             {
+              type: typeDiv,
               components: [
                 { type: typeText, components: `${productData.title}` },
               ],
@@ -95,7 +98,22 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                   ],
                 },
               ],
-            }, {
+            }, 
+            {
+              type: typeHiddenDiv,
+              components: [
+                {
+                  type: typeHiddenDiv,
+                  components: [
+                    { type: typeInput, attributes: { type: "hidden", name: "landingpage", value: 'true' }},
+                    { type: typeInput, attributes: { type: "hidden" }, components: `${productData.price}` },
+                    { type: typeInput, attributes: { type: "hidden"}, components: `${productData.qty}` },
+                    { type: typeInput, attributes: { type: "hidden"}, components: `${productData.id}`},
+                  ],
+                },
+              ],
+            }, 
+            {
               components: [{ type: typeButton, components: "Submit"}]
             }
             // Add Hidden components
