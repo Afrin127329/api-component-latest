@@ -142,9 +142,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           {
             type: "select",
             name: "Product",
-          },
-          {
-            name: "Product ID",
+            options: [{name: 'Product1', value: "product"}]
           },
         ],
         components: { type: idContainer, data: productData },
@@ -392,33 +390,33 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  editor.TraitManager.addType(typeForm, {
-    noLabel: true,
-    createInput({component, trait}): any {
-      console.log(component)
-      console.log(trait)
-      return trait;
-    },
+//   editor.TraitManager.addType(typeForm, {
+//     noLabel: true,
+//     createInput({component, trait}): any {
+//       console.log(component)
+//       console.log(trait)
+//       return trait;
+//     },
     
-    // events: {
-    //     keyup: 'onChange'
-    // },
+//     // events: {
+//     //     keyup: 'onChange'
+//     // },
    
-    // getInputEl(){
-    //     console.log('hi')
-    // },
+//     // getInputEl(){
+//     //     console.log('hi')
+//     // },
 
-    // onEvent(){
-    //     alert('heelo')
-    // },
+//     // onEvent(){
+//     //     alert('heelo')
+//     // },
 
-    // onUpdate(){
-    //     alert('hi')
-    // }
+//     // onUpdate(){
+//     //     alert('hi')
+//     // }
 
-    // will fire after changing the value
-    // onValueChange(){
-    //     alert('Hi')
-    // },
-})
+//     // will fire after changing the value
+//     // onValueChange(){
+//     //     alert('Hi')
+//     // },
+// })
 };

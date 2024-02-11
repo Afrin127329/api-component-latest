@@ -5,12 +5,12 @@ import { typeForm } from "./components";
 export default function(editor: Editor){
 
 
-    editor.TraitManager.addType(typeForm, {
+    editor.TraitManager.addType('select', {
         noLabel: true,
-        // createInput({component, trait}): any {
-        //   console.log(component)
-        //   console.log(trait)
-        // },
+        createInput({component, trait}): any {
+          
+          alert('hi')
+        },
         // events: {
         //     keyup: 'onChange'
         // },
