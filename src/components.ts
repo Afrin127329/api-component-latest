@@ -1,5 +1,6 @@
 import { Editor } from "grapesjs";
 import { RequiredPluginOptions } from ".";
+import commands from "./commands";
 
 export const typeForm = "form";
 export const typeInput = "input";
@@ -52,6 +53,29 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     view: {
       onRender() {
         productData = this.model.attributes.data;
+        const modalTitle = "Please insert Product ID here"
+        const modalContent = `<input type="text" placeholder="Product ID">`
+        console.log(productData)
+        editor.Modal.open({
+          title: modalTitle,
+          attributes: {class: `inputField`},
+          content: `
+          <div>
+            <input id="productId" style={} type="text">
+            <button>Insert</button>
+          </div>
+          `,
+          styles: 
+          opts.style ||
+          `
+          .inputField {
+            border: 2px solid #10101033;
+            padding: 0.5rem;
+            outline: none;
+            border-radius: 10px;
+          } 
+          `
+        })
       },
       events: {
         submit: (e: Event) => e.preventDefault(),
@@ -119,6 +143,14 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           }
         `) + opts.styleAdditional,
       },
+      init(){
+        command: 'form'
+      },
+      onActive(){
+        const {em} = this;
+        em.get('Commands').run('form', {target: this.model})
+        console.log('Fired')
+      }
     },
   });
 
@@ -328,7 +360,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           `,
       },
 
-      init() {},
     },
   });
 };

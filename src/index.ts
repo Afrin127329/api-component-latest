@@ -1,7 +1,7 @@
 import { Editor, Plugin } from "grapesjs";
 import loadBlocks from "./blocks";
 import loadComponents from "./components";
-// import {loadCommands} from './commands';
+import loadCommands from './commands';
 
 // Plugin options
 export type PluginOptions = {
@@ -39,7 +39,7 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
   // Add components & blocks
   loadComponents(editor, options);
   loadBlocks(editor, options);
-  // loadCommands(editor, options);
+  loadCommands(editor, options);
 };
 
 export default plugin;
