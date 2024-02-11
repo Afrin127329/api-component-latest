@@ -11,13 +11,14 @@ import {
   typeText,
 } from "./components";
 
+
+
+
 export default async (editor: Editor, opts: RequiredPluginOptions) => {
   const { block, label, id } = opts;
 
   const opt = opts;
   const bm = editor.BlockManager;
-  const storage = editor.Storage;
-  console.log(storage);
   const addBlock = (id: string, def: BlockProperties) => {
     opt.blocks?.indexOf(id)! >= 0 &&
       bm.add(id, {
@@ -27,6 +28,8 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         ...opts.block(id),
       });
   };
+
+
 
   if (block) {
     const url = "https://dev.chepapest.com/api/dev/products";
@@ -41,8 +44,9 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 
       // storing the response in variable
       const data = await response.json();
-      productData = data.data[0];
-      console.log(productData);
+      productData = data.data;
+
+      
 
       // Limiting the number of posts to 10
       // const limitedPosts = postData.slice(0, 10);
@@ -55,6 +59,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         content: {
           type: typeForm,
           data: productData,
+          data1: 1,
           components: [
             {
               type: typeDiv,

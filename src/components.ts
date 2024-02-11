@@ -11,10 +11,12 @@ export const typeDesc = "desc";
 export const typeDiv = "div";
 export const typeHiddenDiv = "hiddenDiv";
 
+
+
 export default (editor: Editor, opts: RequiredPluginOptions) => {
-  const { Components } = editor;
+  const { Components, TraitManager } = editor;
   const { label } = opts;
-  let productData;
+  let productData: any;
   const productPrefix = opts.classPrefix;
   const idContainer = `${typeForm}-container`;
 
@@ -49,34 +51,76 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     }
   };
 
+
+  
+
   Components.addType(typeForm, {
     view: {
-      onRender() {
-        productData = this.model.attributes.data;
-        const modalTitle = "Please insert Product ID here"
-        const modalContent = `<input type="text" placeholder="Product ID">`
-        console.log(productData)
-        editor.Modal.open({
-          title: modalTitle,
-          attributes: {class: `inputField`},
-          content: `
-          <div>
-            <input id="productId" style={} type="text">
-            <button>Insert</button>
-          </div>
-          `,
-          styles: 
-          opts.style ||
-          `
-          .inputField {
-            border: 2px solid #10101033;
-            padding: 0.5rem;
-            outline: none;
-            border-radius: 10px;
-          } 
-          `
-        })
-      },
+      // onRender() {
+      //   productData = this.model.attributes.data;
+      //   const modalTitle = "Please selet Product here"
+      //   editor.Modal.open({
+      //     title: modalTitle,
+      //     attributes: {class: `inputField`},
+      //     content: `
+      //     <div>
+            
+      //       <select id="productId">
+      //       <option value="product1">Product 1</option>
+      //       <option value="product2">Product 2</option>
+      //       <option value="product3">Product 3</option>
+      //       <!-- Add more options as needed -->
+      //     </select>
+
+      //       <button id="insertBtn">Insert</button>
+      //     </div>
+      //     `,
+      //     styles: 
+      //     opts.style ||
+      //     `
+      //     .inputField {
+      //       border: 2px solid #10101033;
+      //       padding: 0.5rem;
+      //       outline: none;
+      //       border-radius: 10px;
+      //     } 
+      //     `
+      //   })
+
+
+        
+      //   let val: string | number;
+      //   function setProductIdValue(value: string | number) {
+          
+      //   return value;
+      //   }
+
+      //   const data = productData.find((el: any) => {
+      //     // console.log(el)
+      //     if(el.id == val){
+
+      //       return el;
+      //     }
+          
+      //   })
+
+
+      //  document.querySelector('#insertBtn')?.addEventListener('click', ()=> {
+        
+        
+      //     const productId= document.getElementById('productId') as HTMLInputElement;
+      //   //  val = setProductIdValue(productId.value);
+      //    this.model.attributes.data1=productId.value
+      //    console.log(this.model.attributes.data1)
+      //     editor.Modal.close();
+      //   })
+
+      //   console.log(data)
+
+        
+
+        
+      // },
       events: {
         submit: (e: Event) => e.preventDefault(),
       } as any,
@@ -97,20 +141,13 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         traits: [
           {
             type: "select",
-            name: "method",
-            options: [
-              { value: "get", name: "GET" },
-              { value: "post", name: "POST" },
-            ],
-          },
-          {
-            name: "action",
+            name: "Product",
           },
           {
             name: "Product ID",
           },
         ],
-        components: { type: idContainer },
+        components: { type: idContainer, data: productData },
         styles:
           (opts.style ||
             `
@@ -142,14 +179,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             }
           }
         `) + opts.styleAdditional,
-      },
-      init(){
-        command: 'form'
-      },
-      onActive(){
-        const {em} = this;
-        em.get('Commands').run('form', {target: this.model})
-        console.log('Fired')
       }
     },
   });
@@ -362,4 +391,34 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
     },
   });
+
+  editor.TraitManager.addType(typeForm, {
+    noLabel: true,
+    createInput({component, trait}): any {
+      console.log(component)
+      console.log(trait)
+      return trait;
+    },
+    
+    // events: {
+    //     keyup: 'onChange'
+    // },
+   
+    // getInputEl(){
+    //     console.log('hi')
+    // },
+
+    // onEvent(){
+    //     alert('heelo')
+    // },
+
+    // onUpdate(){
+    //     alert('hi')
+    // }
+
+    // will fire after changing the value
+    // onValueChange(){
+    //     alert('Hi')
+    // },
+})
 };
