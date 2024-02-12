@@ -58,16 +58,11 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     view: {
       onRender() {
         productData = this.model.attributes.data;
-        const modalTitle = "Please selet Product here"
-
-        
+        const modalTitle = "Please selet Product here";
       },
       events: {
         submit: (e: Event) => e.preventDefault(),
       } as any,
-      // onRender() {
-      //   this.el.innerHTML = `<form action="/checkout">
-      // }
     },
     model: {
       defaults: {
@@ -118,7 +113,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             }
           }
         `) + opts.styleAdditional,
-      }
+      },
     },
   });
 
@@ -138,41 +133,9 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             font-size: 2.5rem;
             font-weight: 900;
             margin-bottom: 0rem;
+            text-align: center;
+            width: 100%;
           } 
-
-          @media only screen and (max-width: 600px) {
-            .${productPrefix}-idTitle{
-              text-align: center;
-  
-            }
-          }
-          `,
-      },
-    },
-  });
-
-  // For product Description
-  Components.addType(typeDesc, {
-    isComponent: (el) => el.tagName == "P",
-    model: {
-      defaults: {
-        tagName: "p",
-        droppable: false,
-        highlightable: false,
-        attributes: { class: `${productPrefix}-idDesc` },
-        styles:
-          opts.style ||
-          `
-          .${productPrefix}-idDesc {
-            margin: 1rem 0;
-          }
-
-          @media only screen and (max-width: 600px) {
-            .${productPrefix}-idDesc{
-              text-align: center;
-  
-            }
-          }
           `,
       },
     },
@@ -327,37 +290,36 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
           `,
       },
-
     },
   });
 
-//   editor.TraitManager.addType(typeForm, {
-//     noLabel: true,
-//     createInput({component, trait}): any {
-//       console.log(component)
-//       console.log(trait)
-//       return trait;
-//     },
-    
-//     // events: {
-//     //     keyup: 'onChange'
-//     // },
-   
-//     // getInputEl(){
-//     //     console.log('hi')
-//     // },
+  //   editor.TraitManager.addType(typeForm, {
+  //     noLabel: true,
+  //     createInput({component, trait}): any {
+  //       console.log(component)
+  //       console.log(trait)
+  //       return trait;
+  //     },
 
-//     // onEvent(){
-//     //     alert('heelo')
-//     // },
+  //     // events: {
+  //     //     keyup: 'onChange'
+  //     // },
 
-//     // onUpdate(){
-//     //     alert('hi')
-//     // }
+  //     // getInputEl(){
+  //     //     console.log('hi')
+  //     // },
 
-//     // will fire after changing the value
-//     // onValueChange(){
-//     //     alert('Hi')
-//     // },
-// })
+  //     // onEvent(){
+  //     //     alert('heelo')
+  //     // },
+
+  //     // onUpdate(){
+  //     //     alert('hi')
+  //     // }
+
+  //     // will fire after changing the value
+  //     // onValueChange(){
+  //     //     alert('Hi')
+  //     // },
+  // })
 };

@@ -47,11 +47,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       productData = data.data;
 
       
-
-      // Limiting the number of posts to 10
-      // const limitedPosts = postData.slice(0, 10);
-      // console.log(limitedPosts);
-
       // Adding the Form block to the UI sidebar
       addBlock(id[0], {
         media: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 5.5c0-.3-.5-.5-1.3-.5H3.4c-.8 0-1.3.2-1.3.5v3c0 .3.5.5 1.3.5h17.4c.8 0 1.3-.2 1.3-.5v-3zM21 8H3V6h18v2zM22 10.5c0-.3-.5-.5-1.3-.5H3.4c-.8 0-1.3.2-1.3.5v3c0 .3.5.5 1.3.5h17.4c.8 0 1.3-.2 1.3-.5v-3zM21 13H3v-2h18v2z"/><rect width="10" height="3" x="2" y="15" rx=".5"/></svg>`,
@@ -64,12 +59,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             {
               type: typeDiv,
               components: [
-                { type: typeText, components: `${productData.title}` },
-              ],
-            },
-            {
-              components: [
-                { type: typeDesc, components: `${productData.description}` },
+                { type: typeText, components: "Order Form" },
               ],
             },
             {
@@ -83,6 +73,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                       attributes: {
                         type: "text",
                         placeholder: "Enter your Name",
+                        name: "name"
                       },
                     },
                   ],
@@ -100,6 +91,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                       attributes: {
                         type: "text",
                         placeholder: "Enter your Number",
+                        name: "number"
                       },
                     },
                   ],
@@ -117,6 +109,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                       attributes: {
                         type: "text",
                         placeholder: "Enter your Address",
+                        name: 'address'
                       },
                     },
                   ],
@@ -133,22 +126,26 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                       type: typeInput,
                       attributes: {
                         type: "hidden",
+                        id: "server",
                         name: "landingpage",
                         value: "true",
                       },
                     },
                     {
                       type: typeInput,
+                      id: "productPrice",
                       attributes: { type: "hidden" },
                       components: `${productData.price}`,
                     },
                     {
                       type: typeInput,
+                      id: "productQuantity",
                       attributes: { type: "hidden" },
                       components: `${productData.qty}`,
                     },
                     {
                       type: typeInput,
+                      id: "productId",
                       attributes: { type: "hidden" },
                       components: `${productData.id}`,
                     },

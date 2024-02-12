@@ -1,9 +1,6 @@
 import { Editor } from "grapesjs";
-import { typeForm } from "./components";
 
-
-export default async(editor: Editor) =>{
-
+export default async (editor: Editor) => {
   const url = "https://dev.chepapest.com/api/dev/products";
   let productData: any = null;
   try {
@@ -18,61 +15,64 @@ export default async(editor: Editor) =>{
     const data = await response.json();
     productData = data.data;
 
-    editor.TraitManager.addType('select', {
-      //       events: {
-      //     keyup: 'onChange'
-      // },
-        
-      createInput({trait}): any {
+    editor.TraitManager.addType("select", {
+      createInput({ trait }): any {
+        const traitOpts = trait.get("options") || [];
 
-        // added product to the options of the trait using Loop
-        // for(let i = 0; i < productData.length; i++){
-        //   this.model.attributes.options?.push(productData[i])
+        // const options = traitOpts.length ? traitOpts : productData;
+        const options = traitOpts.length
+          ? traitOpts
+          : [
+              { id: 1, name: "URL" },
+              { id: 2, name: "Email" },
+              { id: 3, name: "jsurl" },
+            ];
 
-     
-        // }
-
-             
-        const traitOpts = trait.get('options') || [];
-
-        const options = traitOpts.length ? traitOpts : productData;
-        console.log(options)
-
-
-        const el = document.createElement('div');
+        const el = document.createElement("div");
         el.innerHTML = `
-          <select class="href-next__type">
-            ${options.map((opt: any) => `<option value="${opt.title}">${opt.title}</option>`).join('')}
+          <select class="products">
+          <option value="" disabled selected>Select a Product</option>
+            ${options
+              .map(
+                (opt: any) => `<option value="${opt.id}">${opt.title}</option>`
+              )
+              .join("")}
           </select>
         `;
 
-        const inputsUrl: any = el.querySelector('.href-next__url-inputs');
-        const inputsEmail: any = el.querySelector('.href-next__email-inputs');
-        const inputType: any = el.querySelector('.href-next__type');
-        inputType.addEventListener('change', (ev: any) => {
-          switch (ev.target.value) {
-            case 'url':
-              inputsUrl.style.display = '';
-              inputsEmail.style.display = 'none';
-              break;
-            case 'email':
-              inputsUrl.style.display = 'none';
-              inputsEmail.style.display = '';
-              break;
+        const inputType: any = el.querySelector(".products");
+        inputType.addEventListener("click", (e: any) => {
+          let firstOpt: any = el.querySelector("option:first-child");
+          if (e.target === firstOpt && !firstOpt.dataset.clicked) {
+            firstOpt.dataset.clicked = true;
+            firstOpt.style.display = "none";
+            firstOpt.disabled = true;
           }
         });
-    
+
         return el;
       },
 
-     
-      // getInputEl(){
-      //     console.log('hi')
-      // },
+      onEvent({ elInput, component }) {
+        const remoteData = component.attributes.data;
 
-      // onEvent(){
-      //     alert('heelo')
-      // },
+        const productId: any = elInput.querySelector(".products");
+        let selectedData;
+
+        // selectedData = remoteData.find((el: any) => {
+        //   if (el.id === productId.value) {
+        //     return el;
+        //   }
+        // });
+
+        for(let i = 0; i < remoteData.length; i++){
+          if(remoteData[i].id === productId.value){
+            selectedData = remoteData[i];
+          }
+        }
+
+        console.log(selectedData);
+      },
 
       // onUpdate(){
       //     alert('hi')
@@ -82,11 +82,8 @@ export default async(editor: Editor) =>{
       // onValueChange(){
       //     alert('Hi')
       // },
-  })
-  } catch(error){
-    console.log("Error in Fetching Data", error)
+    });
+  } catch (error) {
+    console.log("Error in Fetching Data", error);
   }
-
-
-
-}
+};
