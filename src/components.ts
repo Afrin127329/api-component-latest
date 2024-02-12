@@ -58,13 +58,20 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     view: {
       onRender() {
         // console.log(this.model.attributes)
-        // productData = this.model.attributes.selectedData;
+        productData = this.model.attributes.selectedData;
         // const modalTitle = "Please selet Product here";
-        // console.log(productData)
+        console.log(productData)
 
         // const priceId: any = document.querySelector('#price');
         // // priceId.value = productData.price;
         // console.log(priceId )
+
+      //   const el: any = document.createElement('div');
+      //   el.innerHTML = `
+      //   <div>
+      //  <p>${productData.id ? productData.id : ""}</p>
+      //   </div>
+      // `;
       },
       events: {
         submit: (e: Event) => e.preventDefault(),

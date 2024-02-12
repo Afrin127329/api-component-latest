@@ -16,17 +16,13 @@ export default async (editor: Editor) => {
     productData = data.data;
 
     editor.TraitManager.addType("select", {
+      events: {
+        keyup: 'click'
+      },
       createInput({ trait }): any {
         const traitOpts = trait.get("options") || [];
 
-        // const options = traitOpts.length ? traitOpts : productData;
-        const options = traitOpts.length
-          ? traitOpts
-          : [
-              { id: 1, name: "URL" },
-              { id: 2, name: "Email" },
-              { id: 3, name: "jsurl" },
-            ];
+        const options = traitOpts.length ? traitOpts : productData;
 
         const el = document.createElement("div");
         el.innerHTML = `
@@ -76,6 +72,9 @@ export default async (editor: Editor) => {
         let price: any = document.getElementById('productPrice');
         // price.value = selectedData.price;
         console.log(price);
+
+        // this.view?.render();
+       
       },
 
       onUpdate({elInput, component}){
@@ -84,8 +83,7 @@ export default async (editor: Editor) => {
           const data = component.getAttributes();
           console.log(data);
 
-          const el: any = document.createElement('div');
-          el.value = component.attributes.selectedData;
+        
       }
 
     });
