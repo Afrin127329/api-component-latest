@@ -56,71 +56,12 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
   Components.addType(typeForm, {
     view: {
-      // onRender() {
-      //   productData = this.model.attributes.data;
-      //   const modalTitle = "Please selet Product here"
-      //   editor.Modal.open({
-      //     title: modalTitle,
-      //     attributes: {class: `inputField`},
-      //     content: `
-      //     <div>
-            
-      //       <select id="productId">
-      //       <option value="product1">Product 1</option>
-      //       <option value="product2">Product 2</option>
-      //       <option value="product3">Product 3</option>
-      //       <!-- Add more options as needed -->
-      //     </select>
-
-      //       <button id="insertBtn">Insert</button>
-      //     </div>
-      //     `,
-      //     styles: 
-      //     opts.style ||
-      //     `
-      //     .inputField {
-      //       border: 2px solid #10101033;
-      //       padding: 0.5rem;
-      //       outline: none;
-      //       border-radius: 10px;
-      //     } 
-      //     `
-      //   })
-
+      onRender() {
+        productData = this.model.attributes.data;
+        const modalTitle = "Please selet Product here"
 
         
-      //   let val: string | number;
-      //   function setProductIdValue(value: string | number) {
-          
-      //   return value;
-      //   }
-
-      //   const data = productData.find((el: any) => {
-      //     // console.log(el)
-      //     if(el.id == val){
-
-      //       return el;
-      //     }
-          
-      //   })
-
-
-      //  document.querySelector('#insertBtn')?.addEventListener('click', ()=> {
-        
-        
-      //     const productId= document.getElementById('productId') as HTMLInputElement;
-      //   //  val = setProductIdValue(productId.value);
-      //    this.model.attributes.data1=productId.value
-      //    console.log(this.model.attributes.data1)
-      //     editor.Modal.close();
-      //   })
-
-      //   console.log(data)
-
-        
-
-        
-      // },
+      },
       events: {
         submit: (e: Event) => e.preventDefault(),
       } as any,
@@ -141,8 +82,8 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         traits: [
           {
             type: "select",
-            name: "Product",
-            options: [{name: 'Product1', value: "product"}]
+            name: "product",
+            // options: [{name: "product1", value: "product"}]
           },
         ],
         components: { type: idContainer, data: productData },

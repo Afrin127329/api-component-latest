@@ -2,34 +2,64 @@ import { Editor } from "grapesjs";
 import { typeForm } from "./components";
 
 
-export default function(editor: Editor){
+export default async function(editor: Editor){
 
+  const url = "https://dev.chepapest.com/api/dev/products";
+  let productData: any = null;
+  try {
+    // API request when the block is added
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+
+    // storing the response in variable
+    const data = await response.json();
+    productData = data.data;
 
     editor.TraitManager.addType('select', {
-        noLabel: true,
-        createInput({component, trait}): any {
-          
-          alert('hi')
-        },
-        // events: {
-        //     keyup: 'onChange'
-        // },
-       
-        // getInputEl(){
-        //     console.log('hi')
-        // },
+        
+      createInput({component, trait}): any {
 
-        // onEvent(){
-        //     alert('heelo')
-        // },
+        // added product to the options of the trait using Loop
+        // for(let i = 0; i < productData.length; i++){
+        //   this.model.attributes.options?.push(productData[i])
 
-        // onUpdate(){
-        //     alert('hi')
+     
         // }
 
-        // will fire after changing the value
-        // onValueChange(){
-        //     alert('Hi')
-        // },
-    })
+             
+        const traitOpts = trait.get('options') || [];
+
+        const options = traitOpts.length ? traitOpts : productData;
+        console.log(options)
+      },
+      // events: {
+      //     keyup: 'onChange'
+      // },
+     
+      // getInputEl(){
+      //     console.log('hi')
+      // },
+
+      // onEvent(){
+      //     alert('heelo')
+      // },
+
+      // onUpdate(){
+      //     alert('hi')
+      // }
+
+      // will fire after changing the value
+      // onValueChange(){
+      //     alert('Hi')
+      // },
+  })
+  } catch(error){
+
+  }
+
+
+
 }
