@@ -2,7 +2,7 @@ import { Editor } from "grapesjs";
 import { typeForm } from "./components";
 
 
-export default async function(editor: Editor){
+export default async(editor: Editor) =>{
 
   const url = "https://dev.chepapest.com/api/dev/products";
   let productData: any = null;
@@ -19,8 +19,11 @@ export default async function(editor: Editor){
     productData = data.data;
 
     editor.TraitManager.addType('select', {
+      //       events: {
+      //     keyup: 'onChange'
+      // },
         
-      createInput({component, trait}): any {
+      createInput({trait}): any {
 
         // added product to the options of the trait using Loop
         // for(let i = 0; i < productData.length; i++){
@@ -34,10 +37,34 @@ export default async function(editor: Editor){
 
         const options = traitOpts.length ? traitOpts : productData;
         console.log(options)
+
+
+        const el = document.createElement('div');
+        el.innerHTML = `
+          <select class="href-next__type">
+            ${options.map((opt: any) => `<option value="${opt.title}">${opt.title}</option>`).join('')}
+          </select>
+        `;
+
+        const inputsUrl: any = el.querySelector('.href-next__url-inputs');
+        const inputsEmail: any = el.querySelector('.href-next__email-inputs');
+        const inputType: any = el.querySelector('.href-next__type');
+        inputType.addEventListener('change', (ev: any) => {
+          switch (ev.target.value) {
+            case 'url':
+              inputsUrl.style.display = '';
+              inputsEmail.style.display = 'none';
+              break;
+            case 'email':
+              inputsUrl.style.display = 'none';
+              inputsEmail.style.display = '';
+              break;
+          }
+        });
+    
+        return el;
       },
-      // events: {
-      //     keyup: 'onChange'
-      // },
+
      
       // getInputEl(){
       //     console.log('hi')
@@ -57,7 +84,7 @@ export default async function(editor: Editor){
       // },
   })
   } catch(error){
-
+    console.log("Error in Fetching Data", error)
   }
 
 
