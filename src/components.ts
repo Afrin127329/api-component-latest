@@ -57,8 +57,14 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   Components.addType(typeForm, {
     view: {
       onRender() {
-        productData = this.model.attributes.data;
-        const modalTitle = "Please selet Product here";
+        // console.log(this.model.attributes)
+        // productData = this.model.attributes.selectedData;
+        // const modalTitle = "Please selet Product here";
+        // console.log(productData)
+
+        // const priceId: any = document.querySelector('#price');
+        // // priceId.value = productData.price;
+        // console.log(priceId )
       },
       events: {
         submit: (e: Event) => e.preventDefault(),

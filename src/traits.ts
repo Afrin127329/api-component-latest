@@ -65,23 +65,29 @@ export default async (editor: Editor) => {
         //   }
         // });
 
-        for(let i = 0; i < remoteData.length; i++){
-          if(remoteData[i].id === productId.value){
+        for (let i = 0; i < remoteData.length; i++) {
+          if (remoteData[i].id == productId.value) {
             selectedData = remoteData[i];
           }
         }
-
-        console.log(selectedData);
+        component.addAttributes({selectedData: selectedData})
+        component.attributes.selectedData = selectedData;
+        console.log(component.attributes)
+        let price: any = document.getElementById('productPrice');
+        // price.value = selectedData.price;
+        console.log(price);
       },
 
-      // onUpdate(){
-      //     alert('hi')
-      // }
+      onUpdate({elInput, component}){
+        const inputType: any = elInput.querySelector(".products");
 
-      // will fire after changing the value
-      // onValueChange(){
-      //     alert('Hi')
-      // },
+          const data = component.getAttributes();
+          console.log(data);
+
+          const el: any = document.createElement('div');
+          el.value = component.attributes.selectedData;
+      }
+
     });
   } catch (error) {
     console.log("Error in Fetching Data", error);
