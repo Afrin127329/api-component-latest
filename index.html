@@ -22,9 +22,12 @@
   </style>
   <body>
     <div id="gjs" style="height: 0px; overflow: hidden"></div>
+    <button>Publish the Site</button>
 
     <!-- Scripts  -->
     <script type="text/javascript">
+      const btn = document.querySelector(".gjs-pn-buttons");
+      console.log(btn);
       window.onload = () => {
         window.editor = grapesjs.init({
           container: "#gjs",
@@ -32,12 +35,8 @@
           fromElement: true,
           noticeOnUnload: false,
           storageManager: false,
-          plugins: [
-            "api-component",
-            "grapesjs-navbar",
-          ],
-          pluginsOpts: {
-          },
+          plugins: ["api-component", "grapesjs-navbar"],
+          pluginsOpts: {},
         });
       };
     </script>

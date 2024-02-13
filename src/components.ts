@@ -1,6 +1,5 @@
 import { Editor } from "grapesjs";
 import { RequiredPluginOptions } from ".";
-import commands from "./commands";
 
 export const typeForm = "form";
 export const typeInput = "input";
@@ -11,8 +10,6 @@ export const typeDesc = "desc";
 export const typeDiv = "div";
 export const typeHiddenDiv = "hiddenDiv";
 
-
-
 export default (editor: Editor, opts: RequiredPluginOptions) => {
   const { Components, TraitManager } = editor;
   const { label } = opts;
@@ -20,24 +17,12 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   const productPrefix = opts.classPrefix;
   const idContainer = `${typeForm}-container`;
 
-  const idTrait = {
-    name: "id",
-  };
-
-  const forTrait = {
-    name: "for",
-  };
-
   const nameTrait = {
     name: "name",
   };
 
   const placeholderTrait = {
     name: "placeholder",
-  };
-
-  const valueTrait = {
-    name: "value",
   };
 
   const requiredTrait = {
@@ -51,20 +36,16 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     }
   };
 
-
-  
-
   Components.addType(typeForm, {
     view: {
       onRender() {
         // console.log(this.model.attributes)
         productData = this.model.attributes.selectedData;
-        console.log(productData)
-
+        console.log(productData);
       },
       events: {
         submit: (e: Event) => e.preventDefault(),
-      } as any,  
+      } as any,
     },
     model: {
       defaults: {
@@ -74,7 +55,8 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         name: label,
         attributes: {
           class: `${productPrefix} ${productPrefix}-container`,
-          method: "get",
+          method: "post",
+          action: "https://chepapest.com/checkout",
         },
         traits: [
           {
@@ -116,22 +98,22 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           }
         `) + opts.styleAdditional,
       },
-  
-      init(){
-        this.on('change:attributes:selectedData', ()=> {
+
+      init() {
+        this.on("change:attributes:selectedData", () => {
           // Take Selected Data object from the traits
           const data = this.getAttributes().selectedData;
 
           // Grab the DOM Elements
-          const idElem: any = Components.getById('productId').view;
-          const priceElem: any = Components.getById('productPrice').view;
-          const quantityElem: any = Components.getById('productQuantity').view;
+          const idElem: any = Components.getById("productId").view;
+          const priceElem: any = Components.getById("productPrice").view;
+          const quantityElem: any = Components.getById("productQuantity").view;
 
           idElem.el.innerHTML = data.id;
           priceElem.el.innerHTML = data.price;
           quantityElem.el.innerHTML = 1;
-        })
-      }
+        });
+      },
     },
   });
 
@@ -263,23 +245,12 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     model: {
       defaults: {
         tagName: "button",
-        attributes: { type: "button", class: `${productPrefix}-inputBtn` },
+        attributes: {
+          type: "submit",
+          value: "submit",
+          class: `${productPrefix}-inputBtn`,
+        },
         text: "Submit Now",
-        traits: [
-          {
-            name: "text",
-            changeProp: true,
-          },
-          {
-            type: "select",
-            name: "type",
-            options: [
-              { value: "button" },
-              { value: "submit" },
-              { value: "reset" },
-            ],
-          },
-        ],
         styles:
           opts.style ||
           `
@@ -310,5 +281,4 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       },
     },
   });
-
 };

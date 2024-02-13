@@ -1,8 +1,8 @@
 import { Editor, Plugin } from "grapesjs";
 import loadBlocks from "./blocks";
+import loadCommands from "./commands";
 import loadComponents from "./components";
-import loadCommands from './commands';
-import loadTraits from './traits'
+import loadTraits from "./traits";
 
 // Plugin options
 export type PluginOptions = {
@@ -21,19 +21,16 @@ export type PluginOptions = {
   styleAdditional?: string;
   classPrefix?: string;
   blocks?: string[];
-  token?: any
+  token?: any;
 };
 
 export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
-
-
   // Putting the token inside Form component
-  let token = document.querySelector('[name="_token"]'); 
-  
-  token = document.head.querySelector('meta[name="csrf-token"]')
+  let token = document.querySelector('[name="_token"]');
 
+  token = document.head.querySelector('meta[name="csrf-token"]');
 
   const options: RequiredPluginOptions = {
     blocks: ["productform"],
@@ -47,8 +44,12 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
     ...opts,
   };
 
+  // for sending code to the server
+  const projectData = editor.getProjectData();
+  console.log(projectData);
 
-  console.log(document)
+  const { Panels } = editor;
+  console.log(Panels);
 
   // Add components & blocks
   loadComponents(editor, options);

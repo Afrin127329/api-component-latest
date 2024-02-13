@@ -19,6 +19,8 @@ export default async (editor: Editor) => {
       events: {
         keyup: 'click'
       },
+
+      // Initializing the traits with HTML select elem
       createInput({ trait }): any {
         const traitOpts = trait.get("options") || [];
 
@@ -36,6 +38,7 @@ export default async (editor: Editor) => {
           </select>
         `;
 
+        // Disabling the first Element
         const inputType: any = el.querySelector(".products");
         inputType.addEventListener("click", (e: any) => {
           let firstOpt: any = el.querySelector("option:first-child");
@@ -49,18 +52,14 @@ export default async (editor: Editor) => {
         return el;
       },
 
+      // Fires while clicking on the gear icon
       onEvent({ elInput, component }) {
         const remoteData = component.attributes.data;
 
         const productId: any = elInput.querySelector(".products");
         let selectedData;
 
-        // selectedData = remoteData.find((el: any) => {
-        //   if (el.id === productId.value) {
-        //     return el;
-        //   }
-        // });
-
+        // Match the selected data object from the data got from the server
         for (let i = 0; i < remoteData.length; i++) {
           if (remoteData[i].id == productId.value) {
             selectedData = remoteData[i];
@@ -68,23 +67,13 @@ export default async (editor: Editor) => {
         }
         component.addAttributes({selectedData: selectedData})
         component.attributes.selectedData = selectedData;
-        console.log(component.attributes)
-        let price: any = document.getElementById('productPrice');
-        // price.value = selectedData.price;
-        // console.log(price);
-
-        // this.view?.render();
-       
       },
 
-      onUpdate({elInput, component}){
-        const inputType: any = elInput.querySelector(".products");
+      // onUpdate({elInput, component}){
+      //   const inputType: any = elInput.querySelector(".products");
 
-          const data = component.getAttributes();
-          // console.log(data); 
-
-        
-      }
+      //     const data = component.getAttributes();
+      // }
 
     });
   } catch (error) {
