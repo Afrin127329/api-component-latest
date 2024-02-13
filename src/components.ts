@@ -39,9 +39,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   Components.addType(typeForm, {
     view: {
       onRender() {
-        // console.log(this.model.attributes)
         productData = this.model.attributes.selectedData;
-        console.log(productData);
       },
       events: {
         submit: (e: Event) => e.preventDefault(),

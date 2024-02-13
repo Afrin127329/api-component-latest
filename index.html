@@ -22,19 +22,30 @@
   </style>
   <body>
     <div id="gjs" style="height: 0px; overflow: hidden"></div>
-    <button>Publish the Site</button>
 
     <!-- Scripts  -->
     <script type="text/javascript">
-      const btn = document.querySelector(".gjs-pn-buttons");
-      console.log(btn);
       window.onload = () => {
         window.editor = grapesjs.init({
           container: "#gjs",
           height: "100%",
           fromElement: true,
           noticeOnUnload: false,
-          storageManager: false,
+          storageManager: {
+            type: "remote",
+            stepsBeforeSave: 3,
+            contentTypeJson: true,
+            storeHtml: true,
+            storeCss: true,
+            options: {
+              remote: {
+                fetchOptions: (opts) =>
+                  opts.method === "POST" ? { method: "POST" } : {},
+                onStore: (data) => JSON.stringify(data),
+                onLoad: (result) => result.data,
+              },
+            },
+          },
           plugins: ["api-component", "grapesjs-navbar"],
           pluginsOpts: {},
         });

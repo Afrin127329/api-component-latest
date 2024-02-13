@@ -1,7 +1,7 @@
 import { Editor } from "grapesjs";
 
 export default async (editor: Editor) => {
-  const url = "https://dev.chepapest.com/api/dev/products";
+  const url = "https://chepapest.com/api/dev/products";
   let productData: any = null;
   try {
     // API request when the block is added
@@ -17,7 +17,7 @@ export default async (editor: Editor) => {
 
     editor.TraitManager.addType("select", {
       events: {
-        keyup: 'click'
+        keyup: "click",
       },
 
       // Initializing the traits with HTML select elem
@@ -65,7 +65,7 @@ export default async (editor: Editor) => {
             selectedData = remoteData[i];
           }
         }
-        component.addAttributes({selectedData: selectedData})
+        component.addAttributes({ selectedData: selectedData });
         component.attributes.selectedData = selectedData;
       },
 
@@ -74,7 +74,6 @@ export default async (editor: Editor) => {
 
       //     const data = component.getAttributes();
       // }
-
     });
   } catch (error) {
     console.log("Error in Fetching Data", error);

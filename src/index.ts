@@ -45,10 +45,6 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
     ...opts,
   };
 
-  // for sending code to the server
-  const projectData = editor.getProjectData();
-  console.log(projectData);
-
   // Add components & blocks
   loadComponents(editor, options);
   loadBlocks(editor, options);
