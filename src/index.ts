@@ -28,6 +28,8 @@ export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
 
+
+  // Putting the token inside Form component
   let token = document.querySelector('[name="_token"]'); 
   
   token = document.head.querySelector('meta[name="csrf-token"]')

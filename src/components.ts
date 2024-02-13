@@ -123,10 +123,13 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           const data = this.getAttributes().selectedData;
 
           // Grab the DOM Elements
-          const elem: any = Components.getById('price').view;
+          const idElem: any = Components.getById('productId').view;
+          const priceElem: any = Components.getById('productPrice').view;
+          const quantityElem: any = Components.getById('productQuantity').view;
 
-          elem.el.innerHTML = data.price;
-          console.log(elem.el);
+          idElem.el.innerHTML = data.id;
+          priceElem.el.innerHTML = data.price;
+          quantityElem.el.innerHTML = 1;
         })
       }
     },

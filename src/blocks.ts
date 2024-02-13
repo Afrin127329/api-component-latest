@@ -73,7 +73,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                       attributes: {
                         type: "text",
                         placeholder: "Enter your Name",
-                        name: "name"
+                        name: "userName"
                       },
                     },
                   ],
@@ -148,13 +148,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                     },
                     {
                       type: typeInput,
-                      attributes: { type: "hidden", id: 'price'},
+                      attributes: { type: "hidden", id: 'productPrice'},
                       name: 'productPrice',
                     },
                     {
                       type: typeInput,
-                      attributes: { type: "hidden", id: '' },
-                      name: 'productQuantity'
+                      attributes: { type: "hidden", id: 'productQuantity' },
+                      name: 'productQuantity',
                     },
                   ],
                 },
