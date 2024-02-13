@@ -71,7 +71,7 @@ export default async (editor: Editor) => {
         console.log(component.attributes)
         let price: any = document.getElementById('productPrice');
         // price.value = selectedData.price;
-        console.log(price);
+        // console.log(price);
 
         // this.view?.render();
        
@@ -81,7 +81,7 @@ export default async (editor: Editor) => {
         const inputType: any = elInput.querySelector(".products");
 
           const data = component.getAttributes();
-          console.log(data);
+          // console.log(data); 
 
         
       }

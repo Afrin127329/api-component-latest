@@ -59,23 +59,12 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       onRender() {
         // console.log(this.model.attributes)
         productData = this.model.attributes.selectedData;
-        // const modalTitle = "Please selet Product here";
         console.log(productData)
 
-        // const priceId: any = document.querySelector('#price');
-        // // priceId.value = productData.price;
-        // console.log(priceId )
-
-      //   const el: any = document.createElement('div');
-      //   el.innerHTML = `
-      //   <div>
-      //  <p>${productData.id ? productData.id : ""}</p>
-      //   </div>
-      // `;
       },
       events: {
         submit: (e: Event) => e.preventDefault(),
-      } as any,
+      } as any,  
     },
     model: {
       defaults: {
@@ -127,6 +116,19 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           }
         `) + opts.styleAdditional,
       },
+  
+      init(){
+        this.on('change:attributes:selectedData', ()=> {
+          // Take Selected Data object from the traits
+          const data = this.getAttributes().selectedData;
+
+          // Grab the DOM Elements
+          const elem: any = Components.getById('price').view;
+
+          elem.el.innerHTML = data.price;
+          console.log(elem.el);
+        })
+      }
     },
   });
 
@@ -306,33 +308,4 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  //   editor.TraitManager.addType(typeForm, {
-  //     noLabel: true,
-  //     createInput({component, trait}): any {
-  //       console.log(component)
-  //       console.log(trait)
-  //       return trait;
-  //     },
-
-  //     // events: {
-  //     //     keyup: 'onChange'
-  //     // },
-
-  //     // getInputEl(){
-  //     //     console.log('hi')
-  //     // },
-
-  //     // onEvent(){
-  //     //     alert('heelo')
-  //     // },
-
-  //     // onUpdate(){
-  //     //     alert('hi')
-  //     // }
-
-  //     // will fire after changing the value
-  //     // onValueChange(){
-  //     //     alert('Hi')
-  //     // },
-  // })
 };

@@ -133,21 +133,28 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                     },
                     {
                       type: typeInput,
-                      class: "productPrice",
-                      attributes: { type: "hidden", id: 'price' },
-                      components: '',
+                      attributes: {
+                        type: "hidden",
+                        id: "server",
+                        name: "_token",
+                        value: "{{ csrf_token() }}",
+                      },
+                    },
+                    
+                    {
+                      type: typeInput,
+                      attributes: { type: "hidden", id: 'productId' },
+                      name: 'productId',
                     },
                     {
                       type: typeInput,
-                      class: "productQuantity",
-                      attributes: { type: "hidden" },
-                      components: `${productData.qty}`,
+                      attributes: { type: "hidden", id: 'price'},
+                      name: 'productPrice',
                     },
                     {
                       type: typeInput,
-                      class: "productId",
-                      attributes: { type: "hidden" },
-                      components: `${productData.id}`,
+                      attributes: { type: "hidden", id: '' },
+                      name: 'productQuantity'
                     },
                   ],
                 },
