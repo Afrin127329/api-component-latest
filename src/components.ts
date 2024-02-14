@@ -63,9 +63,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           },
         ],
         components: { type: idContainer, data: productData },
-        styles:
-          (opts.style ||
-            `
+        styles: `
           .${productPrefix} {
             max-width: 50rem;
             padding: 20px;
@@ -93,7 +91,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   
             }
           }
-        `) + opts.styleAdditional,
+        `,
       },
 
       init() {
