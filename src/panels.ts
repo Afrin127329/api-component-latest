@@ -20,8 +20,8 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     const css = editor.getCss();
 
     // get the Id from the location
-    //   const url = document.location.href;
-    const url = "https://chepapest.com/admin/landing_page/edit/1";
+    const url = document.location.href;
+    // const url = "https://chepapest.com/admin/landing_page/edit/1";
     const id = url.split("/").pop();
     const dataObj = {
       id,
@@ -43,6 +43,17 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         // redirect: 'follow'
       });
       const res = await response.json();
+
+      if (res.data === "OK") {
+        editor.Modal.open({
+          title: "Your Page has been Published. Thank you",
+          styles: `
+          .gjs-mdl-header {
+            height: 50rem !important;
+          }
+          `,
+        });
+      }
       console.log(res);
     }
 
