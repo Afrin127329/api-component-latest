@@ -31,21 +31,21 @@
           height: "100%",
           fromElement: true,
           noticeOnUnload: false,
-          storageManager: {
-            type: "remote",
-            stepsBeforeSave: 3,
-            contentTypeJson: true,
-            storeHtml: true,
-            storeCss: true,
-            options: {
-              remote: {
-                fetchOptions: (opts) =>
-                  opts.method === "POST" ? { method: "POST" } : {},
-                onStore: (data) => JSON.stringify(data),
-                onLoad: (result) => result.data,
-              },
-            },
-          },
+          // storageManager: {
+          //   type: "remote",
+          //   stepsBeforeSave: 3,
+          //   contentTypeJson: true,
+          //   storeHtml: true,
+          //   storeCss: true,
+          //   options: {
+          //     remote: {
+          //       fetchOptions: (opts) =>
+          //         opts.method === "POST" ? { method: "POST" } : {},
+          //       onStore: (data) => JSON.stringify(data),
+          //       onLoad: (result) => result.data,
+          //     },
+          //   },
+          // },
           plugins: ["api-component", "grapesjs-navbar"],
           pluginsOpts: {},
         });
