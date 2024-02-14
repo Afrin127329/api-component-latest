@@ -29,6 +29,10 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       css: `${css}`,
     };
 
+    console.log(dataObj);
+    editor.setComponents(dataObj.html);
+    editor.setStyle(dataObj.css);
+
     const projectEndpoint = `https://chepapest.com/api/dev/user/landing-page/${id}/save`;
 
     // Send data
@@ -39,8 +43,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(dataObj),
-        // for redirecting to another page
-        // redirect: 'follow'
       });
       const res = await response.json();
 
