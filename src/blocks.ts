@@ -16,6 +16,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   const opt = opts;
   const bm = editor.BlockManager;
 
+  // Funciton for adding custom blocks
   const addBlock = (id: string, def: BlockProperties) => {
     opt.blocks?.indexOf(id)! >= 0 &&
       bm.add(id, {

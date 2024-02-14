@@ -7,7 +7,7 @@ import loadTraits from "./traits";
 // Plugin options
 export type PluginOptions = {
   /**
-   * ID, label, CSS(component), Additional CSS and component class prefix used to create block and component and object to extent the default block
+   * Inecessary plugin options
    * @default 'api'
    * @default 'API'
    * @default ''

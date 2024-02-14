@@ -68,12 +68,6 @@ export default async (editor: Editor) => {
         component.addAttributes({ selectedData: selectedData });
         component.attributes.selectedData = selectedData;
       },
-
-      // onUpdate({elInput, component}){
-      //   const inputType: any = elInput.querySelector(".products");
-
-      //     const data = component.getAttributes();
-      // }
     });
   } catch (error) {
     console.log("Error in Fetching Data", error);

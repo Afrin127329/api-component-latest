@@ -60,7 +60,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           {
             type: "select",
             name: "product",
-            // options: [{name: "product1", value: "product"}]
           },
         ],
         components: { type: idContainer, data: productData },
@@ -133,6 +132,25 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             margin-bottom: 0rem;
             text-align: center;
             width: 100%;
+          } 
+          `,
+      },
+    },
+  });
+  // For Input  Label
+  Components.addType(typeLabel, {
+    isComponent: (el) => el.tagName == "LABEL",
+    model: {
+      defaults: {
+        tagName: "label",
+        droppable: false,
+        highlightable: false,
+        attributes: { class: `${productPrefix}-idLabel` },
+        styles:
+          opts.style ||
+          `
+          .${productPrefix}-idLabel {
+            
           } 
           `,
       },
