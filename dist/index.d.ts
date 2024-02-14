@@ -16,7 +16,6 @@ export type PluginOptions = {
 	styleAdditional?: string;
 	classPrefix?: string;
 	blocks?: string[];
-	token?: any;
 };
 export type RequiredPluginOptions = Required<PluginOptions>;
 declare const plugin: Plugin<PluginOptions>;

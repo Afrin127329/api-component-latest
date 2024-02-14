@@ -128,7 +128,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
                       type: typeInput,
                       attributes: {
                         type: "hidden",
-                        id: "server",
+                        id: "token",
                         name: "_token",
                         value: "{{ csrf_token() }}",
                       },

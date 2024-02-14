@@ -40,6 +40,9 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     view: {
       onRender() {
         productData = this.model.attributes.selectedData;
+
+        let token: any = Components.getById("token").view;
+        token.el.value = document.head.querySelector('meta[name="csrf-token"]');
       },
       events: {
         submit: (e: Event) => e.preventDefault(),
