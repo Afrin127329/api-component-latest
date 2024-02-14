@@ -10,8 +10,12 @@
     />
     <link href="./node_modules/grapesjs/dist/grapes.min.css" rel="stylesheet" />
     <script src="https://unpkg.com/grapesjs"></script>
+    <script src="https://unpkg.com/grapesjs-plugin-forms"></script>
+    <script src="https://unpkg.com/grapesjs-tabs"></script>
     <script src="path/to/grapes.min.js"></script>
     <script src="https://unpkg.com/grapesjs-navbar"></script>
+    <script src="https://unpkg.com/grapesjs-custom-code"></script>
+    <script src="https://unpkg.com/grapesjs-blocks-basic"></script>
   </head>
   <style>
     body,
@@ -31,22 +35,15 @@
           height: "100%",
           fromElement: true,
           noticeOnUnload: false,
-          // storageManager: {
-          //   type: "remote",
-          //   stepsBeforeSave: 3,
-          //   contentTypeJson: true,
-          //   storeHtml: true,
-          //   storeCss: true,
-          //   options: {
-          //     remote: {
-          //       fetchOptions: (opts) =>
-          //         opts.method === "POST" ? { method: "POST" } : {},
-          //       onStore: (data) => JSON.stringify(data),
-          //       onLoad: (result) => result.data,
-          //     },
-          //   },
-          // },
-          plugins: ["api-component", "grapesjs-navbar"],
+          blockManager: {},
+          plugins: [
+            "api-component",
+            "grapesjs-navbar",
+            "grapesjs-plugin-forms",
+            "grapesjs-tabs",
+            "grapesjs-custom-code",
+            "gjs-blocks-basic",
+          ],
           pluginsOpts: {},
         });
       };

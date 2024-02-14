@@ -15,6 +15,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 
   const opt = opts;
   const bm = editor.BlockManager;
+
   const addBlock = (id: string, def: BlockProperties) => {
     opt.blocks?.indexOf(id)! >= 0 &&
       bm.add(id, {
@@ -158,10 +159,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
           ],
         },
         ...block,
-      });
-
-      editor.on("component:drag:start", () => {
-        console.log("event fired");
       });
     } catch (error) {
       console.error("Error in Fetching Data", error);
