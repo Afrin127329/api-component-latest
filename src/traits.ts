@@ -72,4 +72,10 @@ export default async (editor: Editor) => {
   } catch (error) {
     console.log("Error in Fetching Data", error);
   }
+
+  // editor.TraitManager.addType("link", {
+  //   onEvent({ elInput, component }) {
+  //     console.log("clicked");
+  //   },
+  // });
 };
