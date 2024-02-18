@@ -16,12 +16,19 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   const btn: any = editor.Panels.getButton("options", "publishSite");
   btn.on("change", async () => {
     // get html  & css from the editor
-    const html = editor.getHtml();
+    const htmlString = editor.getHtml();
     const css = editor.getCss();
 
+    // For removing the body tag
+    const html = htmlString
+      .replace(/<body[^>]*>/, "")
+      .replace(/<\/body\s*>/, "");
+
+    console.log(htmlString);
+
     // get the Id from the location
-    const url = document.location.href;
-    // const url = "https://chepapest.com/admin/landing_page/edit/1";
+    // const url = document.location.href;
+    const url = "https://chepapest.com/admin/landing_page/edit/1";
     const id = url.split("/").pop();
     const dataObj = {
       id,
