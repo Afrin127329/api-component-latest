@@ -19,12 +19,14 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     const htmlString = editor.getHtml();
     const css = editor.getCss();
 
+    // Get and load current project data
+    const projectData = editor.getProjectData();
+    editor.loadProjectData(projectData);
+
     // For removing the body tag
     const html = htmlString
       .replace(/<body[^>]*>/, "")
       .replace(/<\/body\s*>/, "");
-
-    console.log(htmlString);
 
     // get the Id from the location
     // const url = document.location.href;
@@ -34,11 +36,10 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       id,
       html: `${html}`,
       css: `${css}`,
+      projectData,
     };
 
     console.log(dataObj);
-    editor.setComponents(dataObj.html);
-    editor.setStyle(dataObj.css);
 
     const projectEndpoint = `https://chepapest.com/api/dev/user/landing-page/${id}/save`;
 
