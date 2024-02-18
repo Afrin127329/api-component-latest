@@ -22,7 +22,6 @@ export type PluginOptions = {
   classPrefix?: string;
   blocks?: string[];
 };
-
 export type RequiredPluginOptions = Required<PluginOptions>;
 
 const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {

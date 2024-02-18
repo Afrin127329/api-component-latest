@@ -1,6 +1,6 @@
 {
   "name": "api-component",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Api Component",
   "main": "dist/index.js",
   "repository": {
@@ -23,6 +23,7 @@
   "license": "",
   "author": "Afrin Nahar",
   "dependencies": {
+    "bootstrap": "^5.3.2",
     "grapesjs-plugin-forms": "^2.0.6",
     "grapesjs-preset-webpage": "^1.0.3"
   }
