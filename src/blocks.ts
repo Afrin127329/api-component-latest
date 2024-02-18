@@ -251,4 +251,149 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       style: { color: "black" },
     },
   });
+
+  editor.BlockManager.add("sect100", {
+    label: "1 Section",
+    media: `<svg viewBox="0 0 24 24">
+      <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
+    </svg>`,
+    content: `
+      <table class="custom-table">
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    `,
+  });
+
+  editor.BlockManager.add("sect50", {
+    label: "1/2 Section",
+    media: `<svg viewBox="0 0 23 24">
+      <path fill="currentColor" d="M2 20h8V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM13 20h8V4h-8v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1Z"/>
+    </svg>`,
+    content: `
+      <table>
+        <tr>
+          <td ></td>
+          <td ></td>
+        </tr>
+      </table>
+    `,
+  });
+
+  editor.BlockManager.add("sect30", {
+    label: "1/3 Section",
+    media: `<svg viewBox="0 0 23 24">
+      <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
+    </svg>`,
+    content: `
+      <table>
+        <tr>
+          <td></td>
+          <td ></td>
+          <td></td>
+        </tr>
+      </table>
+    `,
+  });
+
+  editor.BlockManager.add("sect37", {
+    label: "3/7 Section",
+    media: `<svg viewBox="0 0 24 24">
+      <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"></path>
+    </svg>`,
+    content: `
+      <table>
+        <tr>
+          <td> </td>
+          <td> </td>
+        </tr>
+      </table>
+    `,
+  });
+
+  editor.BlockManager.add("button", {
+    label: "Button",
+    media: `<svg viewBox="0 0 24 24">
+        <path fill="currentColor" d="M20 20.5C20 21.3 19.3 22 18.5 22H13C12.6 22 12.3 21.9 12 21.6L8 17.4L8.7 16.6C8.9 16.4 9.2 16.3 9.5 16.3H9.7L12 18V9C12 8.4 12.4 8 13 8S14 8.4 14 9V13.5L15.2 13.6L19.1 15.8C19.6 16 20 16.6 20 17.1V20.5M20 2H4C2.9 2 2 2.9 2 4V12C2 13.1 2.9 14 4 14H8V12H4V4H20V12H18V14H20C21.1 14 22 13.1 22 12V4C22 2.9 21.1 2 20 2Z" />
+    </svg>`,
+    content: '<a class="button">Button</a>',
+  });
+
+  editor.BlockManager.add("divider", {
+    label: "Divider",
+    media: `<svg viewBox="0 0 24 24">
+        <path fill="currentColor" d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z" />
+    </svg>`,
+    content: `
+      <table style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
+        <tr>
+          <td ></td>
+        </tr>
+      </table>
+      <style>
+        .divider {
+          background-color: red;
+          height: 1px;
+        }
+      </style>
+    `,
+  });
+
+  const gridItem = `<table class="grid-item-card">
+    <tr>
+      <td class="grid-item-card-cell">
+        <img class="grid-item-image" src="https://via.placeholder.com/250x150/78c5d6/fff/" alt="Image"/>
+        <table class="grid-item-card-body">
+          <tr>
+            <td class="grid-item-card-content">
+              <h1 class="card-title">Title here</h1>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>`;
+
+  editor.BlockManager.add("grid-items", {
+    label: "Grid Items",
+    media: `<svg viewBox="0 0 24 24">
+    <path fill="currentColor" d="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3"/>
+  </svg>`,
+    content: `
+    <table class="grid-item-row">
+      <tr>
+        <td class="grid-item-cell2-l">${gridItem}</td>
+        <td class="grid-item-cell2-r">${gridItem}</td>
+      </tr>
+    </table>
+  `,
+  });
+
+  const listItem = `<table class="list-item">
+    <tr>
+      <td class="list-item-cell">
+        <table class="list-item-content">
+          <tr class="list-item-row">
+            <td class="list-cell-left">
+              <img class="list-item-image" src="https://via.placeholder.com/150/78c5d6/fff" alt="Image"/>
+            </td>
+            <td class="list-cell-right">
+              <h1 class="card-title">Title here</h1>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>`;
+
+  editor.BlockManager.add("list-items", {
+    label: "List Items",
+    media: `<svg viewBox="0 0 24 24">
+    <path fill="currentColor" d="M2 14H8V20H2M16 8H10V10H16M2 10H8V4H2M10 4V6H22V4M10 20H16V18H10M10 16H22V14H10"/>
+  </svg>`,
+    content: listItem + listItem,
+  });
 };
