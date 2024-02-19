@@ -21,6 +21,10 @@ export type PluginOptions = {
   styleAdditional?: string;
   classPrefix?: string;
   blocks?: string[];
+  inlineCss?: boolean;
+  updateStyleManager?: boolean;
+  tableStyle?: Record<string, string>;
+  cellStyle?: Record<string, string>;
 };
 export type RequiredPluginOptions = Required<PluginOptions>;
 
@@ -33,6 +37,19 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
     style: "",
     styleAdditional: "",
     classPrefix: "productform",
+    inlineCss: true,
+    updateStyleManager: true,
+    cellStyle: {
+      padding: "0",
+      margin: "0",
+      "vertical-align": "top",
+    },
+    tableStyle: {
+      height: "150px",
+      margin: "0 auto 10px auto",
+      padding: "5px 5px 5px 5px",
+      width: "100%",
+    },
     ...opts,
   };
 

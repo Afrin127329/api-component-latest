@@ -23,6 +23,18 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       });
   };
 
+  let tableStyleStr = "";
+  let cellStyleStr = "";
+  let tableStyle = opts.tableStyle || {};
+  let cellStyle = opts.cellStyle || {};
+
+  for (let prop in tableStyle) {
+    tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
+  }
+  for (let prop in cellStyle) {
+    cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
+  }
+
   if (block) {
     const url = "https://chepapest.com/api/dev/products";
     let productData = null;
@@ -163,6 +175,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     }
   }
 
+  // Bootstrap styling added
   editor.BlockManager.add("link-block", {
     label: "Link Block",
     category: "Basic",
@@ -173,38 +186,40 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       type: "link",
       editable: false,
       droppable: true,
+      attributes: { class: "alert alert-warning" },
+      content: "<span>Link</span>",
       style: {
         display: "inline-block",
         padding: "5px",
-        "min-height": "50px",
-        "min-width": "50px",
+        cursor: "pointer",
+        " text-decoration": "none",
       },
     },
   });
 
+  // Bootstrap styling added
   editor.BlockManager.add("quote", {
     label: "Quote",
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
     </svg>`,
-    content: `<blockquote class="quote">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit
+    content: `<blockquote class="alert alert-primary py-3 m-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M6.5 10c-.223 0-.437.034-.65.065c.069-.232.14-.468.254-.68c.114-.308.292-.575.469-.844c.148-.291.409-.488.601-.737c.201-.242.475-.403.692-.604c.213-.21.492-.315.714-.463c.232-.133.434-.28.65-.35l.539-.222l.474-.197l-.485-1.938l-.597.144c-.191.048-.424.104-.689.171c-.271.05-.56.187-.882.312c-.318.142-.686.238-1.028.466c-.344.218-.741.4-1.091.692c-.339.301-.748.562-1.05.945c-.33.358-.656.734-.909 1.162c-.293.408-.492.856-.702 1.299c-.19.443-.343.896-.468 1.336c-.237.882-.343 1.72-.384 2.437c-.034.718-.014 1.315.028 1.747c.015.204.043.402.063.539l.025.168l.026-.006A4.5 4.5 0 1 0 6.5 10m11 0c-.223 0-.437.034-.65.065c.069-.232.14-.468.254-.68c.114-.308.292-.575.469-.844c.148-.291.409-.488.601-.737c.201-.242.475-.403.692-.604c.213-.21.492-.315.714-.463c.232-.133.434-.28.65-.35l.539-.222l.474-.197l-.485-1.938l-.597.144c-.191.048-.424.104-.689.171c-.271.05-.56.187-.882.312c-.317.143-.686.238-1.028.467c-.344.218-.741.4-1.091.692c-.339.301-.748.562-1.05.944c-.33.358-.656.734-.909 1.162c-.293.408-.492.856-.702 1.299c-.19.443-.343.896-.468 1.336c-.237.882-.343 1.72-.384 2.437c-.034.718-.014 1.315.028 1.747c.015.204.043.402.063.539l.025.168l.026-.006A4.5 4.5 0 1 0 17.5 10"/></svg>
+
+<span class="lead mx-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</span>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m21.95 8.721l-.025-.168l-.026.006A4.5 4.5 0 1 0 17.5 14c.223 0 .437-.034.65-.065c-.069.232-.14.468-.254.68c-.114.308-.292.575-.469.844c-.148.291-.409.488-.601.737c-.201.242-.475.403-.692.604c-.213.21-.492.315-.714.463c-.232.133-.434.28-.65.35l-.539.222l-.474.197l.484 1.939l.597-.144c.191-.048.424-.104.689-.171c.271-.05.56-.187.882-.312c.317-.143.686-.238 1.028-.467c.344-.218.741-.4 1.091-.692c.339-.301.748-.562 1.05-.944c.33-.358.656-.734.909-1.162c.293-.408.492-.856.702-1.299c.19-.443.343-.896.468-1.336c.237-.882.343-1.72.384-2.437c.034-.718.014-1.315-.028-1.747a7.028 7.028 0 0 0-.063-.539m-11 0l-.025-.168l-.026.006A4.5 4.5 0 1 0 6.5 14c.223 0 .437-.034.65-.065c-.069.232-.14.468-.254.68c-.114.308-.292.575-.469.844c-.148.291-.409.488-.601.737c-.201.242-.475.403-.692.604c-.213.21-.492.315-.714.463c-.232.133-.434.28-.65.35l-.539.222c-.301.123-.473.195-.473.195l.484 1.939l.597-.144c.191-.048.424-.104.689-.171c.271-.05.56-.187.882-.312c.317-.143.686-.238 1.028-.467c.344-.218.741-.4 1.091-.692c.339-.301.748-.562 1.05-.944c.33-.358.656-.734.909-1.162c.293-.408.492-.856.702-1.299c.19-.443.343-.896.468-1.336c.237-.882.343-1.72.384-2.437c.034-.718.014-1.315-.028-1.747a7.571 7.571 0 0 0-.064-.537"/></svg>
       </blockquote>`,
   });
 
-  editor.BlockManager.add("text-basic", {
-    label: "Text section",
-    media: `<svg viewBox="0 0 24 24">
-        <path fill="currentColor" d="M21,6V8H3V6H21M3,18H12V16H3V18M3,13H21V11H3V13Z" />
-    </svg>`,
-    content: `<section class="bdg-sect">
-      <h1 class="heading">Insert title here</h1>
-      <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-      </section>`,
-  });
-
+  //  No Style needed
   editor.BlockManager.add("h1-block", {
     label: "Heading",
+    media: `
+    <svg fill="currentColor" viewBox="0 0 24 24" >
+  <path d="M7.648 13V3H6.3v4.234H1.348V3H0v10h1.348V8.421H6.3V13zM14 13V3h-1.333l-2.381 1.766V6.12L12.6 4.443h.066V13z"/>
+</svg>
+    `,
     content: "<h1>Put your title here</h1>",
     category: "Basic",
     attributes: {
@@ -212,6 +227,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // Bootstrap styling added
   editor.BlockManager.add("text", {
     label: "Text",
     media: `<svg viewBox="0 0 24 24">
@@ -220,6 +236,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     activate: true,
     content: {
       type: "text",
+      attributes: { class: "alert alert-success" },
       content: "Insert your text here",
       style: { padding: "10px" },
     },
@@ -232,10 +249,11 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         <path fill="currentColor" d="M20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20M4,6V18H20V6H4M6,9H18V11H6V9M6,13H16V15H6V13Z" />
     </svg>`,
     content: `
-      <h1 class="heading">Insert title here</h1>
-      <p class="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-      </p>
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">  <h1 class="heading">Insert title here</h1>
+    <p class="paragraph">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+    </p></div>
+    
     `,
   });
 
@@ -252,66 +270,71 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // Manual styling done
   editor.BlockManager.add("sect100", {
     label: "1 Section",
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-      <table class="custom-table">
+      <table style="${tableStyleStr}">
         <tr>
-          <td></td>
+          <td style="${cellStyleStr}"></td>
         </tr>
       </table>
     `,
   });
 
+  // Manual styling done
   editor.BlockManager.add("sect50", {
     label: "1/2 Section",
     media: `<svg viewBox="0 0 23 24">
       <path fill="currentColor" d="M2 20h8V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM13 20h8V4h-8v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-      <table>
-        <tr>
-          <td ></td>
-          <td ></td>
-        </tr>
-      </table>
+    <table style="${tableStyleStr}" class="container text-center">
+    <tr>
+      <td style="${cellStyleStr} width: 50%"></td>
+      <td style="${cellStyleStr} width: 50%"></td>
+    </tr>
+  </table>
     `,
   });
 
+  // Manual styling done
   editor.BlockManager.add("sect30", {
     label: "1/3 Section",
     media: `<svg viewBox="0 0 23 24">
       <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-      <table>
-        <tr>
-          <td></td>
-          <td ></td>
-          <td></td>
-        </tr>
-      </table>
+    <table style="${tableStyleStr}">
+    <tr>
+      <td style="${cellStyleStr} width: 33.3333%"></td>
+      <td style="${cellStyleStr} width: 33.3333%"></td>
+      <td style="${cellStyleStr} width: 33.3333%"></td>
+    </tr>
+  </table>
     `,
   });
 
+  // Manual styling done
   editor.BlockManager.add("sect37", {
     label: "3/7 Section",
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"></path>
     </svg>`,
     content: `
-      <table>
-        <tr>
-          <td> </td>
-          <td> </td>
-        </tr>
-      </table>
+    <table style="${tableStyleStr}">
+    <tr>
+      <td style="${cellStyleStr} width:30%"></td>
+      <td style="${cellStyleStr} width:70%"></td>
+    </tr>
+  </table>
     `,
   });
 
+  //  Modified style with bootstrap
   editor.BlockManager.add("button", {
     label: "Button",
     media: `<svg viewBox="0 0 24 24">
@@ -320,6 +343,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     content: '<a class="btn btn-primary">Button</a>',
   });
 
+  // No modificaiton needed
   editor.BlockManager.add("divider", {
     label: "Divider",
     media: `<svg viewBox="0 0 24 24">
@@ -340,15 +364,17 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  const gridItem = `<table class="grid-item-card">
+  //  Modified style with bootstrap
+  const gridItem = `<table class="card" style="width: 18rem;">
     <tr>
-      <td class="grid-item-card-cell">
-        <img class="grid-item-image" src="https://via.placeholder.com/250x150/78c5d6/fff/" alt="Image"/>
+      <td >
+        <img class="card-img-top" src="https://via.placeholder.com/250x150/78c5d6/fff/" alt="Image"/>
         <table class="grid-item-card-body">
           <tr>
-            <td class="grid-item-card-content">
-              <h1 class="card-title">Title here</h1>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+            <td class="card-body  d-flex flex-column ">
+              <h1 class="card-titl p-2 text-center">Title here</h1>
+              <p class="card-text p-2 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+              <a href="#" class="btn btn-success p-2">Go somewhere</a>
             </td>
           </tr>
         </table>
@@ -362,22 +388,23 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path fill="currentColor" d="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3"/>
   </svg>`,
     content: `
-    <table class="grid-item-row">
+    <table >
       <tr>
-        <td class="grid-item-cell2-l">${gridItem}</td>
-        <td class="grid-item-cell2-r">${gridItem}</td>
+        <td >${gridItem}</td>
+        <td >${gridItem}</td>
       </tr>
     </table>
   `,
   });
 
-  const listItem = `<table class="list-item">
+  // Styling added
+  const listItem = `<table class="card" style="width: 30rem;">
     <tr>
       <td class="list-item-cell">
         <table class="list-item-content">
           <tr class="list-item-row">
             <td class="list-cell-left">
-              <img class="list-item-image" src="https://via.placeholder.com/150/78c5d6/fff" alt="Image"/>
+              <img class="card" src="https://via.placeholder.com/150/78c5d6/fff" alt="Image"/>
             </td>
             <td class="list-cell-right">
               <h1 class="card-title">Title here</h1>
@@ -387,8 +414,11 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         </table>
       </td>
     </tr>
-  </table>`;
+  </table>
+  <style>
+  `;
 
+  // Styling added
   editor.BlockManager.add("list-items", {
     label: "List Items",
     media: `<svg viewBox="0 0 24 24">

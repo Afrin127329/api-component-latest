@@ -123,7 +123,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         tagName: "p",
         droppable: false,
         highlightable: false,
-        attributes: { class: `${productPrefix}-idTitle` },
+        attributes: { class: ` ${productPrefix}-idTitle` },
         styles:
           opts.style ||
           `
