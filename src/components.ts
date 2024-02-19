@@ -123,7 +123,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         tagName: "p",
         droppable: false,
         highlightable: false,
-        attributes: { class: `form-control ${productPrefix}-idTitle` },
+        attributes: { class: ` ${productPrefix}-idTitle` },
         styles:
           opts.style ||
           `
@@ -146,7 +146,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         tagName: "label",
         droppable: false,
         highlightable: false,
-        attributes: { class: `form-label ${productPrefix}-idLabel` },
+        attributes: { class: `${productPrefix}-idLabel` },
         styles:
           opts.style ||
           `
