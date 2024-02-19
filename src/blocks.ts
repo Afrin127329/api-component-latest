@@ -23,6 +23,18 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       });
   };
 
+  let tableStyleStr = "";
+  let cellStyleStr = "";
+  let tableStyle = opts.tableStyle || {};
+  let cellStyle = opts.cellStyle || {};
+
+  for (let prop in tableStyle) {
+    tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
+  }
+  for (let prop in cellStyle) {
+    cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
+  }
+
   if (block) {
     const url = "https://chepapest.com/api/dev/products";
     let productData = null;
@@ -258,57 +270,60 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-      <table class="custom-table">
+      <table style="${tableStyleStr}">
         <tr>
-          <td></td>
+          <td style="${cellStyleStr}"></td>
         </tr>
       </table>
     `,
   });
 
+  // Manual styling
   editor.BlockManager.add("sect50", {
     label: "1/2 Section",
     media: `<svg viewBox="0 0 23 24">
       <path fill="currentColor" d="M2 20h8V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM13 20h8V4h-8v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-      <table>
-        <tr>
-          <td ></td>
-          <td ></td>
-        </tr>
-      </table>
+    <table style="${tableStyleStr}" class="container text-center">
+    <tr>
+      <td style="${cellStyleStr} width: 50%"></td>
+      <td style="${cellStyleStr} width: 50%"></td>
+    </tr>
+  </table>
     `,
   });
 
+  // Manual styling
   editor.BlockManager.add("sect30", {
     label: "1/3 Section",
     media: `<svg viewBox="0 0 23 24">
       <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-      <table>
-        <tr>
-          <td></td>
-          <td ></td>
-          <td></td>
-        </tr>
-      </table>
+    <table style="${tableStyleStr}">
+    <tr>
+      <td style="${cellStyleStr} width: 33.3333%"></td>
+      <td style="${cellStyleStr} width: 33.3333%"></td>
+      <td style="${cellStyleStr} width: 33.3333%"></td>
+    </tr>
+  </table>
     `,
   });
 
+  // Manual styling
   editor.BlockManager.add("sect37", {
     label: "3/7 Section",
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"></path>
     </svg>`,
     content: `
-      <table>
-        <tr>
-          <td> </td>
-          <td> </td>
-        </tr>
-      </table>
+    <table style="${tableStyleStr}">
+    <tr>
+      <td style="${cellStyleStr} width:30%"></td>
+      <td style="${cellStyleStr} width:70%"></td>
+    </tr>
+  </table>
     `,
   });
 
