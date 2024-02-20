@@ -9,6 +9,9 @@ export const typeText = "text";
 export const typeDesc = "desc";
 export const typeDiv = "div";
 export const typeHiddenDiv = "hiddenDiv";
+export const typeNavbar = "navbar";
+export const typeHero = "hero";
+export const typeWrapper = "wrapper";
 export const typeSocial = "social";
 
 export default (editor: Editor, opts: RequiredPluginOptions) => {
@@ -305,7 +308,73 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
     model: {
       defaults: {
-        name: "socialGroup",
+        name: "Social Icons",
+        tagName: "div",
+        traits: [
+          {
+            type: "select",
+            label: "Mode",
+            name: "mode",
+            options: [
+              { value: "horizontal", name: "Horizontal" },
+              { value: "vertical", name: "Vertical" },
+            ],
+          },
+        ],
+      },
+    },
+  });
+
+  Components.addType(typeHero, {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "Hero section",
+        tagName: "div",
+        traits: [
+          {
+            type: "select",
+            label: "Mode",
+            name: "mode",
+            options: [
+              { value: "horizontal", name: "Horizontal" },
+              { value: "vertical", name: "Vertical" },
+            ],
+          },
+        ],
+      },
+    },
+  });
+
+  Components.addType(typeWrapper, {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "Wrapper",
+        tagName: "div",
+        traits: [
+          {
+            type: "select",
+            label: "Mode",
+            name: "mode",
+            options: [
+              { value: "horizontal", name: "Horizontal" },
+              { value: "vertical", name: "Vertical" },
+            ],
+          },
+        ],
+      },
+    },
+  });
+
+  Components.addType(typeNavbar, {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "Navbar",
         tagName: "div",
         traits: [
           {
