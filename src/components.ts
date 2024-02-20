@@ -9,6 +9,7 @@ export const typeText = "text";
 export const typeDesc = "desc";
 export const typeDiv = "div";
 export const typeHiddenDiv = "hiddenDiv";
+export const typeSocial = "social";
 
 export default (editor: Editor, opts: RequiredPluginOptions) => {
   const { Components, TraitManager } = editor;
@@ -295,6 +296,28 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           }
 
           `,
+      },
+    },
+  });
+
+  editor.Components.addType(typeSocial, {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "socialGroup",
+        tagName: "div",
+        traits: [
+          {
+            type: "select",
+            label: "Mode",
+            name: "mode",
+            options: [
+              { value: "horizontal", name: "Horizontal" },
+              { value: "vertical", name: "Vertical" },
+            ],
+          },
+        ],
       },
     },
   });
