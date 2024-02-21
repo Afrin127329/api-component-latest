@@ -16,6 +16,10 @@ export type PluginOptions = {
 	styleAdditional?: string;
 	classPrefix?: string;
 	blocks?: string[];
+	inlineCss?: boolean;
+	updateStyleManager?: boolean;
+	tableStyle?: Record<string, string>;
+	cellStyle?: Record<string, string>;
 };
 export type RequiredPluginOptions = Required<PluginOptions>;
 declare const plugin: Plugin<PluginOptions>;

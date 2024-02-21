@@ -408,7 +408,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         <table class="list-item-content">
           <tr class="list-item-row">
             <td class="list-cell-left">
-              <img class="card" src="https://via.placeholder.com/150/78c5d6/fff" alt="Image"/>
+              <img class="card rounded" src="https://via.placeholder.com/150/78c5d6/fff" alt="Image"/>
             </td>
             <td class="list-cell-right">
               <h1 class="card-title">Title here</h1>
@@ -503,7 +503,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <div class="hero">
     <p class="text">GO TO SPACE</p>
     <p class="text-center text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea libero animi neque officiis. Nemo corporis perspiciatis modi amet, saepe quaerat tempora deserunt consequuntur dolore libero recusandae ex, voluptate veniam?</p>
-    <a class="btn btn-outline-light" href="#" style="align-items: center;" >ORDER NOW</a>
+    <a class="btn btn-outline-light btn-lg" href="#" style="align-items: center;" >ORDER NOW</a>
   </div>
 
 <style>
@@ -535,14 +535,14 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     content: `<div class="wrapper shadow-lg p-3 mb-5 bg-body rounded">
     <div class="section-top">
         <div class="column">
-            <img src="https://via.placeholder.com/350x250/78c5d6/fff" style="padding: 0; width: 100%">
+            <img class="rounded" src="https://via.placeholder.com/350x250/78c5d6/fff" style="padding: 0; width: 100%">
         </div>
     </div>
     <div class="section-bottom">
         <div class="column">
-            <div class="text">First line of text</div>
+            <p class="text fs-4">First line of text</p>
             <hr class="divider">
-            <div class="text">Second line of text</div>
+            <p class="text fs-5"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum fugiat dolorum nemo voluptatibus corrupti nesciunt unde ut qui distinctio modi.</p>
         </div>
     </div>
 </div>
@@ -572,5 +572,51 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         }
     </style>
   `,
+  });
+
+  // Video from grapesjs
+  editor.BlockManager.add("video", {
+    label: "Video",
+    media: `<svg viewBox="0 0 24 24">
+      <path fill="currentColor" d="M10,15L15.19,12L10,9V15M21.56,7.17C21.69,7.64 21.78,8.27 21.84,9.07C21.91,9.87 21.94,10.56 21.94,11.16L22,12C22,14.19 21.84,15.8 21.56,16.83C21.31,17.73 20.73,18.31 19.83,18.56C19.36,18.69 18.5,18.78 17.18,18.84C15.88,18.91 14.69,18.94 13.59,18.94L12,19C7.81,19 5.2,18.84 4.17,18.56C3.27,18.31 2.69,17.73 2.44,16.83C2.31,16.36 2.22,15.73 2.16,14.93C2.09,14.13 2.06,13.44 2.06,12.84L2,12C2,9.81 2.16,8.2 2.44,7.17C2.69,6.27 3.27,5.69 4.17,5.44C4.64,5.31 5.5,5.22 6.82,5.16C8.12,5.09 9.31,5.06 10.41,5.06L12,5C16.19,5 18.8,5.16 19.83,5.44C20.73,5.69 21.31,6.27 21.56,7.17Z" />
+    </svg>`,
+    content: {
+      type: "video",
+      src: "img/video2.webm",
+      style: {
+        height: "350px",
+        width: "615px",
+      },
+    },
+  });
+
+  editor.BlockManager.add("carousel", {
+    label: "Slider",
+    media: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
+  </svg>`,
+    content: `
+    <div id="carouselExample" class="carousel slide" style="width: 600px;">
+    <div class="carousel-inner" style="">
+      <div class="carousel-item active">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+    `,
   });
 };
