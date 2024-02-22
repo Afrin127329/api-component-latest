@@ -9,7 +9,7 @@ export const typeText = "text";
 export const typeDesc = "desc";
 export const typeDiv = "div";
 export const typeHiddenDiv = "hiddenDiv";
-export const typeNavbar = "navbar";
+export const typeNavbar = "";
 export const typeHero = "hero";
 export const typeWrapper = "wrapper";
 export const typeSocial = "social";
@@ -176,12 +176,11 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           `
           .${productPrefix}-inputDiv {
             display: flex;
-            gap: 2 rem;
             gap: 2rem;
             justify-content: space-between;
-            font-size: 1.4rem;
+            font-size: 1.2rem !important;
             align-items: center;
-            width: 23rem;
+            width: 26rem !important;
           }
 
           
@@ -269,36 +268,35 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         attributes: {
           type: "submit",
           value: "submit",
-          class: `${productPrefix}-inputBtn`,
+          class: `${productPrefix}-inputBtn btn btn-success`,
         },
         text: "Submit Now",
-        styles:
-          opts.style ||
-          `
-          .${productPrefix}-inputBtn{
-            padding: 0.5rem;
-            width: 100%;
-            cursor: pointer;
-            background: transparent;
-            border: 2px solid #d9d9d9;
-            border-radius: 10px;
-            font-size: 18px;
+        // styles:
+        //   opts.style ||
+        //   `
+        //   .${productPrefix}-inputBtn{
+        //     padding: 0.5rem;
+        //     width: 100%;
+        //     cursor: pointer;
+        //     background: transparent;
+        //     border: 2px solid #d9d9d9;
+        //     border-radius: 10px;
+        //     font-size: 18px;
 
+        //   }
+        //   .${productPrefix}-inputBtn:hover{
+        //     background: green;
+        //     color: white;
+        //   }
 
-          }
-          .${productPrefix}-inputBtn:hover{
-            background: green;
-            color: white;
-          }
+        //   @media only screen and (max-width: 600px) {
+        //     .${productPrefix}-inputBtn{
+        //       font-size: 1rem;
 
-          @media only screen and (max-width: 600px) {
-            .${productPrefix}-inputBtn{
-              font-size: 1rem;
-  
-            }
-          }
+        //     }
+        //   }
 
-          `,
+        //   `,
       },
     },
   });
