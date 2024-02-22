@@ -18,10 +18,9 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     // get html  & css from the editor
     const htmlString = editor.getHtml();
     const css = editor.getCss();
+    console.log(htmlString);
 
-    // Get and load current project data
     const projectData = editor.getProjectData();
-    editor.loadProjectData(projectData);
 
     // For removing the body tag
     const html = htmlString
@@ -63,6 +62,11 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           }
           `,
         });
+
+        // Get and load current project data
+        editor.loadProjectData(projectData);
+        // editor.setComponents(htmlString);
+        // editor.setStyle(css);
       }
       console.log(res);
     }
