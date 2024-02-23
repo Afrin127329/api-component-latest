@@ -642,37 +642,39 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  // Vertically centered Modal Active component using bootstrap
-  editor.BlockManager.add("bootstrapModal", {
-    label: "Modal",
-    category: "Extra",
-    media: `<svg class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
-    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5m9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5m-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
-  </svg>`,
-    content: `
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch  modal
-</button>
+  // Vertically centered Modal Active component using bootstrap --> Will add later
+  //   editor.BlockManager.add("bootstrapModal", {
+  //     label: "Modal",
+  //     category: "Extra",
+  //     media: `<svg class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
+  //     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5m9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5m-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+  //   </svg>`,
+  //     content: `
+  // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  // <p class="fs-6" style="margin-bottom: 0rem;" ondblclick="editable()">
+  //   Launch  modal
+  //   </p>
+  // </button>
 
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel"><p class="fs-6" style="margin-bottom: 0rem;">Modal title</p></h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <p class="fs-6" style="margin-bottom: 0rem;">Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><p class="fs-6" style="margin-bottom: 0rem;">Close</p></button>
-        <button type="button" class="btn btn-primary"><p class="fs-6" style="margin-bottom: 0rem;">Understood</p></button>
-      </div>
-    </div>
-  </div>
-</div>
-    `,
-  });
+  // <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  //   <div class="modal-dialog modal-dialog-centered">
+  //     <div class="modal-content">
+  //       <div class="modal-header">
+  //         <h1 class="modal-title fs-5" id="staticBackdropLabel"><p class="fs-6" style="margin-bottom: 0rem;">Modal title</p></h1>
+  //         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  //       </div>
+  //       <div class="modal-body">
+  //       <p class="fs-6" style="margin-bottom: 0rem;">Modal body text goes here.</p>
+  //       </div>
+  //       <div class="modal-footer">
+  //         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><p class="fs-6" style="margin-bottom: 0rem;">Close</p></button>
+  //         <button type="button" class="btn btn-primary"><p class="fs-6" style="margin-bottom: 0rem;">Understood</p></button>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  //     `,
+  //   });
 
   // Tabs component using bootstrap
   editor.BlockManager.add("tabs", {
@@ -713,33 +715,33 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  // Off canvas component using bootstrap
-  editor.BlockManager.add("offCanvas", {
-    label: "Off Canvas",
-    media: `<svg class="bi bi-layout-text-sidebar" viewBox="0 0 16 16">
-    <path d="M3.5 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM3 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"/>
-    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm12-1v14h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm-1 0H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h9z"/>
-  </svg>`,
-    content: `
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-  Open Off Canvas
-</button>
+  // Off canvas component using bootstrap --> Will add later
+  //   editor.BlockManager.add("offCanvas", {
+  //     label: "Off Canvas",
+  //     media: `<svg class="bi bi-layout-text-sidebar" viewBox="0 0 16 16">
+  //     <path d="M3.5 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM3 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1z"/>
+  //     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm12-1v14h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm-1 0H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h9z"/>
+  //   </svg>`,
+  //     content: `
+  // <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+  //   Open Off Canvas
+  // </button>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <div>
-    <p class="fs-6" style="margin-bottom: 0rem;">
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-      </p>
-    </div>
-  </div>
-</div>
-    `,
-  });
+  // <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  //   <div class="offcanvas-header">
+  //     <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+  //     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  //   </div>
+  //   <div class="offcanvas-body">
+  //     <div>
+  //     <p class="fs-6" style="margin-bottom: 0rem;">
+  //       Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+  //       </p>
+  //     </div>
+  //   </div>
+  // </div>
+  //     `,
+  //   });
 
   //  Progress bar component using bootstrap --> add later if necessary
   //   editor.BlockManager.add("progressBar", {
