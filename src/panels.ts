@@ -16,7 +16,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   editor.Panels.removeButton("options", "export-template");
 
   const btn: any = editor.Panels.getButton("options", "publishSite");
-  console.log(btn);
   btn.on("change", async () => {
     // get html  & css from the editor
     const htmlString = editor.getHtml();
