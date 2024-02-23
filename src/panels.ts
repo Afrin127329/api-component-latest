@@ -1,19 +1,22 @@
-import { Editor } from "grapesjs";
+import type { Editor } from "grapesjs";
 import { RequiredPluginOptions } from ".";
 
 export default (editor: Editor, opts: RequiredPluginOptions) => {
-  // Remove view code panel button
-  editor.Panels.removeButton("options", "export-template");
+  const { Panels } = editor;
 
-  // Add new button for sending data to server
-  editor.Panels.addButton("options", {
+  Panels.addButton("options", {
     id: "publishSite",
     active: true, // active by default
     className: "btn-toggle-borders",
     label: "Publish",
     command: "sw-visibility",
   });
+
+  // Remove view code panel button
+  editor.Panels.removeButton("options", "export-template");
+
   const btn: any = editor.Panels.getButton("options", "publishSite");
+  console.log(btn);
   btn.on("change", async () => {
     // get html  & css from the editor
     const htmlString = editor.getHtml();
@@ -57,10 +60,10 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         editor.Modal.open({
           title: "Your Page has been Published. Thank you",
           styles: `
-          .gjs-mdl-header {
-            height: 50rem !important;
-          }
-          `,
+            .gjs-mdl-header {
+              height: 50rem !important;
+            }
+            `,
         });
 
         // Get and load current project data

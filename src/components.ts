@@ -65,7 +65,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         },
         traits: [
           {
-            type: "select",
+            type: typeForm,
             name: "product",
           },
         ],
@@ -100,7 +100,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           }
         `,
       },
-
       init() {
         this.on("change:attributes:selectedData", () => {
           // Take Selected Data object from the traits
