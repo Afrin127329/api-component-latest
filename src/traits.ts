@@ -1,4 +1,5 @@
 import { Editor } from "grapesjs";
+import { typeForm } from "./components";
 
 export default async (editor: Editor) => {
   const url = "https://chepapest.com/api/dev/products";
@@ -15,7 +16,7 @@ export default async (editor: Editor) => {
     const data = await response.json();
     productData = data.data;
 
-    editor.TraitManager.addType("select", {
+    editor.TraitManager.addType(typeForm, {
       events: {
         keyup: "click",
       },

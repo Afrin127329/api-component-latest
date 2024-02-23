@@ -25,6 +25,11 @@ export type PluginOptions = {
   updateStyleManager?: boolean;
   tableStyle?: Record<string, string>;
   cellStyle?: Record<string, string>;
+  resetBlocks?: true;
+  resetStyleManager?: true;
+  resetDevices?: true;
+  hideSelector?: true;
+  useXmlParser?: false;
 };
 export type RequiredPluginOptions = Required<PluginOptions>;
 
@@ -50,8 +55,34 @@ const plugin: Plugin<PluginOptions> = (editor: Editor, opts = {}) => {
       padding: "5px 5px 5px 5px",
       width: "100%",
     },
+    resetBlocks: true,
+    resetStyleManager: true,
+    resetDevices: true,
+    hideSelector: true,
+    useXmlParser: false,
     ...opts,
   };
+
+  const config = editor.getConfig();
+
+  // I need to prevent forced class creation as classes aren't working
+  // @ts-ignore
+  config.forceClass = false;
+
+  // Don't need to create css rules with media
+  // @ts-ignore
+  config.devicePreviewMode = true;
+  // Hide default selector manager
+  if (opts.hideSelector) {
+    const smConfig = editor.SelectorManager.getConfig();
+    // @ts-ignore
+    smConfig.custom = true;
+  }
+
+  // Use XML Parser
+  if (opts.useXmlParser) {
+    editor.Parser.getConfig().optionsHtml!.htmlType = "text/xml";
+  }
 
   // Add components & blocks
   loadComponents(editor, options);
