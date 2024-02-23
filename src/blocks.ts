@@ -598,13 +598,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <div id="carouselExample" class="carousel slide" style="width: 600px;">
     <div class="carousel-inner" style="">
       <div class="carousel-item active">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="...">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
       </div>
       <div class="carousel-item">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="...">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
       </div>
       <div class="carousel-item">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="...">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
