@@ -389,16 +389,27 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   </svg>`,
     content: `
     <table >
-      <tr>
+      <tr class="all-grid-items">
+        <td >${gridItem}</td>
         <td >${gridItem}</td>
         <td >${gridItem}</td>
       </tr>
     </table>
+
+    <style>
+      .all-grid-items{
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    </style>
   `,
   });
 
   // Styling added
-  const listItem = `<table class="card" style="width: 30rem;">
+  const listItem = `<table class="card">
     <tr>
       <td class="list-item-cell">
         <table class="list-item-content">
@@ -415,7 +426,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       </td>
     </tr>
   </table>
-  <style>
   `;
 
   // Styling added
@@ -447,6 +457,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         </svg></a>
         </div>
 </div>
+
+<style>
+  .btn-toolbar {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+</style>
       `,
   });
   // Navbar styling with Bootstrap
@@ -484,7 +501,8 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         </form>
       </div>
     </div>
-  </nav>`,
+  </nav>
+  `,
   });
   //  Hero Section
   editor.BlockManager.add(typeHero, {
@@ -516,6 +534,16 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       font-weight: 900;
       padding: 20px;
     }
+
+    @media only screen and (max-width: 600px) {
+      .hero {
+        display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      }
+    }
+
   </style>
   `,
   });
@@ -587,16 +615,16 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
   </svg>`,
     content: `
-    <div id="carouselExample" class="carousel slide" style="width: 600px;">
+    <div id="carouselExample" class="carousel slide slideDivClass">
     <div class="carousel-inner" style="">
       <div class="carousel-item active">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -608,10 +636,29 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+  <style>
+
+  .slideDivClass{
+    width: 600px;
+  }
+.imgClass{
+  height: 366px;
+}
+
+  @media only screen and (max-width: 600px) {
+    .slideDivClass{
+      width: 100% !important;
+    }
+    .imgClass{
+      height: 15rem;
+    }
+  }
+  </style>
     `,
   });
 
-  // collapse using bootstrap component done
+  // collapse using bootstrap component done || need style modification later
   editor.BlockManager.add("collapse", {
     label: "Collapse",
     category: "Extra",
@@ -622,11 +669,11 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <p class="d-inline-flex gap-1">
   <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle element</a>
 </p>
-<div class="row" style="width: 40rem">
+<div class="row rowClass">
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample1">
       <div class="card card-body">
-      <p class="fs-6" style="margin-bottom: 0rem;"> Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.</p>
+      <p class="fs-6"> Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.</p>
       </div>
     </div>
   </div>

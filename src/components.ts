@@ -179,7 +179,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             justify-content: space-between;
             font-size: 1.2rem !important;
             align-items: center;
-            width: 26rem !important;
+            width: 26rem;
           }
 
           
@@ -306,40 +306,8 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     model: {
       defaults: {
         name: "Social Icons",
+        droppable: false,
         tagName: "div",
-        traits: [
-          {
-            type: "select",
-            label: "Mode",
-            name: "mode",
-            options: [
-              { value: "horizontal", name: "Horizontal" },
-              { value: "vertical", name: "Vertical" },
-            ],
-          },
-        ],
-      },
-    },
-  });
-
-  Components.addType(typeHero, {
-    isComponent: (el) => el.tagName == "DIV",
-
-    model: {
-      defaults: {
-        name: "Hero section",
-        tagName: "div",
-        traits: [
-          {
-            type: "select",
-            label: "Mode",
-            name: "mode",
-            options: [
-              { value: "horizontal", name: "Horizontal" },
-              { value: "vertical", name: "Vertical" },
-            ],
-          },
-        ],
       },
     },
   });
@@ -351,39 +319,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       defaults: {
         name: "Wrapper",
         tagName: "div",
-        traits: [
-          {
-            type: "select",
-            label: "Mode",
-            name: "mode",
-            options: [
-              { value: "horizontal", name: "Horizontal" },
-              { value: "vertical", name: "Vertical" },
-            ],
-          },
-        ],
-      },
-    },
-  });
-
-  Components.addType(typeNavbar, {
-    isComponent: (el) => el.tagName == "DIV",
-
-    model: {
-      defaults: {
-        name: "Navbar",
-        tagName: "div",
-        traits: [
-          {
-            type: "select",
-            label: "Mode",
-            name: "mode",
-            options: [
-              { value: "horizontal", name: "Horizontal" },
-              { value: "vertical", name: "Vertical" },
-            ],
-          },
-        ],
       },
     },
   });
