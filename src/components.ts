@@ -95,7 +95,11 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           @media only screen and (max-width: 600px) {
             .${productPrefix}{
               width: 90%;
-  
+            }
+
+            .${productPrefix}-container {
+              padding: 0.3rem;
+              padding-bottom: 2rem;
             }
           }
         `,
