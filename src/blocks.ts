@@ -190,14 +190,8 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       type: "link",
       editable: false,
       droppable: true,
-      attributes: { class: "alert alert-warning" },
-      content: "<span>Link</span>",
-      style: {
-        display: "inline-block",
-        padding: "5px",
-        cursor: "pointer",
-        " text-decoration": "none",
-      },
+      attributes: { class: "btn btn-warning" },
+      content: `<span >Link</span>`,
     },
   });
 
@@ -257,7 +251,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <p class="paragraph">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
     </p></div>
-    
     `,
   });
 
@@ -271,6 +264,9 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     content: {
       type: "image",
       style: { color: "black" },
+      attributes: {
+        class: "img-fluid",
+      },
     },
   });
 
@@ -579,11 +575,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   </svg>`,
     content: {
       type: "video",
-      src: "img/video2.webm",
-      style: {
-        height: "350px",
-        width: "615px",
-      },
+      src: "",
     },
   });
 
@@ -683,7 +675,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6 3h4V5H6zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1"/>
   </svg>`,
     content: `
-    <ul class="nav nav-tabs" id="myTab" role="tablist" style="width: 25rem;">
+    <ul class="nav nav-tabs myTab" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><p class="fs-6" style="margin-bottom: 0rem;">Home</p></button>
     </li>
@@ -694,7 +686,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false"><p class="fs-6" style="margin-bottom: 0rem;">Contact</p></button>
     </li>
   </ul>
-  <div class="tab-content border border-secondary" id="myTabContent"  style="width: 25rem;">
+  <div class="tab-content border border-secondary myTab" id="myTabContent">
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     <p class="fs-6" style="margin-bottom: 0rem;">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident reiciendis ullam expedita sed ipsum tenetur laudantium architecto cumque esse accusamus praesentium quas eos quasi repellendus, a rem. Hic, soluta iusto?
@@ -711,6 +703,17 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </p>
     </div>
   </div>
+
+  <style>
+  .myTab {
+    width: 25rem;
+  }
+  @media only screen and (max-width: 600px) {
+    .myTab{
+      width: 100% !important;
+    }
+  }
+  </style>
     `,
   });
 

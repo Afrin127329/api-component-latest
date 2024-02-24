@@ -387,4 +387,29 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       },
     },
   });
+
+  // For  video component
+  Components.addType("video", {
+    model: {
+      defaults: {
+        attributes: { class: `${productPrefix}-video` },
+        styles:
+          opts.style ||
+          `
+            .${productPrefix}-video {
+              height: 350px;
+               width: 615px;
+               padding: 0.5rem;
+            }
+
+            @media only screen and (max-width: 600px) {
+              .${productPrefix}-video{
+                width: 100%;
+                height: 100%;
+              }
+            }
+            `,
+      },
+    },
+  });
 };
