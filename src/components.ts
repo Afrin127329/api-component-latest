@@ -95,7 +95,11 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           @media only screen and (max-width: 600px) {
             .${productPrefix}{
               width: 90%;
-  
+            }
+
+            .${productPrefix}-container {
+              padding: 0.3rem;
+              padding-bottom: 2rem;
             }
           }
         `,
@@ -179,7 +183,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
             justify-content: space-between;
             font-size: 1.2rem !important;
             align-items: center;
-            width: 26rem !important;
+            width: 26rem;
           }
 
           
@@ -306,40 +310,8 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     model: {
       defaults: {
         name: "Social Icons",
+        droppable: false,
         tagName: "div",
-        traits: [
-          {
-            type: "select",
-            label: "Mode",
-            name: "mode",
-            options: [
-              { value: "horizontal", name: "Horizontal" },
-              { value: "vertical", name: "Vertical" },
-            ],
-          },
-        ],
-      },
-    },
-  });
-
-  Components.addType(typeHero, {
-    isComponent: (el) => el.tagName == "DIV",
-
-    model: {
-      defaults: {
-        name: "Hero section",
-        tagName: "div",
-        traits: [
-          {
-            type: "select",
-            label: "Mode",
-            name: "mode",
-            options: [
-              { value: "horizontal", name: "Horizontal" },
-              { value: "vertical", name: "Vertical" },
-            ],
-          },
-        ],
       },
     },
   });
@@ -351,39 +323,31 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       defaults: {
         name: "Wrapper",
         tagName: "div",
-        traits: [
-          {
-            type: "select",
-            label: "Mode",
-            name: "mode",
-            options: [
-              { value: "horizontal", name: "Horizontal" },
-              { value: "vertical", name: "Vertical" },
-            ],
-          },
-        ],
       },
     },
   });
 
-  Components.addType(typeNavbar, {
-    isComponent: (el) => el.tagName == "DIV",
-
+  // For  video component
+  Components.addType("video", {
     model: {
       defaults: {
-        name: "Navbar",
-        tagName: "div",
-        traits: [
-          {
-            type: "select",
-            label: "Mode",
-            name: "mode",
-            options: [
-              { value: "horizontal", name: "Horizontal" },
-              { value: "vertical", name: "Vertical" },
-            ],
-          },
-        ],
+        attributes: { class: `${productPrefix}-video` },
+        styles:
+          opts.style ||
+          `
+            .${productPrefix}-video {
+              height: 350px;
+               width: 615px;
+               padding: 0.5rem;
+            }
+
+            @media only screen and (max-width: 600px) {
+              .${productPrefix}-video{
+                width: 100%;
+                height: 100%;
+              }
+            }
+            `,
       },
     },
   });

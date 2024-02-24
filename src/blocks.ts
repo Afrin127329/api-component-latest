@@ -190,20 +190,15 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       type: "link",
       editable: false,
       droppable: true,
-      attributes: { class: "alert alert-warning" },
-      content: "<span>Link</span>",
-      style: {
-        display: "inline-block",
-        padding: "5px",
-        cursor: "pointer",
-        " text-decoration": "none",
-      },
+      attributes: { class: "btn btn-warning" },
+      content: `<span >Link</span>`,
     },
   });
 
   // Bootstrap styling added
   editor.BlockManager.add("quote", {
     label: "Quote",
+    category: "Basic",
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
     </svg>`,
@@ -234,6 +229,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // Bootstrap styling added
   editor.BlockManager.add("text", {
     label: "Text",
+    category: "Basic",
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M18.5,4L19.66,8.35L18.7,8.61C18.25,7.74 17.79,6.87 17.26,6.43C16.73,6 16.11,6 15.5,6H13V16.5C13,17 13,17.5 13.33,17.75C13.67,18 14.33,18 15,18V19H9V18C9.67,18 10.33,18 10.67,17.75C11,17.5 11,17 11,16.5V6H8.5C7.89,6 7.27,6 6.74,6.43C6.21,6.87 5.75,7.74 5.3,8.61L4.34,8.35L5.5,4H18.5Z" />
     </svg>`,
@@ -249,6 +245,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // Added Text Section
   editor.BlockManager.add("text-sect", {
     label: "Text Section",
+    category: "Basic",
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20M4,6V18H20V6H4M6,9H18V11H6V9M6,13H16V15H6V13Z" />
     </svg>`,
@@ -257,13 +254,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <p class="paragraph">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
     </p></div>
-    
     `,
   });
 
   // Works
   editor.BlockManager.add("image", {
     label: "Image",
+    category: "Extra",
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M21,3H3C2,3 1,4 1,5V19A2,2 0 0,0 3,21H21C22,21 23,20 23,19V5C23,4 22,3 21,3M5,17L8.5,12.5L11,15.5L14.5,11L19,17H5Z" />
     </svg>`,
@@ -271,12 +268,16 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     content: {
       type: "image",
       style: { color: "black" },
+      attributes: {
+        class: "img-fluid",
+      },
     },
   });
 
   // Manual styling done
   editor.BlockManager.add("sect100", {
     label: "1 Section",
+    category: "Basic",
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
     </svg>`,
@@ -292,6 +293,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // Manual styling done
   editor.BlockManager.add("sect50", {
     label: "1/2 Section",
+    category: "Basic",
     media: `<svg viewBox="0 0 23 24">
       <path fill="currentColor" d="M2 20h8V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM13 20h8V4h-8v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1Z"/>
     </svg>`,
@@ -308,6 +310,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // Manual styling done
   editor.BlockManager.add("sect30", {
     label: "1/3 Section",
+    category: "Basic",
     media: `<svg viewBox="0 0 23 24">
       <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
     </svg>`,
@@ -325,6 +328,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // Manual styling done
   editor.BlockManager.add("sect37", {
     label: "3/7 Section",
+    category: "Basic",
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"></path>
     </svg>`,
@@ -341,6 +345,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   //  Modified style with bootstrap
   editor.BlockManager.add("button", {
     label: "Button",
+    category: "Basic",
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M20 20.5C20 21.3 19.3 22 18.5 22H13C12.6 22 12.3 21.9 12 21.6L8 17.4L8.7 16.6C8.9 16.4 9.2 16.3 9.5 16.3H9.7L12 18V9C12 8.4 12.4 8 13 8S14 8.4 14 9V13.5L15.2 13.6L19.1 15.8C19.6 16 20 16.6 20 17.1V20.5M20 2H4C2.9 2 2 2.9 2 4V12C2 13.1 2.9 14 4 14H8V12H4V4H20V12H18V14H20C21.1 14 22 13.1 22 12V4C22 2.9 21.1 2 20 2Z" />
     </svg>`,
@@ -350,6 +355,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // No modificaiton needed
   editor.BlockManager.add("divider", {
     label: "Divider",
+    category: "Extra",
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z" />
     </svg>`,
@@ -388,21 +394,33 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 
   editor.BlockManager.add("grid-items", {
     label: "Grid Items",
+    category: "Extra",
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3"/>
   </svg>`,
     content: `
     <table >
-      <tr>
+      <tr class="all-grid-items">
+        <td >${gridItem}</td>
         <td >${gridItem}</td>
         <td >${gridItem}</td>
       </tr>
     </table>
+
+    <style>
+      .all-grid-items{
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    </style>
   `,
   });
 
   // Styling added
-  const listItem = `<table class="card" style="width: 30rem;">
+  const listItem = `<table class="card">
     <tr>
       <td class="list-item-cell">
         <table class="list-item-content">
@@ -419,12 +437,12 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       </td>
     </tr>
   </table>
-  <style>
   `;
 
   // Styling added
   editor.BlockManager.add("list-items", {
     label: "List Items",
+    category: "Extra",
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M2 14H8V20H2M16 8H10V10H16M2 10H8V4H2M10 4V6H22V4M10 20H16V18H10M10 16H22V14H10"/>
   </svg>`,
@@ -434,6 +452,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // Social Icons styled with bootstrap
   editor.BlockManager.add(typeSocial, {
     label: "socialGroup",
+    category: "Extra",
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z" />
   </svg>`,
@@ -451,11 +470,20 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         </svg></a>
         </div>
 </div>
+
+<style>
+  .btn-toolbar {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+</style>
       `,
   });
+
   // Navbar styling with Bootstrap
   editor.BlockManager.add(typeNavbar, {
     label: "Navbar",
+    category: "Extra",
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
 </svg>`,
@@ -488,11 +516,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         </form>
       </div>
     </div>
-  </nav>`,
+  </nav>
+  `,
   });
   //  Hero Section
   editor.BlockManager.add(typeHero, {
     label: "Hero Section",
+    category: "Extra",
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20M4,6V18H20V6H4M6,9H18V11H6V9M6,13H16V15H6V13Z" />
 </svg>`,
@@ -520,12 +550,23 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       font-weight: 900;
       padding: 20px;
     }
+
+    @media only screen and (max-width: 600px) {
+      .hero {
+        display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      }
+    }
+
   </style>
   `,
   });
   // Wrapper
   editor.BlockManager.add(typeWrapper, {
     label: "Wrapper",
+    category: "Extra",
     media: `<svg viewBox="0 0 24 24">
     <path fill="currentColor" d="M18 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V4C20 2.9 19.11 2 18 2M18 20H6V16H18V20M18 8H6V4H18V8Z" />
 </svg>`,
@@ -574,16 +615,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // Video from grapesjs
   editor.BlockManager.add("video", {
     label: "Video",
+    category: "Extra",
     media: `<svg class="bi bi-play-circle-fill" viewBox="0 0 16 16">
     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z"/>
   </svg>`,
     content: {
       type: "video",
-      src: "img/video2.webm",
-      style: {
-        height: "350px",
-        width: "615px",
-      },
+      src: "",
     },
   });
 
@@ -595,16 +633,16 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
   </svg>`,
     content: `
-    <div id="carouselExample" class="carousel slide" style="width: 600px;">
+    <div id="carouselExample" class="carousel slide slideDivClass">
     <div class="carousel-inner" style="">
       <div class="carousel-item active">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100" alt="..." style="height: 366px;">
+        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -616,10 +654,27 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+  <style>
+  .slideDivClass{
+    width: 600px;
+  }
+.imgClass{
+  height: 366px;
+}
+  @media only screen and (max-width: 600px) {
+    .slideDivClass{
+      width: 100% !important;
+    }
+    .imgClass{
+      height: 15rem;
+    }
+  }
+  </style>
     `,
   });
 
-  // collapse using bootstrap component done
+  // collapse using bootstrap component done || need style modification later
   editor.BlockManager.add("collapse", {
     label: "Collapse",
     category: "Extra",
@@ -630,11 +685,11 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <p class="d-inline-flex gap-1">
   <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle element</a>
 </p>
-<div class="row" style="width: 40rem">
+<div class="row rowClass">
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample1">
       <div class="card card-body">
-      <p class="fs-6" style="margin-bottom: 0rem;"> Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.</p>
+      <p class="fs-6"> Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.</p>
       </div>
     </div>
   </div>
@@ -684,7 +739,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6 3h4V5H6zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1"/>
   </svg>`,
     content: `
-    <ul class="nav nav-tabs" id="myTab" role="tablist" style="width: 25rem;">
+    <ul class="nav nav-tabs myTab" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true"><p class="fs-6" style="margin-bottom: 0rem;">Home</p></button>
     </li>
@@ -695,7 +750,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false"><p class="fs-6" style="margin-bottom: 0rem;">Contact</p></button>
     </li>
   </ul>
-  <div class="tab-content border border-secondary" id="myTabContent"  style="width: 25rem;">
+  <div class="tab-content border border-secondary myTab" id="myTabContent">
     <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
     <p class="fs-6" style="margin-bottom: 0rem;">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident reiciendis ullam expedita sed ipsum tenetur laudantium architecto cumque esse accusamus praesentium quas eos quasi repellendus, a rem. Hic, soluta iusto?
@@ -712,6 +767,17 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </p>
     </div>
   </div>
+
+  <style>
+  .myTab {
+    width: 25rem;
+  }
+  @media only screen and (max-width: 600px) {
+    .myTab{
+      width: 100% !important;
+    }
+  }
+  </style>
     `,
   });
 

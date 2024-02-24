@@ -20,7 +20,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     // get html  & css from the editor
     const htmlString = editor.getHtml();
     const css = editor.getCss();
-    console.log(htmlString);
 
     const projectData = editor.getProjectData();
 
@@ -39,8 +38,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       css: `${css}`,
       projectData,
     };
-
-    console.log(dataObj);
 
     const projectEndpoint = `https://chepapest.com/api/dev/user/landing-page/${id}/save`;
 
