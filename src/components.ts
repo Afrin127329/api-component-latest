@@ -327,6 +327,18 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  Components.addType(typeHero, {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "Hero Div",
+        tagName: "div",
+        droppable: false,
+      },
+    },
+  });
+
   // For  video component
   Components.addType("video", {
     model: {
