@@ -52,7 +52,16 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       });
       const res = await response.json();
 
-      if (res.data === "OK") {
+      if (!res.project_data) {
+        editor.Modal.open({
+          title: "There was a server side error!",
+          styles: `
+            .gjs-mdl-header {
+              height: 50rem !important;
+            }
+            `,
+        });
+      } else {
         editor.Modal.open({
           title: "Your Page has been Published. Thank you",
           styles: `
@@ -63,7 +72,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         });
 
         // Get and load current project data
-        editor.loadProjectData(projectData);
+        editor.loadProjectData(res.project_data);
         // editor.setComponents(htmlString);
         // editor.setStyle(css);
       }
