@@ -63,7 +63,8 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         });
       } else {
         editor.Modal.open({
-          title: "Your Page has been Published. Thank you",
+          title: "Your Page has been Published",
+          content: "Thank you",
           styles: `
             .gjs-mdl-header {
               height: 50rem !important;

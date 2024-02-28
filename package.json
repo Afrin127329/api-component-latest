@@ -1,6 +1,6 @@
 {
   "name": "api-component",
-  "version": "1.0.15",
+  "version": "1.0.18",
   "description": "Api Component",
   "main": "dist/index.js",
   "repository": {
