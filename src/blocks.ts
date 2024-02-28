@@ -188,10 +188,8 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     content: {
       type: "link",
-      editable: false,
-      droppable: true,
       attributes: { class: "btn btn-warning" },
-      content: `<span >Link</span>`,
+      content: `<span class="fs-6">Link</span>`,
     },
   });
 
@@ -607,6 +605,23 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             border-style: dashed;
             border-color: lightgrey;
             padding: 0 20px;
+        }
+
+        @media only screen and (max-width: 600px) {
+          .wrapper{
+            width: 100% !important;
+            padding: 1rem;
+          }
+          .text{
+            padding: 1rem;
+          }
+
+          .section-top {
+            padding: 1rem;
+        }
+        .section-bottom {
+            padding: 1rem;
+        }
         }
     </style>
   `,

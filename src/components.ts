@@ -128,7 +128,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     model: {
       defaults: {
         tagName: "p",
-        droppable: false,
         highlightable: false,
         attributes: { class: ` ${productPrefix}-idTitle` },
         styles:
@@ -274,32 +273,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           class: `${productPrefix}-inputBtn btn btn-success`,
         },
         text: "Submit Now",
-        // styles:
-        //   opts.style ||
-        //   `
-        //   .${productPrefix}-inputBtn{
-        //     padding: 0.5rem;
-        //     width: 100%;
-        //     cursor: pointer;
-        //     background: transparent;
-        //     border: 2px solid #d9d9d9;
-        //     border-radius: 10px;
-        //     font-size: 18px;
-
-        //   }
-        //   .${productPrefix}-inputBtn:hover{
-        //     background: green;
-        //     color: white;
-        //   }
-
-        //   @media only screen and (max-width: 600px) {
-        //     .${productPrefix}-inputBtn{
-        //       font-size: 1rem;
-
-        //     }
-        //   }
-
-        //   `,
       },
     },
   });
@@ -310,7 +283,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     model: {
       defaults: {
         name: "Social Icons",
-        droppable: false,
         tagName: "div",
       },
     },
@@ -334,7 +306,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       defaults: {
         name: "Hero Div",
         tagName: "div",
-        droppable: false,
       },
     },
   });

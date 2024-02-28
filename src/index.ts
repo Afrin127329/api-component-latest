@@ -25,11 +25,6 @@ export type PluginOptions = {
   updateStyleManager?: boolean;
   tableStyle?: Record<string, string>;
   cellStyle?: Record<string, string>;
-  // resetBlocks?: true;
-  // resetStyleManager?: true;
-  // resetDevices?: true;
-  // hideSelector?: true;
-  // useXmlParser?: false;
 };
 export type RequiredPluginOptions = Required<PluginOptions>;
 
@@ -55,13 +50,46 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
       padding: "5px 5px 5px 5px",
       width: "100%",
     },
-    // resetBlocks: true,
-    // resetStyleManager: true,
-    // resetDevices: true,
-    // hideSelector: true,
-    // useXmlParser: false,
     ...opts,
   };
+
+  editor.on("load", () => {
+    const url1 = document.location.href; // ?id=33
+    const url = new URL(url1);
+    const params = new URLSearchParams(url.search);
+    const id = params.get("id");
+
+    // get data
+    async function getData() {
+      try {
+        const response = await fetch(
+          `https://chepapest.com/api/dev/user/landing-page/${id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response);
+        const res = await response.json();
+        console.log(res);
+
+        if (res.data) {
+          editor.setComponents(res.data.content);
+          editor.setStyle(res.data.css);
+        } else {
+          editor.setComponents('<div class="cls">Start editing</div>');
+        }
+      } catch (error) {
+        editor.Modal.open({
+          title: "There was some server side error",
+          content: "Sorry for inconvenience",
+        });
+      }
+    }
+    getData();
+  });
 
   // Add components & blocks
   loadComponents(editor, options);

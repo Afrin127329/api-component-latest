@@ -20,11 +20,6 @@ export type PluginOptions = {
 	updateStyleManager?: boolean;
 	tableStyle?: Record<string, string>;
 	cellStyle?: Record<string, string>;
-	resetBlocks?: true;
-	resetStyleManager?: true;
-	resetDevices?: true;
-	hideSelector?: true;
-	useXmlParser?: false;
 };
 export type RequiredPluginOptions = Required<PluginOptions>;
 declare const plugin: Plugin<PluginOptions>;

@@ -8,7 +8,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     id: "publishSite",
     active: true, // active by default
     className: "btn-toggle-borders",
-    label: "Publish",
+    label: "Save as Template",
     command: "sw-visibility",
   });
 
@@ -29,9 +29,16 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       .replace(/<\/body\s*>/, "");
 
     // get the Id from the location
+    const url1 = document.location.href; //?id=33
+    const url = new URL(url1);
+
+    const params = new URLSearchParams(url.search);
+    const id = params.get("id");
+
     // const url = document.location.href;
-    const url = "https://chepapest.com/admin/landing_page/edit/1";
-    const id = url.split("/").pop();
+    // const url = "https://chepapest.com/admin/landing_page/edit/1";
+    // const id = url.split("/").pop();
+
     const dataObj = {
       id,
       html: `${html}`,
@@ -63,18 +70,12 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         });
       } else {
         editor.Modal.open({
-          title: "Your Page has been Published. Thank you",
-          styles: `
-            .gjs-mdl-header {
-              height: 50rem !important;
-            }
-            `,
+          title: "Your Page has been Published",
+          content: "Thank you",
         });
 
         // Get and load current project data
         editor.loadProjectData(res.project_data);
-        // editor.setComponents(htmlString);
-        // editor.setStyle(css);
       }
       console.log(res);
     }
