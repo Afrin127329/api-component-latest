@@ -8,7 +8,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     id: "publishSite",
     active: true, // active by default
     className: "btn-toggle-borders",
-    label: "Publish",
+    label: "Save as Template",
     command: "sw-visibility",
   });
 

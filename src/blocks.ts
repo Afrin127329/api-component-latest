@@ -608,6 +608,23 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             border-color: lightgrey;
             padding: 0 20px;
         }
+
+        @media only screen and (max-width: 600px) {
+          .wrapper{
+            width: 100% !important;
+            padding: 1rem;
+          }
+          .text{
+            padding: 1rem;
+          }
+
+          .section-top {
+            padding: 1rem;
+        }
+        .section-bottom {
+            padding: 1rem;
+        }
+        }
     </style>
   `,
   });
