@@ -63,6 +63,46 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
     ...opts,
   };
 
+  editor.on("load", () => {
+    // const url = document.location.href; //?id=33
+    // const url = new URL("https://chepapest.com/admin/landing_page/edit/?id=1");
+    // const params = new URLSearchParams(url.search);
+    // const id = params.get("id");
+
+    // const url = document.location.href;
+    const url = "https://chepapest.com/admin/landing_page/edit/1";
+    const id = url.split("/").pop();
+
+    // get data
+    async function getData() {
+      try {
+        const response = await fetch(
+          `https://chepapest.com/api/dev/user/landing-page/${id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const res = await response.json();
+
+        if (res.data) {
+          editor.setComponents(res.data.content);
+          editor.setStyle(res.data.css);
+        } else {
+          editor.setComponents('<div class="cls">Start editing</div>');
+        }
+      } catch (error) {
+        editor.Modal.open({
+          title: "There was some server side error",
+          content: "Sorry for inconvenience",
+        });
+      }
+    }
+    getData();
+  });
+
   // Add components & blocks
   loadComponents(editor, options);
   loadBlocks(editor, options);

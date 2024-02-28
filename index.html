@@ -20,18 +20,25 @@
     }
   </style>
   <body>
+    <input id="project-html" type="hidden" />
+    <input
+      id="project-data"
+      type="hidden"
+      value='{"pages": [{"component": "<div>Initial content</div>"}]}'
+    />
     <div id="gjs" style="height: 0px; overflow: hidden"></div>
 
     <!-- Scripts  -->
     <script type="text/javascript">
       window.onload = () => {
-        window.editor = grapesjs.init({
+        const editor = grapesjs.init({
           container: "#gjs",
           height: "100%",
           fromElement: true,
           noticeOnUnload: false,
           showOffsets: true,
           blockManager: {},
+          storageManager: { type: "inline" },
 
           plugins: ["api-component", "grapesjs-custom-code"],
           pluginsOpts: {},

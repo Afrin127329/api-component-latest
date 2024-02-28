@@ -29,9 +29,16 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       .replace(/<\/body\s*>/, "");
 
     // get the Id from the location
+    // const url = document.location.href; //?id=33
+    // const url = new URL("https://chepapest.com/admin/landing_page/edit/?id=1");
+
+    // const params = new URLSearchParams(url.search);
+    // const id = params.get("id");
+
     // const url = document.location.href;
     const url = "https://chepapest.com/admin/landing_page/edit/1";
     const id = url.split("/").pop();
+
     const dataObj = {
       id,
       html: `${html}`,
@@ -65,17 +72,10 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         editor.Modal.open({
           title: "Your Page has been Published",
           content: "Thank you",
-          styles: `
-            .gjs-mdl-header {
-              height: 50rem !important;
-            }
-            `,
         });
 
         // Get and load current project data
         editor.loadProjectData(res.project_data);
-        // editor.setComponents(htmlString);
-        // editor.setStyle(css);
       }
       console.log(res);
     }
