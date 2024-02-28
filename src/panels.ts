@@ -29,15 +29,15 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       .replace(/<\/body\s*>/, "");
 
     // get the Id from the location
-    // const url = document.location.href; //?id=33
-    // const url = new URL("https://chepapest.com/admin/landing_page/edit/?id=1");
+    const url1 = document.location.href; //?id=33
+    const url = new URL(url1);
 
-    // const params = new URLSearchParams(url.search);
-    // const id = params.get("id");
+    const params = new URLSearchParams(url.search);
+    const id = params.get("id");
 
     // const url = document.location.href;
-    const url = "https://chepapest.com/admin/landing_page/edit/1";
-    const id = url.split("/").pop();
+    // const url = "https://chepapest.com/admin/landing_page/edit/1";
+    // const id = url.split("/").pop();
 
     const dataObj = {
       id,

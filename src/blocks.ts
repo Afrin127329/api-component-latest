@@ -188,10 +188,8 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     content: {
       type: "link",
-      editable: false,
-      droppable: true,
       attributes: { class: "btn btn-warning" },
-      content: `<span >Link</span>`,
+      content: `<span class="fs-6">Link</span>`,
     },
   });
 
