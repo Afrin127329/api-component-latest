@@ -25,11 +25,6 @@ export type PluginOptions = {
   updateStyleManager?: boolean;
   tableStyle?: Record<string, string>;
   cellStyle?: Record<string, string>;
-  // resetBlocks?: true;
-  // resetStyleManager?: true;
-  // resetDevices?: true;
-  // hideSelector?: true;
-  // useXmlParser?: false;
 };
 export type RequiredPluginOptions = Required<PluginOptions>;
 
@@ -55,23 +50,14 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
       padding: "5px 5px 5px 5px",
       width: "100%",
     },
-    // resetBlocks: true,
-    // resetStyleManager: true,
-    // resetDevices: true,
-    // hideSelector: true,
-    // useXmlParser: false,
     ...opts,
   };
 
   editor.on("load", () => {
-    // const url = document.location.href; //?id=33
-    // const url = new URL("https://chepapest.com/admin/landing_page/edit/?id=1");
-    // const params = new URLSearchParams(url.search);
-    // const id = params.get("id");
-
-    // const url = document.location.href;
-    const url = "https://chepapest.com/admin/landing_page/edit/1";
-    const id = url.split("/").pop();
+    const url1 = document.location.href; // ?id=33
+    const url = new URL(url1);
+    const params = new URLSearchParams(url.search);
+    const id = params.get("id");
 
     // get data
     async function getData() {
@@ -85,7 +71,9 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
             },
           }
         );
+        console.log(response);
         const res = await response.json();
+        console.log(res);
 
         if (res.data) {
           editor.setComponents(res.data.content);
