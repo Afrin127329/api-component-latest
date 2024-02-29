@@ -15,7 +15,7 @@ export const typeWrapper = "wrapper";
 export const typeSocial = "social";
 
 export default (editor: Editor, opts: RequiredPluginOptions) => {
-  const { Components, TraitManager } = editor;
+  const { Components } = editor;
   const { label } = opts;
   let productData: any;
   const productPrefix = opts.classPrefix;
@@ -40,6 +40,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     }
   };
 
+  // Form component
   Components.addType(typeForm, {
     view: {
       onRender() {
@@ -261,6 +262,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // Form Button
   Components.addType(typeButton, {
     extend: typeInput,
     isComponent: (el) => el.tagName == "BUTTON",
@@ -277,9 +279,9 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // Social icons div
   editor.Components.addType(typeSocial, {
     isComponent: (el) => el.tagName == "DIV",
-
     model: {
       defaults: {
         name: "Social Icons",
@@ -288,6 +290,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // Wrapper div
   Components.addType(typeWrapper, {
     isComponent: (el) => el.tagName == "DIV",
 

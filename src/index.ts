@@ -59,7 +59,7 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
     const params = new URLSearchParams(url.search);
     const id = params.get("id");
 
-    // get data
+    //  Function for Recieving data from server and load it while initialization of the editor
     async function getData() {
       try {
         const response = await fetch(
@@ -71,9 +71,7 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
             },
           }
         );
-        console.log(response);
         const res = await response.json();
-        console.log(res);
 
         if (res.data) {
           editor.setComponents(res.data.content);

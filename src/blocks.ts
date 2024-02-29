@@ -179,7 +179,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     }
   }
 
-  // Bootstrap styling added
+  // Link block
   editor.BlockManager.add("link-block", {
     label: "Link Block",
     category: "Basic",
@@ -193,7 +193,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  // Bootstrap styling added
+  // Quote
   editor.BlockManager.add("quote", {
     label: "Quote",
     category: "Basic",
@@ -209,7 +209,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       </blockquote>`,
   });
 
-  //  No Style needed
+  //  H1 block
   editor.BlockManager.add("h1-block", {
     label: "Heading",
     media: `
@@ -224,7 +224,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  // Bootstrap styling added
+  //  Add text block
   editor.BlockManager.add("text", {
     label: "Text",
     category: "Basic",
@@ -240,7 +240,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  // Added Text Section
+  // Add Text Section
   editor.BlockManager.add("text-sect", {
     label: "Text Section",
     category: "Basic",
@@ -255,7 +255,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  // Works
+  // Image block
   editor.BlockManager.add("image", {
     label: "Image",
     category: "Extra",
@@ -272,7 +272,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  // Manual styling done
+  // 1 section
   editor.BlockManager.add("sect100", {
     label: "1 Section",
     category: "Basic",
@@ -288,7 +288,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  // Manual styling done
+  // 2/1 section
   editor.BlockManager.add("sect50", {
     label: "1/2 Section",
     category: "Basic",
@@ -305,7 +305,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  // Manual styling done
+  //  3/1 section
   editor.BlockManager.add("sect30", {
     label: "1/3 Section",
     category: "Basic",
@@ -323,7 +323,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  // Manual styling done
+  // 3/7 section block
   editor.BlockManager.add("sect37", {
     label: "3/7 Section",
     category: "Basic",
@@ -340,7 +340,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  //  Modified style with bootstrap
+  //  Bootstrap button
   editor.BlockManager.add("button", {
     label: "Button",
     category: "Basic",
@@ -350,7 +350,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     content: '<a class="btn btn-primary">Button</a>',
   });
 
-  // No modificaiton needed
+  //  Divider block
   editor.BlockManager.add("divider", {
     label: "Divider",
     category: "Extra",
@@ -372,7 +372,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  //  Modified style with bootstrap
+  //  3 Grid items content
   const gridItem = `<table class="card" style="width: 18rem;">
     <tr>
       <td >
@@ -390,6 +390,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </tr>
   </table>`;
 
+  //  3 Grid items block
   editor.BlockManager.add("grid-items", {
     label: "Grid Items",
     category: "Extra",
@@ -417,7 +418,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   `,
   });
 
-  // Styling added
+  // 3 list items content
   const listItem = `<table class="card">
     <tr>
       <td class="list-item-cell">
@@ -437,7 +438,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   </table>
   `;
 
-  // Styling added
+  // 3 list block
   editor.BlockManager.add("list-items", {
     label: "List Items",
     category: "Extra",
@@ -478,7 +479,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       `,
   });
 
-  // Navbar styling with Bootstrap
+  //  Bootstrap Navbar
   editor.BlockManager.add(typeNavbar, {
     label: "Navbar",
     category: "Extra",
@@ -627,7 +628,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   `,
   });
 
-  // Video from grapesjs
+  // Video
   editor.BlockManager.add("video", {
     label: "Video",
     category: "Extra",
@@ -640,7 +641,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  // Carousel using bootstrap component done
+  // Carousel using bootstrap
   editor.BlockManager.add("carousel", {
     label: "Slider",
     category: "Extra",
@@ -689,7 +690,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
-  // collapse using bootstrap component done || need style modification later
+  // collapse using bootstrap component
   editor.BlockManager.add("collapse", {
     label: "Collapse",
     category: "Extra",
@@ -711,40 +712,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 </div>
     `,
   });
-
-  // Vertically centered Modal Active component using bootstrap --> Will add later
-  //   editor.BlockManager.add("bootstrapModal", {
-  //     label: "Modal",
-  //     category: "Extra",
-  //     media: `<svg class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
-  //     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5m9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5m-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
-  //   </svg>`,
-  //     content: `
-  // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  // <p class="fs-6" style="margin-bottom: 0rem;" ondblclick="editable()">
-  //   Launch  modal
-  //   </p>
-  // </button>
-
-  // <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  //   <div class="modal-dialog modal-dialog-centered">
-  //     <div class="modal-content">
-  //       <div class="modal-header">
-  //         <h1 class="modal-title fs-5" id="staticBackdropLabel"><p class="fs-6" style="margin-bottom: 0rem;">Modal title</p></h1>
-  //         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-  //       </div>
-  //       <div class="modal-body">
-  //       <p class="fs-6" style="margin-bottom: 0rem;">Modal body text goes here.</p>
-  //       </div>
-  //       <div class="modal-footer">
-  //         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><p class="fs-6" style="margin-bottom: 0rem;">Close</p></button>
-  //         <button type="button" class="btn btn-primary"><p class="fs-6" style="margin-bottom: 0rem;">Understood</p></button>
-  //       </div>
-  //     </div>
-  //   </div>
-  // </div>
-  //     `,
-  //   });
 
   // Tabs component using bootstrap
   editor.BlockManager.add("tabs", {
@@ -795,6 +762,40 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   </style>
     `,
   });
+
+  // Vertically centered Modal Active component using bootstrap --> Will add later
+  //   editor.BlockManager.add("bootstrapModal", {
+  //     label: "Modal",
+  //     category: "Extra",
+  //     media: `<svg class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
+  //     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5m9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5m-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+  //   </svg>`,
+  //     content: `
+  // <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  // <p class="fs-6" style="margin-bottom: 0rem;" ondblclick="editable()">
+  //   Launch  modal
+  //   </p>
+  // </button>
+
+  // <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  //   <div class="modal-dialog modal-dialog-centered">
+  //     <div class="modal-content">
+  //       <div class="modal-header">
+  //         <h1 class="modal-title fs-5" id="staticBackdropLabel"><p class="fs-6" style="margin-bottom: 0rem;">Modal title</p></h1>
+  //         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  //       </div>
+  //       <div class="modal-body">
+  //       <p class="fs-6" style="margin-bottom: 0rem;">Modal body text goes here.</p>
+  //       </div>
+  //       <div class="modal-footer">
+  //         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><p class="fs-6" style="margin-bottom: 0rem;">Close</p></button>
+  //         <button type="button" class="btn btn-primary"><p class="fs-6" style="margin-bottom: 0rem;">Understood</p></button>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  //     `,
+  //   });
 
   // Off canvas component using bootstrap --> Will add later
   //   editor.BlockManager.add("offCanvas", {
