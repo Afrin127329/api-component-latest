@@ -38,7 +38,11 @@
           noticeOnUnload: false,
           showOffsets: true,
           blockManager: {},
-          storageManager: { type: "inline" },
+          storageManager: {
+            type: "inline",
+            autosave: true,
+            stepsBeforeSave: 1,
+          },
 
           plugins: ["api-component", "grapesjs-custom-code"],
           pluginsOpts: {},
