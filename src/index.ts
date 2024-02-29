@@ -76,8 +76,23 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
         if (res.data) {
           editor.setComponents(res.data.content);
           editor.setStyle(res.data.css);
+          localStorage.setItem("gjsProject", res.data.project_data);
         } else {
           editor.setComponents('<div class="cls">Start editing</div>');
+          const storedData: any = localStorage.getItem("gjsProject");
+          console.log(storedData);
+          editor.loadProjectData(JSON.parse(storedData));
+
+          // const projectData: any = localStorage.getItem("gjsProject");
+          // editor.Storage.add("gjsProject", {
+          //   async load(options = {}) {
+          //     console.log(JSON.parse(projectData));
+          //     return JSON.parse(projectData);
+          //   },
+          //   async store(data, options = {}) {
+          //     sessionStorage.setItem("gjsProject", JSON.stringify(data));
+          //   },
+          // });
         }
       } catch (error) {
         editor.Modal.open({
@@ -87,6 +102,14 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
       }
     }
     getData();
+  });
+
+  editor.on("update", () => {
+    const localData = editor.getProjectData();
+    localStorage.setItem("gjsProject", JSON.stringify(localData));
+    // editor.loadProjectData(localData);
+    console.log("updated");
+    console.log(localData);
   });
 
   // Add components & blocks

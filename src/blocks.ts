@@ -807,15 +807,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 
   <style>
 
-  .form-control {
-    background: #212529;
-    border-color: #545454;
-  }
-  
-  .form-control:focus {
-    background: #212529;
-  }
-  
   footer {
     background: #212529;
   }
