@@ -73,10 +73,18 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
         );
         const res = await response.json();
 
+        // if (!res.data) {
+
+        //   }
         if (res.data) {
           editor.setComponents(res.data.content);
           editor.setStyle(res.data.css);
-          localStorage.setItem("gjsProject", res.data.project_data);
+          const localEditorData: any = editor.getProjectData();
+          const editorData = res.data.project_data
+            ? res.data.project_data
+            : localEditorData;
+
+          localStorage.setItem("gjsProject", editorData);
         } else {
           editor.setComponents('<div class="cls">Start editing</div>');
           const storedData: any = localStorage.getItem("gjsProject");
@@ -108,8 +116,8 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
     const localData = editor.getProjectData();
     localStorage.setItem("gjsProject", JSON.stringify(localData));
     // editor.loadProjectData(localData);
-    console.log("updated");
-    console.log(localData);
+    // console.log("updated");
+    // console.log(localData);
   });
 
   // Add components & blocks
