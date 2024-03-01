@@ -45,9 +45,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     view: {
       onRender() {
         productData = this.model.attributes.selectedData;
-
-        let token: any = Components.getById("token").view;
-        token.el.value = document.head.querySelector('meta[name="csrf-token"]');
       },
       events: {
         submit: (e: Event) => e.preventDefault(),
@@ -118,6 +115,20 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
           idElem.el.innerHTML = data.id;
           priceElem.el.innerHTML = data.price;
           quantityElem.el.innerHTML = 1;
+
+          // Get the CSRF token from the meta tag
+          let csrfToken =
+            document.head.querySelector('meta[name="csrf-token"]') ||
+            "{{ csrf_token() }}";
+
+          // Set the CSRF token as the value of the input field
+          let token = Components.getById("token").view?.attr;
+
+          if (token) {
+            token.value = csrfToken;
+          } else {
+            console.error("Token input element not found");
+          }
         });
       },
     },
@@ -298,6 +309,9 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       defaults: {
         name: "Wrapper",
         tagName: "div",
+        attributes: {
+          style: "margin-bottom: 1rem; padding-bottom: 1rem;",
+        },
       },
     },
   });
