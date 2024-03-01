@@ -12,9 +12,17 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     command: "sw-visibility",
   });
 
+  interface DataObject {
+    id: string | null;
+    html: string;
+    css: string;
+    projectData: any;
+  }
+
   // Remove view code panel button
   editor.Panels.removeButton("options", "export-template");
 
+  // Logic for sending data to the server after clicking on the btn
   const btn: any = editor.Panels.getButton("options", "publishSite");
   btn.on("change", async () => {
     // get html  & css from the editor
@@ -35,11 +43,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     const params = new URLSearchParams(url.search);
     const id = params.get("id");
 
-    // const url = document.location.href;
-    // const url = "https://chepapest.com/admin/landing_page/edit/1";
-    // const id = url.split("/").pop();
-
-    const dataObj = {
+    const dataObj: DataObject = {
       id,
       html: `${html}`,
       css: `${css}`,
@@ -48,7 +52,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
     const projectEndpoint = `https://chepapest.com/api/dev/user/landing-page/${id}/save`;
 
-    // Send data
+    // Send data to the server
     async function sendData() {
       const response = await fetch(projectEndpoint, {
         method: "POST",
@@ -62,11 +66,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       if (!res.project_data) {
         editor.Modal.open({
           title: "There was a server side error!",
-          styles: `
-            .gjs-mdl-header {
-              height: 50rem !important;
-            }
-            `,
         });
       } else {
         editor.Modal.open({
