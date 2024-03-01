@@ -50,6 +50,8 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       projectData,
     };
 
+    console.log(dataObj);
+
     const projectEndpoint = `https://chepapest.com/api/dev/user/landing-page/${id}/save`;
 
     // Send data to the server
@@ -62,6 +64,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         body: JSON.stringify(dataObj),
       });
       const res = await response.json();
+      console.log(res);
 
       if (!res.project_data) {
         editor.Modal.open({
@@ -75,6 +78,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
         // Get and load current project data
         editor.loadProjectData(res.project_data);
+        localStorage.clear();
       }
       console.log(res);
     }
