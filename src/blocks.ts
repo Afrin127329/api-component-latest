@@ -279,12 +279,19 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M2 20h20V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h20a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
     </svg>`,
+    attributes: {
+      class: "gjs-droppable",
+    },
     content: `
-      <table style="${tableStyleStr}">
-        <tr>
-          <td style="${cellStyleStr}"></td>
-        </tr>
-      </table>
+    <div class="gjs-droppable container sect100Class"></div>
+
+      <style>
+      .sect100Class{
+        height: 10rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      </style>
     `,
   });
 
@@ -767,8 +774,9 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   editor.BlockManager.add("footer", {
     label: "Footer",
     category: "Extra",
-    media: `<svg class="bi bi-segmented-nav" viewBox="0 0 16 16">
-    <path d="M0 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6 3h4V5H6zm9-1V6a1 1 0 0 0-1-1h-3v4h3a1 1 0 0 0 1-1"/>
+    media: `<svg class="bi bi-caret-up-square" viewBox="0 0 16 16">
+    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+    <path d="M3.544 10.705A.5.5 0 0 0 4 11h8a.5.5 0 0 0 .374-.832l-4-4.5a.5.5 0 0 0-.748 0l-4 4.5a.5.5 0 0 0-.082.537"/>
   </svg>`,
     content: `
     <footer class="w-100 py-4 flex-shrink-0">
