@@ -323,6 +323,19 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       defaults: {
         name: "Hero Div",
         tagName: "div",
+        class: "gjs-droppable",
+      },
+    },
+  });
+
+  Components.addType("sect100", {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "Section Div",
+        tagName: "div",
+        class: "gjs-droppable",
       },
     },
   });
