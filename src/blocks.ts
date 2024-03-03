@@ -303,12 +303,23 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <path fill="currentColor" d="M2 20h8V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM13 20h8V4h-8v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-    <table style="${tableStyleStr}" class="container text-center">
-    <tr>
-      <td style="${cellStyleStr} width: 50%"></td>
-      <td style="${cellStyleStr} width: 50%"></td>
-    </tr>
-  </table>
+    <div style="${tableStyleStr}" class="d-flex container text-center sect50Class gjs-droppable">
+  <div class=" gjs-droppable sect50Div1"></div>
+  <div class=" gjs-droppable sect50Div1"></div>
+</div>
+
+
+  <style>
+  .sect50Class{
+    height: 10rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .sect50Div1{
+    width: 50%;
+    height: 100%;
+  }
+  </style>
     `,
   });
 
