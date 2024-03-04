@@ -9,7 +9,7 @@ export const typeText = "text";
 export const typeDesc = "desc";
 export const typeDiv = "div";
 export const typeHiddenDiv = "hiddenDiv";
-export const typeNavbar = "";
+export const typeNavbar = "navbar";
 export const typeHero = "hero";
 export const typeWrapper = "wrapper";
 export const typeSocial = "social";
@@ -372,6 +372,19 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         name: "3/7 Section Div",
         tagName: "div",
         class: "gjs-droppable",
+      },
+    },
+  });
+
+  Components.addType("text-block", {
+    isComponent: (el) => el.tagName == "P",
+
+    model: {
+      defaults: {
+        name: "Text Sect",
+        tagName: "p",
+        class: "gjs-droppable",
+        attributes: { contenteditable: "true" },
       },
     },
   });
