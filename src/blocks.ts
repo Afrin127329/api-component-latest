@@ -217,26 +217,19 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   <path d="M7.648 13V3H6.3v4.234H1.348V3H0v10h1.348V8.421H6.3V13zM14 13V3h-1.333l-2.381 1.766V6.12L12.6 4.443h.066V13z"/>
 </svg>
     `,
-    content: "<h1>Put your title here</h1>",
+    content: `<h1 class="gjs-droppable h1 text-center font-weight-bold">Put your title here</h1>
+      
+      <style>
+          .h1{
+            font-weight: 800;
+            font-size: 3rem;
+          }
+      </style>
+      
+      `,
     category: "Basic",
     attributes: {
       title: "Insert h1 block",
-    },
-  });
-
-  //  Add text block
-  editor.BlockManager.add("text", {
-    label: "Text",
-    category: "Basic",
-    media: `<svg viewBox="0 0 24 24">
-      <path fill="currentColor" d="M18.5,4L19.66,8.35L18.7,8.61C18.25,7.74 17.79,6.87 17.26,6.43C16.73,6 16.11,6 15.5,6H13V16.5C13,17 13,17.5 13.33,17.75C13.67,18 14.33,18 15,18V19H9V18C9.67,18 10.33,18 10.67,17.75C11,17.5 11,17 11,16.5V6H8.5C7.89,6 7.27,6 6.74,6.43C6.21,6.87 5.75,7.74 5.3,8.61L4.34,8.35L5.5,4H18.5Z" />
-    </svg>`,
-    activate: true,
-    content: {
-      type: "text",
-      attributes: { class: "alert alert-success" },
-      content: "Insert your text here",
-      style: { padding: "10px" },
     },
   });
 
@@ -248,7 +241,8 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         <path fill="currentColor" d="M20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20M4,6V18H20V6H4M6,9H18V11H6V9M6,13H16V15H6V13Z" />
     </svg>`,
     content: `
-    <div class="shadow-lg p-3 mb-5 bg-body rounded">  <h1 class="heading">Insert title here</h1>
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">
+     <h1 class="heading">Insert title here</h1>
     <p class="paragraph">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
     </p></div>
@@ -295,6 +289,22 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     `,
   });
 
+  //  Add text block
+  editor.BlockManager.add("text-block", {
+    label: "Text",
+    category: "Basic",
+    media: `<svg viewBox="0 0 24 24">
+      <path fill="currentColor" d="M18.5,4L19.66,8.35L18.7,8.61C18.25,7.74 17.79,6.87 17.26,6.43C16.73,6 16.11,6 15.5,6H13V16.5C13,17 13,17.5 13.33,17.75C13.67,18 14.33,18 15,18V19H9V18C9.67,18 10.33,18 10.67,17.75C11,17.5 11,17 11,16.5V6H8.5C7.89,6 7.27,6 6.74,6.43C6.21,6.87 5.75,7.74 5.3,8.61L4.34,8.35L5.5,4H18.5Z" />
+    </svg>`,
+    attributes: {
+      class: "gjs-droppable",
+      contenteditable: "true",
+    },
+    content: `
+    <p class= "gjs-droppable alert alert-success">Insert your text here</p>
+    `,
+  });
+
   // 2/1 section
   editor.BlockManager.add("sect50", {
     label: "1/2 Section",
@@ -331,13 +341,24 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-    <table style="${tableStyleStr}">
-    <tr>
-      <td style="${cellStyleStr} width: 33.3333%"></td>
-      <td style="${cellStyleStr} width: 33.3333%"></td>
-      <td style="${cellStyleStr} width: 33.3333%"></td>
-    </tr>
-  </table>
+
+    <div style="${tableStyleStr}" class="d-flex container text-center sect30Class gjs-droppable">
+    <div class=" gjs-droppable sect30Div1"></div>
+    <div class=" gjs-droppable sect30Div1"></div>
+    <div class=" gjs-droppable sect30Div1"></div>
+  </div>
+
+      <style>
+      .sect30Class{
+        height: 10rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      .sect30Div1{
+        width: 50%;
+        height: 100%;
+      }
+      </style>
     `,
   });
 
@@ -349,12 +370,26 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"></path>
     </svg>`,
     content: `
-    <table style="${tableStyleStr}">
-    <tr>
-      <td style="${cellStyleStr} width:30%"></td>
-      <td style="${cellStyleStr} width:70%"></td>
-    </tr>
-  </table>
+    <div style="${tableStyleStr}" class="d-flex container text-center sect37Class gjs-droppable">
+    <div class=" gjs-droppable sect37Div1"></div>
+    <div class=" gjs-droppable sect37Div2"></div>
+  </div>
+
+  <style>
+      .sect37Class{
+        height: 10rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      .sect37Div1{
+        width: 30%;
+        height: 100%;
+      }
+      .sect37Div2{
+        width: 70%;
+        height: 100%;
+      }
+      </style>
     `,
   });
 
