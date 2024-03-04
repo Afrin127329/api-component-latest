@@ -333,7 +333,19 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
     model: {
       defaults: {
-        name: "Section Div",
+        name: "1 Section Div",
+        tagName: "div",
+        class: "gjs-droppable",
+      },
+    },
+  });
+
+  Components.addType("sect50", {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "2 Section Div",
         tagName: "div",
         class: "gjs-droppable",
       },
