@@ -364,6 +364,18 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  Components.addType("sect37", {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "3/7 Section Div",
+        tagName: "div",
+        class: "gjs-droppable",
+      },
+    },
+  });
+
   // For  video component
   Components.addType("video", {
     model: {
