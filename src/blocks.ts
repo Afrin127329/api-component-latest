@@ -774,7 +774,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M20 20.5C20 21.3 19.3 22 18.5 22H13C12.6 22 12.3 21.9 12 21.6L8 17.4L8.7 16.6C8.9 16.4 9.2 16.3 9.5 16.3H9.7L12 18V9C12 8.4 12.4 8 13 8S14 8.4 14 9V13.5L15.2 13.6L19.1 15.8C19.6 16 20 16.6 20 17.1V20.5M20 2H4C2.9 2 2 2.9 2 4V12C2 13.1 2.9 14 4 14H8V12H4V4H20V12H18V14H20C21.1 14 22 13.1 22 12V4C22 2.9 21.1 2 20 2Z" />
     </svg>`,
-    content: '<a class="btn btn-primary">Button</a>',
+    content: '<a class="btn btn-primary btn-block">Button</a>',
   });
 
   //  Divider block
@@ -785,37 +785,39 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         <path fill="currentColor" d="M21 18H2V20H21V18M19 10V14H4V10H19M20 8H3C2.45 8 2 8.45 2 9V15C2 15.55 2.45 16 3 16H20C20.55 16 21 15.55 21 15V9C21 8.45 20.55 8 20 8M21 4H2V6H21V4Z" />
     </svg>`,
     content: `
-      <table style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
-        <tr>
-          <td ></td>
-        </tr>
-      </table>
+      <div class="divider-table container">
+      </div>
+
+
       <style>
-        .divider {
-          background-color: red;
-          height: 1px;
+        .divider-table {
+          width: 100%;
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+          height: 0px;
+          border: 1px solid gray;
         }
       </style>
     `,
   });
 
   //  3 Grid items content
-  const gridItem = `<table class="card" style="width: 18rem;">
-    <tr>
-      <td >
-        <img class="card-img-top" src="https://via.placeholder.com/250x150/78c5d6/fff/" alt="Image"/>
-        <table class="grid-item-card-body">
-          <tr>
-            <td class="card-body  d-flex flex-column ">
-              <h1 class="card-titl p-2 text-center">Title here</h1>
-              <p class="card-text p-2 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-              <a href="#" class="btn btn-success p-2">Go somewhere</a>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>`;
+  const gridItem = `
+  <div class="card grid-item-card">
+          <img class="card-img-top grid-item-img" src="https://via.placeholder.com/250x150/78c5d6/fff/" alt="Image"/>
+            <div class="card-body  d-flex flex-column grid-item-card-body-col">
+                <h1 class="card-titl p-2 text-center grid-item-card-body-col-head">Title here</h1>
+                <p class="card-text p-2 text-center grid-item-card-body-col-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                <a href="#" class="btn btn-success p-2 grid-item-card-body-btn">Go somewhere</a>
+            </div>
+   </div>
+  
+  <style>
+    .grid-item-card{
+      width: 18rem;
+    }
+  </style>
+  `;
 
   //  3 Grid items block
   editor.BlockManager.add("grid-items", {
