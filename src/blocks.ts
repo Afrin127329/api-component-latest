@@ -805,7 +805,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   const gridItem = `
   <div class="card grid-item-card">
           <img class="card-img-top grid-item-img" src="https://via.placeholder.com/250x150/78c5d6/fff/" alt="Image"/>
-            <div class="card-body  d-flex flex-column grid-item-card-body-col">
+            <div class="card-body  d-flex flex-column grid-item-card-body-col mt-4">
                 <h1 class="card-titl p-2 text-center grid-item-card-body-col-head">Title here</h1>
                 <p class="card-text p-2 text-center grid-item-card-body-col-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
                 <a href="#" class="btn btn-success p-2 grid-item-card-body-btn">Go somewhere</a>
@@ -827,13 +827,11 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path fill="currentColor" d="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3"/>
   </svg>`,
     content: `
-    <table >
-      <tr class="all-grid-items">
-        <td >${gridItem}</td>
-        <td >${gridItem}</td>
-        <td >${gridItem}</td>
-      </tr>
-    </table>
+    <div class="all-grid-items">
+    <div >${gridItem}</div>
+    <div>${gridItem}</div>
+    <div >${gridItem}</div>
+    </div>
 
     <style>
       .all-grid-items{
@@ -848,23 +846,38 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   });
 
   // 3 list items content
-  const listItem = `<table class="card">
-    <tr>
-      <td class="list-item-cell">
-        <table class="list-item-content">
-          <tr class="list-item-row">
-            <td class="list-cell-left">
-              <img class="card rounded" src="https://via.placeholder.com/150/78c5d6/fff" alt="Image"/>
-            </td>
-            <td class="list-cell-right">
-              <h1 class="card-title">Title here</h1>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
+  const listItem = `<div class="card list-container d-inline-flex">
+      <div class="list-item-cell list-inner-container">
+        <div class="list-item-content list-content">
+          <div class="list-item-row list-content-row">
+            <div class="list-cell-left list-content-cell-left">
+              <img class="card rounded list-content-cell-left-img" src="https://via.placeholder.com/150/78c5d6/fff" alt="Image"/>
+            </div>
+            <div class="list-cell-right list-content-cell-right">
+              <h1 class="card-title list-content-cell-title">Title here</h1>
+              <p class="card-text list-content-cell-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <style>
+    .list-inner-container{
+      margin: 13px;
+    }
+    .list-content{
+      margin: 13px;
+    }
+    .list-content-row{
+      display: flex;
+      gap: 1rem;
+    }
+    .3-list-content-cell-right{
+      margin-left: 10px;
+    }
+  </style>
+
   `;
 
   // 3 list block
