@@ -401,7 +401,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"></path>
     </svg>`,
     content: `
-    <section style="color: #000; background-color: #f3f2f2;">
+    <section class="customer-review">
   <div class="container py-5">
     <div class="row d-flex justify-content-center">
       <div class="col-md-10 col-xl-8 text-center">
@@ -426,23 +426,35 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             <h6 class="font-weight-bold my-3">Founder at ET Company</h6>
             <ul class="list-unstyled d-flex justify-content-center">
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+              <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star-half-alt fa-sm text-info"></i>
+              <svg width="16" height="16" fill="currentColor" class="bi bi-star-half text-warning" viewBox="0 0 16 16">
+              <path d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z"/>
+            </svg>
               </li>
             </ul>
             <p class="mb-2">
-              <i class="fas fa-quote-left pe-2"></i>Lorem ipsum dolor sit amet,
+            <svg width="16" height="16" fill="currentColor" class="bi bi-quote text-white" viewBox="0 0 16 16">
+            <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+          </svg>Lorem ipsum dolor sit amet,
               consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat
               ad velit ab hic tenetur.
             </p>
@@ -460,23 +472,35 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             <h6 class="font-weight-bold my-3">Photographer at Studio LA</h6>
             <ul class="list-unstyled d-flex justify-content-center">
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
             </ul>
             <p class="mb-2">
-              <i class="fas fa-quote-left pe-2"></i>Autem, totam debitis suscipit saepe
+            <svg width="16" height="16" fill="currentColor" class="bi bi-quote text-white" viewBox="0 0 16 16">
+            <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+          </svg>Autem, totam debitis suscipit saepe
               sapiente magnam officiis quaerat necessitatibus odio assumenda perferendis
               labore laboriosam.
             </p>
@@ -494,23 +518,35 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             <h6 class="font-weight-bold my-3">Front-end Developer in NY</h6>
             <ul class="list-unstyled d-flex justify-content-center">
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="fas fa-star fa-sm text-info"></i>
+               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
+              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+            </svg>
               </li>
               <li>
-                <i class="far fa-star fa-sm text-info"></i>
+              <svg width="16" height="16" fill="currentColor" class="bi bi-star-half text-warning" viewBox="0 0 16 16">
+              <path d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z"/>
+            </svg>
               </li>
             </ul>
             <p class="mb-2">
-              <i class="fas fa-quote-left pe-2"></i>Cras sit amet nibh libero, in gravida
+            <svg width="16" height="16" fill="currentColor" class="bi bi-quote text-white" viewBox="0 0 16 16">
+            <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+          </svg>Cras sit amet nibh libero, in gravida
               nulla metus scelerisque ante sollicitudin commodo cras purus odio,
               vestibulum in tempus viverra turpis.
             </p>
@@ -520,6 +556,17 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </div>
   </div>
 </section>
+
+<style>
+.customer-review {
+  color: #000;
+  background-color: #f3f2f2;
+}
+ .card {
+  background-color: #303030;
+  color: #fff;
+ }
+</style>
 
     `,
   });

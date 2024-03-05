@@ -340,6 +340,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // Section of 1/2
   Components.addType("sect50", {
     isComponent: (el) => el.tagName == "DIV",
 
@@ -352,6 +353,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // Section of 1/3
   Components.addType("sect30", {
     isComponent: (el) => el.tagName == "DIV",
 
@@ -364,6 +366,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  //  Section of 3/7
   Components.addType("sect37", {
     isComponent: (el) => el.tagName == "DIV",
 
@@ -376,6 +379,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
+  // For single text block
   Components.addType("text-block", {
     isComponent: (el) => el.tagName == "P",
 
@@ -385,6 +389,19 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         tagName: "p",
         class: "gjs-droppable",
         attributes: { contenteditable: "true" },
+      },
+    },
+  });
+
+  // For single text block
+  Components.addType("customer-review", {
+    isComponent: (el) => el.tagName == "DIV",
+
+    model: {
+      defaults: {
+        name: "Customer Review Div",
+        tagName: "div",
+        class: "gjs-droppable",
       },
     },
   });
