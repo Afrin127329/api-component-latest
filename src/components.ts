@@ -399,7 +399,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
     model: {
       defaults: {
-        name: "Customer Review Div",
+        name: "Editable  Div",
         tagName: "div",
         class: "gjs-droppable",
       },
