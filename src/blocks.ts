@@ -189,7 +189,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     content: {
       type: "link",
       attributes: { class: "btn btn-warning" },
-      content: `<span class="fs-6">Link</span>`,
+      content: `<span class="fs-6 link-block-span">Link</span>`,
     },
   });
 
@@ -200,10 +200,10 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z" />
     </svg>`,
-    content: `<blockquote class="alert alert-primary py-3 m-2">
+    content: `<blockquote class="alert alert-primary py-3 m-2 quote-block">
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M6.5 10c-.223 0-.437.034-.65.065c.069-.232.14-.468.254-.68c.114-.308.292-.575.469-.844c.148-.291.409-.488.601-.737c.201-.242.475-.403.692-.604c.213-.21.492-.315.714-.463c.232-.133.434-.28.65-.35l.539-.222l.474-.197l-.485-1.938l-.597.144c-.191.048-.424.104-.689.171c-.271.05-.56.187-.882.312c-.318.142-.686.238-1.028.466c-.344.218-.741.4-1.091.692c-.339.301-.748.562-1.05.945c-.33.358-.656.734-.909 1.162c-.293.408-.492.856-.702 1.299c-.19.443-.343.896-.468 1.336c-.237.882-.343 1.72-.384 2.437c-.034.718-.014 1.315.028 1.747c.015.204.043.402.063.539l.025.168l.026-.006A4.5 4.5 0 1 0 6.5 10m11 0c-.223 0-.437.034-.65.065c.069-.232.14-.468.254-.68c.114-.308.292-.575.469-.844c.148-.291.409-.488.601-.737c.201-.242.475-.403.692-.604c.213-.21.492-.315.714-.463c.232-.133.434-.28.65-.35l.539-.222l.474-.197l-.485-1.938l-.597.144c-.191.048-.424.104-.689.171c-.271.05-.56.187-.882.312c-.317.143-.686.238-1.028.467c-.344.218-.741.4-1.091.692c-.339.301-.748.562-1.05.944c-.33.358-.656.734-.909 1.162c-.293.408-.492.856-.702 1.299c-.19.443-.343.896-.468 1.336c-.237.882-.343 1.72-.384 2.437c-.034.718-.014 1.315.028 1.747c.015.204.043.402.063.539l.025.168l.026-.006A4.5 4.5 0 1 0 17.5 10"/></svg>
 
-      <span class="lead mx-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</span>
+      <span class="lead mx-2 quote-block-span">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ipsum dolor sit</span>
 
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="m21.95 8.721l-.025-.168l-.026.006A4.5 4.5 0 1 0 17.5 14c.223 0 .437-.034.65-.065c-.069.232-.14.468-.254.68c-.114.308-.292.575-.469.844c-.148.291-.409.488-.601.737c-.201.242-.475.403-.692.604c-.213.21-.492.315-.714.463c-.232.133-.434.28-.65.35l-.539.222l-.474.197l.484 1.939l.597-.144c.191-.048.424-.104.689-.171c.271-.05.56-.187.882-.312c.317-.143.686-.238 1.028-.467c.344-.218.741-.4 1.091-.692c.339-.301.748-.562 1.05-.944c.33-.358.656-.734.909-1.162c.293-.408.492-.856.702-1.299c.19-.443.343-.896.468-1.336c.237-.882.343-1.72.384-2.437c.034-.718.014-1.315-.028-1.747a7.028 7.028 0 0 0-.063-.539m-11 0l-.025-.168l-.026.006A4.5 4.5 0 1 0 6.5 14c.223 0 .437-.034.65-.065c-.069.232-.14.468-.254.68c-.114.308-.292.575-.469.844c-.148.291-.409.488-.601.737c-.201.242-.475.403-.692.604c-.213.21-.492.315-.714.463c-.232.133-.434.28-.65.35l-.539.222c-.301.123-.473.195-.473.195l.484 1.939l.597-.144c.191-.048.424-.104.689-.171c.271-.05.56-.187.882-.312c.317-.143.686-.238 1.028-.467c.344-.218.741-.4 1.091-.692c.339-.301.748-.562 1.05-.944c.33-.358.656-.734.909-1.162c.293-.408.492-.856.702-1.299c.19-.443.343-.896.468-1.336c.237-.882.343-1.72.384-2.437c.034-.718.014-1.315-.028-1.747a7.571 7.571 0 0 0-.064-.537"/></svg>
       </blockquote>`,
@@ -217,7 +217,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   <path d="M7.648 13V3H6.3v4.234H1.348V3H0v10h1.348V8.421H6.3V13zM14 13V3h-1.333l-2.381 1.766V6.12L12.6 4.443h.066V13z"/>
 </svg>
     `,
-    content: `<h1 class="gjs-droppable h1 text-center font-weight-bold">Put your title here</h1>
+    content: `<h1 class="gjs-droppable h1 text-center font-weight-bold h1-block">Put your title here</h1>
       
       <style>
           .h1{
@@ -241,9 +241,9 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         <path fill="currentColor" d="M20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20M4,6V18H20V6H4M6,9H18V11H6V9M6,13H16V15H6V13Z" />
     </svg>`,
     content: `
-    <div class="shadow-lg p-3 mb-5 bg-body rounded">
-     <h1 class="heading">Insert title here</h1>
-    <p class="paragraph">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded text-sect-head">
+     <h1 class="heading text-sect-h1">Insert title here</h1>
+    <p class="paragraph text-sect-p">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
     </p></div>
     `,
@@ -261,7 +261,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       type: "image",
       style: { color: "black" },
       attributes: {
-        class: "img-fluid",
+        class: "img-fluid img-block",
       },
     },
   });
@@ -301,7 +301,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       contenteditable: "true",
     },
     content: `
-    <p class= "gjs-droppable alert alert-success">Insert your text here</p>
+    <p class= "gjs-droppable alert alert-success text-block-p">Insert your text here</p>
     `,
   });
 
@@ -402,160 +402,356 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     content: `
     <section class="customer-review">
-  <div class="container py-5">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-10 col-xl-8 text-center">
-        <h3 class="fw-bold mb-4">Testimonials</h3>
-        <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
-          numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
-          quisquam eum porro a pariatur veniam.
-        </p>
+    <div class="container py-5 customer-review-container-div">
+      <!-- head  -->
+      <div class="row d-flex justify-content-center customer-review-flex-div">
+        <div class="col-md-10 col-xl-8 text-center customer-review-head-div">
+          <h3 class="fw-bold mb-4 customer-review-head-title">
+            Testimonials
+          </h3>
+          <p class="mb-4 pb-2 mb-md-5 pb-md-0 customer-review-head-desc">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+            error amet numquam iure provident voluptate esse quasi, veritatis
+            totam voluptas nostrum quisquam eum porro a pariatur veniam.
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="row text-center">
-      <div class="col-md-4 mb-4 mb-md-0">
-        <div class="card">
-          <div class="card-body py-4 mt-2">
-            <div class="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
-                class="rounded-circle shadow-1-strong" width="100" height="100" />
+      <!-- body  -->
+      <div class="row text-center customer-review-card-body">
+        <div class="col-md-4 mb-4 mb-md-0 customer-review-card-container">
+          <div class="card customer-review-card">
+            <div class="card-body py-4 mt-2 customer-review-inner-card">
+              <div
+                class="d-flex justify-content-center mb-4 customer-review-body-head"
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(10).webp"
+                  class="rounded-circle shadow-1-strong customer-review-head-img"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <h5 class="font-weight-bold customer-review-card-title">
+                Teresa May
+              </h5>
+              <h6
+                class="font-weight-bold my-3 customer-review-card-second-title"
+              >
+                Founder at ET Company
+              </h6>
+              <ul
+                class="list-unstyled d-flex justify-content-center customer-review-card-star-ul"
+              >
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-half text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z"
+                    />
+                  </svg>
+                </li>
+              </ul>
+              <p class="mb-2 customer-review-card-p">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-quote text-white"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"
+                  /></svg
+                >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Quod eos id officiis hic tenetur quae quaerat ad velit ab hic
+                tenetur.
+              </p>
             </div>
-            <h5 class="font-weight-bold">Teresa May</h5>
-            <h6 class="font-weight-bold my-3">Founder at ET Company</h6>
-            <ul class="list-unstyled d-flex justify-content-center">
-              <li>
-              <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-              <svg width="16" height="16" fill="currentColor" class="bi bi-star-half text-warning" viewBox="0 0 16 16">
-              <path d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z"/>
-            </svg>
-              </li>
-            </ul>
-            <p class="mb-2">
-            <svg width="16" height="16" fill="currentColor" class="bi bi-quote text-white" viewBox="0 0 16 16">
-            <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
-          </svg>Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit. Quod eos id officiis hic tenetur quae quaerat
-              ad velit ab hic tenetur.
-            </p>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 mb-4 mb-md-0">
-        <div class="card">
-          <div class="card-body py-4 mt-2">
-            <div class="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(15).webp"
-                class="rounded-circle shadow-1-strong" width="100" height="100" />
+
+        <div class="col-md-4 mb-4 mb-md-0 customer-review-card-container">
+          <div class="card customer-review-card">
+            <div
+              class="card-body py-4 mt-2 card-body py-4 mt-2 customer-review-inner-card"
+            >
+              <div
+                class="d-flex justify-content-center mb-4 customer-review-body-head"
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(15).webp"
+                  class="rounded-circle shadow-1-strong customer-review-head-img"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <h5 class="font-weight-bold customer-review-card-title">
+                Maggie McLoan
+              </h5>
+              <h6
+                class="font-weight-bold my-3 customer-review-card-second-title"
+              >
+                Photographer at Studio LA
+              </h6>
+              <ul
+                class="list-unstyled d-flex justify-content-center customer-review-card-star-ul"
+              >
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+              </ul>
+              <p class="mb-2 customer-review-card-p">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-quote text-white"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"
+                  /></svg
+                >Autem, totam debitis suscipit saepe sapiente magnam officiis
+                quaerat necessitatibus odio assumenda perferendis labore
+                laboriosam.
+              </p>
             </div>
-            <h5 class="font-weight-bold">Maggie McLoan</h5>
-            <h6 class="font-weight-bold my-3">Photographer at Studio LA</h6>
-            <ul class="list-unstyled d-flex justify-content-center">
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-            </ul>
-            <p class="mb-2">
-            <svg width="16" height="16" fill="currentColor" class="bi bi-quote text-white" viewBox="0 0 16 16">
-            <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
-          </svg>Autem, totam debitis suscipit saepe
-              sapiente magnam officiis quaerat necessitatibus odio assumenda perferendis
-              labore laboriosam.
-            </p>
           </div>
         </div>
-      </div>
-      <div class="col-md-4 mb-0">
-        <div class="card">
-          <div class="card-body py-4 mt-2">
-            <div class="d-flex justify-content-center mb-4">
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
-                class="rounded-circle shadow-1-strong" width="100" height="100" />
+
+        <div class="col-md-4 mb-0 customer-review-card-container">
+          <div class="card customer-review-card">
+            <div
+              class="card-body py-4 mt-2 card-body py-4 mt-2 customer-review-inner-card"
+            >
+              <div
+                class="d-flex justify-content-center mb-4 customer-review-body-head"
+              >
+                <img
+                  src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(17).webp"
+                  class="rounded-circle shadow-1-strong customer-review-head-img"
+                  width="100"
+                  height="100"
+                />
+              </div>
+              <h5 class="font-weight-bold customer-review-card-title">
+                Alexa Horwitz
+              </h5>
+              <h6
+                class="font-weight-bold my-3 customer-review-card-second-title"
+              >
+                Front-end Developer in NY
+              </h6>
+              <ul
+                class="list-unstyled d-flex justify-content-center customer-review-card-star-ul"
+              >
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-fill text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+                    />
+                  </svg>
+                </li>
+                <li class="customer-review-card-star-li">
+                  <svg
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-star-half text-warning"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z"
+                    />
+                  </svg>
+                </li>
+              </ul>
+              <p class="mb-2 customer-review-card-p">
+                <svg
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-quote text-white"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"
+                  /></svg
+                >Cras sit amet nibh libero, in gravida nulla metus scelerisque
+                ante sollicitudin commodo cras purus odio, vestibulum in
+                tempus viverra turpis.
+              </p>
             </div>
-            <h5 class="font-weight-bold">Alexa Horwitz</h5>
-            <h6 class="font-weight-bold my-3">Front-end Developer in NY</h6>
-            <ul class="list-unstyled d-flex justify-content-center">
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-               <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill  text-warning" viewBox="0 0 16 16">
-              <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-            </svg>
-              </li>
-              <li>
-              <svg width="16" height="16" fill="currentColor" class="bi bi-star-half text-warning" viewBox="0 0 16 16">
-              <path d="M5.354 5.119 7.538.792A.52.52 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.54.54 0 0 1 16 6.32a.55.55 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.5.5 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.6.6 0 0 1 .085-.302.51.51 0 0 1 .37-.245zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.56.56 0 0 1 .162-.505l2.907-2.77-4.052-.576a.53.53 0 0 1-.393-.288L8.001 2.223 8 2.226z"/>
-            </svg>
-              </li>
-            </ul>
-            <p class="mb-2">
-            <svg width="16" height="16" fill="currentColor" class="bi bi-quote text-white" viewBox="0 0 16 16">
-            <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
-          </svg>Cras sit amet nibh libero, in gravida
-              nulla metus scelerisque ante sollicitudin commodo cras purus odio,
-              vestibulum in tempus viverra turpis.
-            </p>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <style>
 .customer-review {
