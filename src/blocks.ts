@@ -898,15 +898,15 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path fill="currentColor" d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z" />
   </svg>`,
     content: `
-      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-        <div class="btn-group me-2" role="group" aria-label="First group">
-              <a href="#" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups social-container">
+        <div class="btn-group" role="group" aria-label="First group social-inner-div">
+              <a href="#" class="btn btn-primary social-icon-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
               <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
             </svg></a>
-              <a href="#" class="btn btn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+              <a href="#" class="btn btn-primary social-icon-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
               <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
             </svg></a>
-              <a href="#" class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+              <a href="#" class="btn btn-primary social-icon-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
               <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
         </svg></a>
         </div>
@@ -915,7 +915,12 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 <style>
   .btn-toolbar {
     display: inline-block;
-    padding: 0.5rem;
+  }
+  .social-icon-link{
+    margin: 12px;
+  }
+  .social-inner-div{
+    margin: 0.5rem;
   }
 </style>
       `,
@@ -968,14 +973,14 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path fill="currentColor" d="M20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20M4,6V18H20V6H4M6,9H18V11H6V9M6,13H16V15H6V13Z" />
 </svg>`,
     content: `
-    <div class="hero">
-    <p class="text">GO TO SPACE</p>
-    <p class="text-center text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea libero animi neque officiis. Nemo corporis perspiciatis modi amet, saepe quaerat tempora deserunt consequuntur dolore libero recusandae ex, voluptate veniam?</p>
-    <a class="btn btn-outline-light btn-lg" href="#" style="align-items: center;" >ORDER NOW</a>
+    <div class="hero-container">
+    <p class="hero-text">GO TO SPACE</p>
+    <p class="text-center text-white hero-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea libero animi neque officiis. Nemo corporis perspiciatis modi amet, saepe quaerat tempora deserunt consequuntur dolore libero recusandae ex, voluptate veniam?</p>
+    <a class="btn btn-outline-light btn-lg hero-btn" href="#" style="align-items: center;" >ORDER NOW</a>
   </div>
 
 <style>
-    .hero {
+    .hero-container {
       background-image: url('https://cloud.githubusercontent.com/assets/1830348/15354890/1442159a-1cf0-11e6-92b1-b861dadf1750.jpg');
       background-color: #2a3448;
       background-size: 600px 469px;
@@ -983,7 +988,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       padding: 100px 0px;
       text-align: center;
     }
-    .text {
+    .hero-text {
       color: #ffffff;
       font-family: Helvetica;
       font-size: 45px;
@@ -1012,16 +1017,17 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <path fill="currentColor" d="M18 2H6C4.89 2 4 2.9 4 4V20C4 21.11 4.89 22 6 22H18C19.11 22 20 21.11 20 20V4C20 2.9 19.11 2 18 2M18 20H6V16H18V20M18 8H6V4H18V8Z" />
 </svg>`,
     content: `<div class="wrapper shadow-lg p-3 mb-5 bg-body rounded">
-    <div class="section-top">
-        <div class="column">
+    <div class="wrapper-section-top">
+        <div class="wrapper-section-top-column">
             <img class="rounded" src="https://via.placeholder.com/350x250/78c5d6/fff" style="padding: 0; width: 100%">
         </div>
     </div>
-    <div class="section-bottom">
-        <div class="column">
-            <p class="text fs-4">First line of text</p>
-            <hr class="divider">
-            <p class="text fs-5"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum fugiat dolorum nemo voluptatibus corrupti nesciunt unde ut qui distinctio modi.</p>
+    
+    <div class="wrapper-section-bottom">
+        <div class="wrapper-column">
+            <p class="wrapper-column-text fs-4">First line of text</p>
+            <hr class="wrapper-divider">
+            <p class="wrapper-column-text fs-5"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum fugiat dolorum nemo voluptatibus corrupti nesciunt unde ut qui distinctio modi.</p>
         </div>
     </div>
 </div>
@@ -1031,19 +1037,19 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             padding: 50px 30px;
             width: 36rem;
         }
-        .section-top {
+        .wrapper-section-top {
             padding: 20px;
         }
-        .section-bottom {
+        .wrapper-section-bottom {
             padding: 20px;
         }
-        .column {
+        .wrapper-column {
             border: 1px solid #dddddd;
         }
-        .text {
+        .wrapper-column-text {
             padding: 20px;
         }
-        .divider {
+        .wrapper-divider {
             border-width: 1px;
             border-style: dashed;
             border-color: lightgrey;
@@ -1055,14 +1061,14 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             width: 100% !important;
             padding: 1rem;
           }
-          .text{
+          .wrapper-column-text{
             padding: 1rem;
           }
 
-          .section-top {
+          .wrapper-section-top {
             padding: 1rem;
         }
-        .section-bottom {
+        .wrapper-section-bottom {
             padding: 1rem;
         }
         }
