@@ -380,7 +380,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
   });
 
   // For single text block
-  Components.addType("text-block", {
+  Components.addType("text", {
     isComponent: (el) => el.tagName == "P",
 
     model: {
@@ -388,7 +388,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         name: "Text Sect",
         tagName: "p",
         class: "gjs-droppable",
-        attributes: { contenteditable: "true" },
       },
     },
   });

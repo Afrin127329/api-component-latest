@@ -290,7 +290,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   });
 
   //  Add text block
-  editor.BlockManager.add("text-block", {
+  editor.BlockManager.add("text", {
     label: "Text",
     category: "Basic",
     media: `<svg viewBox="0 0 24 24">
@@ -298,7 +298,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     attributes: {
       class: "gjs-droppable",
-      contenteditable: "true",
     },
     content: `
     <p class= "gjs-droppable alert alert-success text-block-p">Insert your text here</p>
