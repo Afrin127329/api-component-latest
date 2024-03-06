@@ -27,17 +27,17 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       });
   };
 
-  let tableStyleStr = "";
-  let cellStyleStr = "";
-  let tableStyle = opts.tableStyle || {};
-  let cellStyle = opts.cellStyle || {};
+  // let tableStyleStr = "";
+  // let cellStyleStr = "";
+  // let tableStyle = opts.tableStyle || {};
+  // let cellStyle = opts.cellStyle || {};
 
-  for (let prop in tableStyle) {
-    tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
-  }
-  for (let prop in cellStyle) {
-    cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
-  }
+  // for (let prop in tableStyle) {
+  //   tableStyleStr += `${prop}: ${tableStyle[prop]}; `;
+  // }
+  // for (let prop in cellStyle) {
+  //   cellStyleStr += `${prop}: ${cellStyle[prop]}; `;
+  // }
 
   if (block) {
     const url = "https://chepapest.com/api/dev/products";
@@ -290,7 +290,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   });
 
   //  Add text block
-  editor.BlockManager.add("text-block", {
+  editor.BlockManager.add("text", {
     label: "Text",
     category: "Basic",
     media: `<svg viewBox="0 0 24 24">
@@ -298,7 +298,6 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     attributes: {
       class: "gjs-droppable",
-      contenteditable: "true",
     },
     content: `
     <p class= "gjs-droppable alert alert-success text-block-p">Insert your text here</p>
@@ -313,7 +312,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <path fill="currentColor" d="M2 20h8V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM13 20h8V4h-8v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1Z"/>
     </svg>`,
     content: `
-    <div style="${tableStyleStr}" class="d-flex container text-center sect50Class gjs-droppable">
+    <div class="d-flex container text-center sect50Class gjs-droppable">
   <div class=" gjs-droppable sect50Div1"></div>
   <div class=" gjs-droppable sect50Div1"></div>
 </div>
@@ -342,7 +341,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     </svg>`,
     content: `
 
-    <div style="${tableStyleStr}" class="d-flex container text-center sect30Class gjs-droppable">
+    <div class="d-flex container text-center sect30Class gjs-droppable">
     <div class=" gjs-droppable sect30Div1"></div>
     <div class=" gjs-droppable sect30Div1"></div>
     <div class=" gjs-droppable sect30Div1"></div>
@@ -370,7 +369,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"></path>
     </svg>`,
     content: `
-    <div style="${tableStyleStr}" class="d-flex container text-center sect37Class gjs-droppable">
+    <div class="d-flex container text-center sect37Class gjs-droppable">
     <div class=" gjs-droppable sect37Div1"></div>
     <div class=" gjs-droppable sect37Div2"></div>
   </div>
