@@ -1,4 +1,4 @@
-/*! api-component - 1.0.25 */
+/*! api-component - 1.0.26 */
 !(function (e, n) {
   "object" == typeof exports && "object" == typeof module
     ? (module.exports = n())
@@ -36,8 +36,8 @@
       var t = "form",
         a = "input",
         i = "button",
-        o = "label",
-        r = "text",
+        r = "label",
+        o = "text",
         l = "div",
         s = "hiddenDiv",
         c = "navbar",
@@ -63,19 +63,19 @@
         v =
           (void 0 && (void 0).__awaiter) ||
           function (e, n, t, a) {
-            return new (t || (t = Promise))(function (i, o) {
-              function r(e) {
+            return new (t || (t = Promise))(function (i, r) {
+              function o(e) {
                 try {
                   s(a.next(e));
                 } catch (e) {
-                  o(e);
+                  r(e);
                 }
               }
               function l(e) {
                 try {
                   s(a["throw"](e));
                 } catch (e) {
-                  o(e);
+                  r(e);
                 }
               }
               function s(e) {
@@ -87,7 +87,7 @@
                       ? n
                       : new t(function (e) {
                           e(n);
-                        })).then(r, l);
+                        })).then(o, l);
               }
               s((a = a.apply(e, n || [])).next());
             });
@@ -98,8 +98,8 @@
             var t,
               a,
               i,
-              o,
-              r = {
+              r,
+              o = {
                 label: 0,
                 sent: function () {
                   if (1 & i[0]) throw i[1];
@@ -109,18 +109,18 @@
                 ops: [],
               };
             return (
-              (o = { next: l(0), throw: l(1), return: l(2) }),
+              (r = { next: l(0), throw: l(1), return: l(2) }),
               "function" == typeof Symbol &&
-                (o[Symbol.iterator] = function () {
+                (r[Symbol.iterator] = function () {
                   return this;
                 }),
-              o
+              r
             );
             function l(l) {
               return function (s) {
                 return (function (l) {
                   if (t) throw new TypeError("Generator is already executing.");
-                  for (; o && ((o = 0), l[0] && (r = 0)), r; )
+                  for (; r && ((r = 0), l[0] && (o = 0)), o; )
                     try {
                       if (
                         ((t = 1),
@@ -141,41 +141,41 @@
                           i = l;
                           break;
                         case 4:
-                          return r.label++, { value: l[1], done: !1 };
+                          return o.label++, { value: l[1], done: !1 };
                         case 5:
-                          r.label++, (a = l[1]), (l = [0]);
+                          o.label++, (a = l[1]), (l = [0]);
                           continue;
                         case 7:
-                          (l = r.ops.pop()), r.trys.pop();
+                          (l = o.ops.pop()), o.trys.pop();
                           continue;
                         default:
                           if (
-                            !((i = r.trys),
+                            !((i = o.trys),
                             (i = i.length > 0 && i[i.length - 1]) ||
                               (6 !== l[0] && 2 !== l[0]))
                           ) {
-                            r = 0;
+                            o = 0;
                             continue;
                           }
                           if (
                             3 === l[0] &&
                             (!i || (l[1] > i[0] && l[1] < i[3]))
                           ) {
-                            r.label = l[1];
+                            o.label = l[1];
                             break;
                           }
-                          if (6 === l[0] && r.label < i[1]) {
-                            (r.label = i[1]), (i = l);
+                          if (6 === l[0] && o.label < i[1]) {
+                            (o.label = i[1]), (i = l);
                             break;
                           }
-                          if (i && r.label < i[2]) {
-                            (r.label = i[2]), r.ops.push(l);
+                          if (i && o.label < i[2]) {
+                            (o.label = i[2]), o.ops.push(l);
                             break;
                           }
-                          i[2] && r.ops.pop(), r.trys.pop();
+                          i[2] && o.ops.pop(), o.trys.pop();
                           continue;
                       }
-                      l = n.call(e, r);
+                      l = n.call(e, o);
                     } catch (e) {
                       (l = [6, e]), (a = 0);
                     } finally {
@@ -190,19 +190,19 @@
       var g =
           (void 0 && (void 0).__awaiter) ||
           function (e, n, t, a) {
-            return new (t || (t = Promise))(function (i, o) {
-              function r(e) {
+            return new (t || (t = Promise))(function (i, r) {
+              function o(e) {
                 try {
                   s(a.next(e));
                 } catch (e) {
-                  o(e);
+                  r(e);
                 }
               }
               function l(e) {
                 try {
                   s(a["throw"](e));
                 } catch (e) {
-                  o(e);
+                  r(e);
                 }
               }
               function s(e) {
@@ -214,7 +214,7 @@
                       ? n
                       : new t(function (e) {
                           e(n);
-                        })).then(r, l);
+                        })).then(o, l);
               }
               s((a = a.apply(e, n || [])).next());
             });
@@ -225,8 +225,8 @@
             var t,
               a,
               i,
-              o,
-              r = {
+              r,
+              o = {
                 label: 0,
                 sent: function () {
                   if (1 & i[0]) throw i[1];
@@ -236,18 +236,18 @@
                 ops: [],
               };
             return (
-              (o = { next: l(0), throw: l(1), return: l(2) }),
+              (r = { next: l(0), throw: l(1), return: l(2) }),
               "function" == typeof Symbol &&
-                (o[Symbol.iterator] = function () {
+                (r[Symbol.iterator] = function () {
                   return this;
                 }),
-              o
+              r
             );
             function l(l) {
               return function (s) {
                 return (function (l) {
                   if (t) throw new TypeError("Generator is already executing.");
-                  for (; o && ((o = 0), l[0] && (r = 0)), r; )
+                  for (; r && ((r = 0), l[0] && (o = 0)), o; )
                     try {
                       if (
                         ((t = 1),
@@ -268,41 +268,41 @@
                           i = l;
                           break;
                         case 4:
-                          return r.label++, { value: l[1], done: !1 };
+                          return o.label++, { value: l[1], done: !1 };
                         case 5:
-                          r.label++, (a = l[1]), (l = [0]);
+                          o.label++, (a = l[1]), (l = [0]);
                           continue;
                         case 7:
-                          (l = r.ops.pop()), r.trys.pop();
+                          (l = o.ops.pop()), o.trys.pop();
                           continue;
                         default:
                           if (
-                            !((i = r.trys),
+                            !((i = o.trys),
                             (i = i.length > 0 && i[i.length - 1]) ||
                               (6 !== l[0] && 2 !== l[0]))
                           ) {
-                            r = 0;
+                            o = 0;
                             continue;
                           }
                           if (
                             3 === l[0] &&
                             (!i || (l[1] > i[0] && l[1] < i[3]))
                           ) {
-                            r.label = l[1];
+                            o.label = l[1];
                             break;
                           }
-                          if (6 === l[0] && r.label < i[1]) {
-                            (r.label = i[1]), (i = l);
+                          if (6 === l[0] && o.label < i[1]) {
+                            (o.label = i[1]), (i = l);
                             break;
                           }
-                          if (i && r.label < i[2]) {
-                            (r.label = i[2]), r.ops.push(l);
+                          if (i && o.label < i[2]) {
+                            (o.label = i[2]), o.ops.push(l);
                             break;
                           }
-                          i[2] && r.ops.pop(), r.trys.pop();
+                          i[2] && o.ops.pop(), o.trys.pop();
                           continue;
                       }
-                      l = n.call(e, r);
+                      l = n.call(e, o);
                     } catch (e) {
                       (l = [6, e]), (a = 0);
                     } finally {
@@ -327,7 +327,7 @@
             "change",
             function () {
               return g(void 0, void 0, void 0, function () {
-                var n, t, a, i, o, r, l, s, c, d;
+                var n, t, a, i, r, o, l, s, c, d;
                 return b(this, function (p) {
                   return (
                     (n = e.getHtml()),
@@ -336,9 +336,9 @@
                     (i = n
                       .replace(/<body[^>]*>/, "")
                       .replace(/<\/body\s*>/, "")),
-                    (o = document.location.href),
-                    (r = new URL(o)),
-                    (l = new URLSearchParams(r.search)),
+                    (r = document.location.href),
+                    (o = new URL(r)),
+                    (l = new URLSearchParams(o.search)),
                     (s = l.get("id")),
                     (c = {
                       id: s,
@@ -401,19 +401,19 @@
       var y =
           (void 0 && (void 0).__awaiter) ||
           function (e, n, t, a) {
-            return new (t || (t = Promise))(function (i, o) {
-              function r(e) {
+            return new (t || (t = Promise))(function (i, r) {
+              function o(e) {
                 try {
                   s(a.next(e));
                 } catch (e) {
-                  o(e);
+                  r(e);
                 }
               }
               function l(e) {
                 try {
                   s(a["throw"](e));
                 } catch (e) {
-                  o(e);
+                  r(e);
                 }
               }
               function s(e) {
@@ -425,7 +425,7 @@
                       ? n
                       : new t(function (e) {
                           e(n);
-                        })).then(r, l);
+                        })).then(o, l);
               }
               s((a = a.apply(e, n || [])).next());
             });
@@ -436,8 +436,8 @@
             var t,
               a,
               i,
-              o,
-              r = {
+              r,
+              o = {
                 label: 0,
                 sent: function () {
                   if (1 & i[0]) throw i[1];
@@ -447,18 +447,18 @@
                 ops: [],
               };
             return (
-              (o = { next: l(0), throw: l(1), return: l(2) }),
+              (r = { next: l(0), throw: l(1), return: l(2) }),
               "function" == typeof Symbol &&
-                (o[Symbol.iterator] = function () {
+                (r[Symbol.iterator] = function () {
                   return this;
                 }),
-              o
+              r
             );
             function l(l) {
               return function (s) {
                 return (function (l) {
                   if (t) throw new TypeError("Generator is already executing.");
-                  for (; o && ((o = 0), l[0] && (r = 0)), r; )
+                  for (; r && ((r = 0), l[0] && (o = 0)), o; )
                     try {
                       if (
                         ((t = 1),
@@ -479,41 +479,41 @@
                           i = l;
                           break;
                         case 4:
-                          return r.label++, { value: l[1], done: !1 };
+                          return o.label++, { value: l[1], done: !1 };
                         case 5:
-                          r.label++, (a = l[1]), (l = [0]);
+                          o.label++, (a = l[1]), (l = [0]);
                           continue;
                         case 7:
-                          (l = r.ops.pop()), r.trys.pop();
+                          (l = o.ops.pop()), o.trys.pop();
                           continue;
                         default:
                           if (
-                            !((i = r.trys),
+                            !((i = o.trys),
                             (i = i.length > 0 && i[i.length - 1]) ||
                               (6 !== l[0] && 2 !== l[0]))
                           ) {
-                            r = 0;
+                            o = 0;
                             continue;
                           }
                           if (
                             3 === l[0] &&
                             (!i || (l[1] > i[0] && l[1] < i[3]))
                           ) {
-                            r.label = l[1];
+                            o.label = l[1];
                             break;
                           }
-                          if (6 === l[0] && r.label < i[1]) {
-                            (r.label = i[1]), (i = l);
+                          if (6 === l[0] && o.label < i[1]) {
+                            (o.label = i[1]), (i = l);
                             break;
                           }
-                          if (i && r.label < i[2]) {
-                            (r.label = i[2]), r.ops.push(l);
+                          if (i && o.label < i[2]) {
+                            (o.label = i[2]), o.ops.push(l);
                             break;
                           }
-                          i[2] && r.ops.pop(), r.trys.pop();
+                          i[2] && o.ops.pop(), o.trys.pop();
                           continue;
                       }
-                      l = n.call(e, r);
+                      l = n.call(e, o);
                     } catch (e) {
                       (l = [6, e]), (a = 0);
                     } finally {
@@ -544,19 +544,19 @@
         V =
           (void 0 && (void 0).__awaiter) ||
           function (e, n, t, a) {
-            return new (t || (t = Promise))(function (i, o) {
-              function r(e) {
+            return new (t || (t = Promise))(function (i, r) {
+              function o(e) {
                 try {
                   s(a.next(e));
                 } catch (e) {
-                  o(e);
+                  r(e);
                 }
               }
               function l(e) {
                 try {
                   s(a["throw"](e));
                 } catch (e) {
-                  o(e);
+                  r(e);
                 }
               }
               function s(e) {
@@ -568,7 +568,7 @@
                       ? n
                       : new t(function (e) {
                           e(n);
-                        })).then(r, l);
+                        })).then(o, l);
               }
               s((a = a.apply(e, n || [])).next());
             });
@@ -579,8 +579,8 @@
             var t,
               a,
               i,
-              o,
-              r = {
+              r,
+              o = {
                 label: 0,
                 sent: function () {
                   if (1 & i[0]) throw i[1];
@@ -590,18 +590,18 @@
                 ops: [],
               };
             return (
-              (o = { next: l(0), throw: l(1), return: l(2) }),
+              (r = { next: l(0), throw: l(1), return: l(2) }),
               "function" == typeof Symbol &&
-                (o[Symbol.iterator] = function () {
+                (r[Symbol.iterator] = function () {
                   return this;
                 }),
-              o
+              r
             );
             function l(l) {
               return function (s) {
                 return (function (l) {
                   if (t) throw new TypeError("Generator is already executing.");
-                  for (; o && ((o = 0), l[0] && (r = 0)), r; )
+                  for (; r && ((r = 0), l[0] && (o = 0)), o; )
                     try {
                       if (
                         ((t = 1),
@@ -622,41 +622,41 @@
                           i = l;
                           break;
                         case 4:
-                          return r.label++, { value: l[1], done: !1 };
+                          return o.label++, { value: l[1], done: !1 };
                         case 5:
-                          r.label++, (a = l[1]), (l = [0]);
+                          o.label++, (a = l[1]), (l = [0]);
                           continue;
                         case 7:
-                          (l = r.ops.pop()), r.trys.pop();
+                          (l = o.ops.pop()), o.trys.pop();
                           continue;
                         default:
                           if (
-                            !((i = r.trys),
+                            !((i = o.trys),
                             (i = i.length > 0 && i[i.length - 1]) ||
                               (6 !== l[0] && 2 !== l[0]))
                           ) {
-                            r = 0;
+                            o = 0;
                             continue;
                           }
                           if (
                             3 === l[0] &&
                             (!i || (l[1] > i[0] && l[1] < i[3]))
                           ) {
-                            r.label = l[1];
+                            o.label = l[1];
                             break;
                           }
-                          if (6 === l[0] && r.label < i[1]) {
-                            (r.label = i[1]), (i = l);
+                          if (6 === l[0] && o.label < i[1]) {
+                            (o.label = i[1]), (i = l);
                             break;
                           }
-                          if (i && r.label < i[2]) {
-                            (r.label = i[2]), r.ops.push(l);
+                          if (i && o.label < i[2]) {
+                            (o.label = i[2]), o.ops.push(l);
                             break;
                           }
-                          i[2] && r.ops.pop(), r.trys.pop();
+                          i[2] && o.ops.pop(), o.trys.pop();
                           continue;
                       }
-                      l = n.call(e, r);
+                      l = n.call(e, o);
                     } catch (e) {
                       (l = [6, e]), (a = 0);
                     } finally {
@@ -822,11 +822,11 @@
                             t = e.getAttributes().selectedData,
                             a = m.getById("productId").view,
                             i = m.getById("productPrice").view,
-                            o = m.getById("productQuantity").view;
+                            r = m.getById("productQuantity").view;
                           (a.el.innerHTML = t.id),
                             (i.el.innerHTML = t.price),
-                            (o.el.innerHTML = 1);
-                          var r =
+                            (r.el.innerHTML = 1);
+                          var o =
                               document.head.querySelector(
                                 'meta[name="csrf-token"]'
                               ) || "{{ csrf_token() }}",
@@ -836,13 +836,13 @@
                                 ? void 0
                                 : n.attr;
                           l
-                            ? (l.value = r)
+                            ? (l.value = o)
                             : console.error("Token input element not found");
                         });
                       },
                     },
                   }),
-                    m.addType(r, {
+                    m.addType(o, {
                       isComponent: function (e) {
                         return "P" == e.tagName;
                       },
@@ -860,7 +860,7 @@
                         },
                       },
                     }),
-                    m.addType(o, {
+                    m.addType(r, {
                       isComponent: function (e) {
                         return "LABEL" == e.tagName;
                       },
@@ -1104,43 +1104,40 @@
                 })(e, g),
                 (function (e, n) {
                   v(void 0, void 0, void 0, function () {
-                    var v, g, b, f, y, w, x, V, C, H, M, k, L, B, j;
+                    var v, g, b, f, y, w, x, V, C, H, M;
                     return h(this, function (h) {
                       switch (h.label) {
                         case 0:
-                          for (V in ((v = n.block),
-                          (g = n.label),
-                          (b = n.id),
-                          (f = function (t, a) {
-                            var i;
-                            (null === (i = n.blocks) || void 0 === i
-                              ? void 0
-                              : i.indexOf(t)) >= 0 &&
-                              e.Blocks.add(
-                                t,
-                                m(m({ select: !0 }, a), n.block(t))
-                              );
-                          }),
-                          (y = ""),
-                          (w = n.tableStyle || {}),
-                          (x = n.cellStyle || {}),
-                          w))
-                            y += "".concat(V, ": ").concat(w[V], "; ");
-                          for (V in x) "".concat(V, ": ").concat(x[V], "; ");
-                          if (!v) return [3, 5];
-                          (C = "https://chepapest.com/api/dev/products"),
-                            (H = null),
+                          if (
+                            ((v = n.block),
+                            (g = n.label),
+                            (b = n.id),
+                            (f = function (t, a) {
+                              var i;
+                              (null === (i = n.blocks) || void 0 === i
+                                ? void 0
+                                : i.indexOf(t)) >= 0 &&
+                                e.Blocks.add(
+                                  t,
+                                  m(m({ select: !0 }, a), n.block(t))
+                                );
+                            }),
+                            !v)
+                          )
+                            return [3, 5];
+                          (y = "https://chepapest.com/api/dev/products"),
+                            (w = null),
                             (h.label = 1);
                         case 1:
-                          return h.trys.push([1, 4, , 5]), [4, fetch(C)];
+                          return h.trys.push([1, 4, , 5]), [4, fetch(y)];
                         case 2:
-                          if (!(M = h.sent()).ok)
+                          if (!(x = h.sent()).ok)
                             throw new Error("Failed to fetch data");
-                          return [4, M.json()];
+                          return [4, x.json()];
                         case 3:
                           return (
-                            (k = h.sent()),
-                            (H = k.data),
+                            (V = h.sent()),
+                            (w = V.data),
                             f(
                               b[0],
                               m(
@@ -1151,13 +1148,13 @@
                                   category: "Extra",
                                   content: {
                                     type: t,
-                                    data: H,
+                                    data: w,
                                     data1: 1,
                                     components: [
                                       {
                                         type: l,
                                         components: [
-                                          { type: r, components: "Order Form" },
+                                          { type: o, components: "Order Form" },
                                         ],
                                       },
                                       {
@@ -1166,7 +1163,7 @@
                                             type: l,
                                             components: [
                                               {
-                                                type: o,
+                                                type: r,
                                                 components: "Your Name:",
                                               },
                                               {
@@ -1188,7 +1185,7 @@
                                             type: l,
                                             components: [
                                               {
-                                                type: o,
+                                                type: r,
                                                 components: "Phone Number:",
                                               },
                                               {
@@ -1210,7 +1207,7 @@
                                             type: l,
                                             components: [
                                               {
-                                                type: o,
+                                                type: r,
                                                 components: "Address:",
                                               },
                                               {
@@ -1293,8 +1290,8 @@
                           );
                         case 4:
                           return (
-                            (L = h.sent()),
-                            console.error("Error in Fetching Data", L),
+                            (C = h.sent()),
+                            console.error("Error in Fetching Data", C),
                             [3, 5]
                           );
                         case 5:
@@ -1371,30 +1368,24 @@
                               category: "Basic",
                               media:
                                 '<svg viewBox="0 0 23 24">\n      <path fill="currentColor" d="M2 20h8V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM13 20h8V4h-8v16Zm-1 0V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-8a1 1 0 0 1-1-1Z"/>\n    </svg>',
-                              content: '\n    <div style="'.concat(
-                                y,
-                                '" class="d-flex container text-center sect50Class gjs-droppable">\n  <div class=" gjs-droppable sect50Div1"></div>\n  <div class=" gjs-droppable sect50Div1"></div>\n</div>\n\n\n  <style>\n  .sect50Class{\n    height: 10rem;\n    margin-top: 1rem;\n    margin-bottom: 1rem;\n  }\n  .sect50Div1{\n    width: 50%;\n    height: 100%;\n  }\n  </style>\n    '
-                              ),
+                              content:
+                                '\n    <div class="d-flex container text-center sect50Class gjs-droppable">\n  <div class=" gjs-droppable sect50Div1"></div>\n  <div class=" gjs-droppable sect50Div1"></div>\n</div>\n\n\n  <style>\n  .sect50Class{\n    height: 10rem;\n    margin-top: 1rem;\n    margin-bottom: 1rem;\n  }\n  .sect50Div1{\n    width: 50%;\n    height: 100%;\n  }\n  </style>\n    ',
                             }),
                             e.BlockManager.add("sect30", {
                               label: "1/3 Section",
                               category: "Basic",
                               media:
                                 '<svg viewBox="0 0 23 24">\n      <path fill="currentColor" d="M2 20h4V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM17 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1ZM9.5 20h4V4h-4v16Zm-1 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1Z"/>\n    </svg>',
-                              content: '\n\n    <div style="'.concat(
-                                y,
-                                '" class="d-flex container text-center sect30Class gjs-droppable">\n    <div class=" gjs-droppable sect30Div1"></div>\n    <div class=" gjs-droppable sect30Div1"></div>\n    <div class=" gjs-droppable sect30Div1"></div>\n  </div>\n\n      <style>\n      .sect30Class{\n        height: 10rem;\n        margin-top: 1rem;\n        margin-bottom: 1rem;\n      }\n      .sect30Div1{\n        width: 50%;\n        height: 100%;\n      }\n      </style>\n    '
-                              ),
+                              content:
+                                '\n\n    <div class="d-flex container text-center sect30Class gjs-droppable">\n    <div class=" gjs-droppable sect30Div1"></div>\n    <div class=" gjs-droppable sect30Div1"></div>\n    <div class=" gjs-droppable sect30Div1"></div>\n  </div>\n\n      <style>\n      .sect30Class{\n        height: 10rem;\n        margin-top: 1rem;\n        margin-bottom: 1rem;\n      }\n      .sect30Div1{\n        width: 50%;\n        height: 100%;\n      }\n      </style>\n    ',
                             }),
                             e.BlockManager.add("sect37", {
                               label: "3/7 Section",
                               category: "Basic",
                               media:
                                 '<svg viewBox="0 0 24 24">\n      <path fill="currentColor" d="M2 20h5V4H2v16Zm-1 0V4a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1ZM10 20h12V4H10v16Zm-1 0V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H10a1 1 0 0 1-1-1Z"></path>\n    </svg>',
-                              content: '\n    <div style="'.concat(
-                                y,
-                                '" class="d-flex container text-center sect37Class gjs-droppable">\n    <div class=" gjs-droppable sect37Div1"></div>\n    <div class=" gjs-droppable sect37Div2"></div>\n  </div>\n\n  <style>\n      .sect37Class{\n        height: 10rem;\n        margin-top: 1rem;\n        margin-bottom: 1rem;\n      }\n      .sect37Div1{\n        width: 30%;\n        height: 100%;\n      }\n      .sect37Div2{\n        width: 70%;\n        height: 100%;\n      }\n      </style>\n    '
-                              ),
+                              content:
+                                '\n    <div class="d-flex container text-center sect37Class gjs-droppable">\n    <div class=" gjs-droppable sect37Div1"></div>\n    <div class=" gjs-droppable sect37Div2"></div>\n  </div>\n\n  <style>\n      .sect37Class{\n        height: 10rem;\n        margin-top: 1rem;\n        margin-bottom: 1rem;\n      }\n      .sect37Div1{\n        width: 30%;\n        height: 100%;\n      }\n      .sect37Div2{\n        width: 70%;\n        height: 100%;\n      }\n      </style>\n    ',
                             }),
                             e.BlockManager.add("customer-review", {
                               label: "Reviews",
@@ -1420,7 +1411,7 @@
                               content:
                                 '\n      <div class="divider-table container">\n      </div>\n\n\n      <style>\n        .divider-table {\n          width: 100%;\n          margin-top: 1rem;\n          margin-bottom: 1rem;\n          height: 0px;\n          border: 1px solid gray;\n        }\n      </style>\n    ',
                             }),
-                            (B =
+                            (H =
                               '\n  <div class="card grid-item-card">\n          <img class="card-img-top grid-item-img" src="https://via.placeholder.com/250x150/78c5d6/fff/" alt="Image"/>\n            <div class="card-body  d-flex flex-column grid-item-card-body-col mt-4">\n                <h1 class="card-titl p-2 text-center grid-item-card-body-col-head">Title here</h1>\n                <p class="card-text p-2 text-center grid-item-card-body-col-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>\n                <a href="#" class="btn btn-success p-2 grid-item-card-body-btn">Go somewhere</a>\n            </div>\n   </div>\n  \n  <style>\n    .grid-item-card{\n      width: 18rem;\n    }\n  </style>\n  '),
                             e.BlockManager.add("grid-items", {
                               label: "Grid Items",
@@ -1429,21 +1420,21 @@
                                 '<svg viewBox="0 0 24 24">\n    <path fill="currentColor" d="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3"/>\n  </svg>',
                               content:
                                 '\n    <div class="all-grid-items">\n    <div >'
-                                  .concat(B, "</div>\n    <div>")
-                                  .concat(B, "</div>\n    <div >")
+                                  .concat(H, "</div>\n    <div>")
+                                  .concat(H, "</div>\n    <div >")
                                   .concat(
-                                    B,
+                                    H,
                                     "</div>\n    </div>\n\n    <style>\n      .all-grid-items{\n        display: flex;\n        gap: 1rem;\n        justify-content: center;\n        align-items: center;\n        flex-wrap: wrap;\n      }\n    </style>\n  "
                                   ),
                             }),
-                            (j =
+                            (M =
                               '<div class="card list-container d-inline-flex">\n      <div class="list-item-cell list-inner-container">\n        <div class="list-item-content list-content">\n          <div class="list-item-row list-content-row">\n            <div class="list-cell-left list-content-cell-left">\n              <img class="card rounded list-content-cell-left-img" src="https://via.placeholder.com/150/78c5d6/fff" alt="Image"/>\n            </div>\n            <div class="list-cell-right list-content-cell-right">\n              <h1 class="card-title list-content-cell-title">Title here</h1>\n              <p class="card-text list-content-cell-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>\n            </div>\n          </div>\n        </div>\n      </div>\n  </div>\n\n  <style>\n    .list-inner-container{\n      margin: 13px;\n    }\n    .list-content{\n      margin: 13px;\n    }\n    .list-content-row{\n      display: flex;\n      gap: 1rem;\n    }\n    .3-list-content-cell-right{\n      margin-left: 10px;\n    }\n  </style>\n\n  '),
                             e.BlockManager.add("list-items", {
                               label: "List Items",
                               category: "Extra",
                               media:
                                 '<svg viewBox="0 0 24 24">\n    <path fill="currentColor" d="M2 14H8V20H2M16 8H10V10H16M2 10H8V4H2M10 4V6H22V4M10 20H16V18H10M10 16H22V14H10"/>\n  </svg>',
-                              content: j + j,
+                              content: M + M,
                             }),
                             e.BlockManager.add(u, {
                               label: "socialGroup",
@@ -1524,7 +1515,7 @@
                 })(e, g),
                 (function (e) {
                   y(void 0, void 0, void 0, function () {
-                    var n, a, i, o, r;
+                    var n, a, i, r, o;
                     return w(this, function (l) {
                       switch (l.label) {
                         case 0:
@@ -1539,8 +1530,8 @@
                           return [4, i.json()];
                         case 3:
                           return (
-                            (o = l.sent()),
-                            (a = o.data),
+                            (r = l.sent()),
+                            (a = r.data),
                             e.TraitManager.addType(t, {
                               events: { keyup: "click" },
                               createInput: function (e) {
@@ -1579,12 +1570,12 @@
                                     t = e.elInput,
                                     a = e.component,
                                     i = a.attributes.data,
-                                    o = t.querySelector(".products"),
-                                    r = 0;
-                                  r < i.length;
-                                  r++
+                                    r = t.querySelector(".products"),
+                                    o = 0;
+                                  o < i.length;
+                                  o++
                                 )
-                                  i[r].id == o.value && (n = i[r]);
+                                  i[o].id == r.value && (n = i[o]);
                                 a.addAttributes({ selectedData: n }),
                                   (a.attributes.selectedData = n);
                               },
@@ -1593,8 +1584,8 @@
                           );
                         case 4:
                           return (
-                            (r = l.sent()),
-                            console.log("Error in Fetching Data", r),
+                            (o = l.sent()),
+                            console.log("Error in Fetching Data", o),
                             [3, 5]
                           );
                         case 5:
