@@ -134,28 +134,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  // For Product Title
-  Components.addType(typeText, {
-    isComponent: (el) => el.tagName == "P",
-    model: {
-      defaults: {
-        tagName: "p",
-        highlightable: false,
-        attributes: { class: ` ${productPrefix}-idTitle` },
-        styles:
-          opts.style ||
-          `
-          .${productPrefix}-idTitle {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 0rem;
-            text-align: center;
-            width: 100%;
-          } 
-          `,
-      },
-    },
-  });
   // For Input  Label
   Components.addType(typeLabel, {
     isComponent: (el) => el.tagName == "LABEL",
@@ -387,6 +365,8 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       defaults: {
         name: "Text Sect",
         tagName: "p",
+        draggable: true, // Make the component draggable
+        droppable: true,
         class: "gjs-droppable",
       },
     },

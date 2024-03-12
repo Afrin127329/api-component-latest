@@ -66,7 +66,14 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
           components: [
             {
               type: typeDiv,
-              components: [{ type: typeText, components: "Order Form" }],
+              components: [
+                {
+                  type: typeText,
+                  components: "Order Form",
+                  attributes: { class: "h1 text-center" },
+                },
+              ],
+              attributes: { class: "text-center " },
             },
             {
               components: [
@@ -189,7 +196,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     content: {
       type: "link",
       attributes: { class: "btn btn-warning" },
-      content: `<span class="fs-6 link-block-span">Link</span>`,
+      content: `<a class="fs-6 link-block-span" href="#"><span>Link</span></a>`,
     },
   });
 
@@ -773,7 +780,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
         <path fill="currentColor" d="M20 20.5C20 21.3 19.3 22 18.5 22H13C12.6 22 12.3 21.9 12 21.6L8 17.4L8.7 16.6C8.9 16.4 9.2 16.3 9.5 16.3H9.7L12 18V9C12 8.4 12.4 8 13 8S14 8.4 14 9V13.5L15.2 13.6L19.1 15.8C19.6 16 20 16.6 20 17.1V20.5M20 2H4C2.9 2 2 2.9 2 4V12C2 13.1 2.9 14 4 14H8V12H4V4H20V12H18V14H20C21.1 14 22 13.1 22 12V4C22 2.9 21.1 2 20 2Z" />
     </svg>`,
-    content: '<a class="btn btn-primary btn-block">Button</a>',
+    content: '<a class="btn btn-primary btn-block"><span>Button</span></a>',
   });
 
   //  Divider block
@@ -807,7 +814,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             <div class="card-body  d-flex flex-column grid-item-card-body-col mt-4">
                 <h1 class="card-titl p-2 text-center grid-item-card-body-col-head">Title here</h1>
                 <p class="card-text p-2 text-center grid-item-card-body-col-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-                <a href="#" class="btn btn-success p-2 grid-item-card-body-btn">Go somewhere</a>
+                <a href="#" class="btn btn-success p-2 grid-item-card-body-btn"><span>Go somewhere</span></a>
             </div>
    </div>
   
@@ -901,13 +908,13 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
         <div class="btn-group" role="group" aria-label="First group social-inner-div">
               <a href="#" class="btn btn-primary social-icon-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
               <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/>
-            </svg></a>
+            </svg><br> <span>Facebook</span></a>
               <a href="#" class="btn btn-primary social-icon-link"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
               <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-            </svg></a>
+            </svg><br> <span>Facebook</span></a>
               <a href="#" class="btn btn-primary social-icon-link"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
               <path d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z"/>
-        </svg></a>
+        </svg><br> <span>Facebook</span></a>
         </div>
 </div>
 
@@ -934,30 +941,30 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 </svg>`,
     content: `<nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="#"><span>Navbar</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav justify-conter-center me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="#"><span>Home</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#"><span>About</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="#"><span>Contact Us</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Products</a>
+            <a class="nav-link" href="#"><span>Products</span></a>
           </li>
             </ul>
           </li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-outline-success" type="submit"><span>Search</span></button>
         </form>
       </div>
     </div>
@@ -975,7 +982,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     <div class="hero-container">
     <p class="hero-text">GO TO SPACE</p>
     <p class="text-center text-white hero-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur ea libero animi neque officiis. Nemo corporis perspiciatis modi amet, saepe quaerat tempora deserunt consequuntur dolore libero recusandae ex, voluptate veniam?</p>
-    <a class="btn btn-outline-light btn-lg hero-btn" href="#" style="align-items: center;" >ORDER NOW</a>
+    <a class="btn btn-outline-light btn-lg hero-btn" href="#" style="align-items: center;" ><span>ORDER NOW</span></a>
   </div>
 
 <style>
@@ -1146,7 +1153,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   </svg>`,
     content: `
     <p class="d-inline-flex gap-1">
-  <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle element</a>
+  <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1"><span>Toggle element</span></a>
 </p>
 <div class="row rowClass">
   <div class="col">
@@ -1225,24 +1232,24 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
             <div class="col-lg-4 col-md-6">
                 <h5 class="h1 text-white">FB.</h5>
                 <p class="small text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#">Bootstrapious.com</a></p>
+                <p class="small mb-0 text-whte">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#">Bootstrapious.com</a></p>
             </div>
             <div class="col-lg-2 col-md-6">
                 <h5 class="text-white mb-3">Quick links</h5>
                 <ul class="list-unstyled text-muted">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Get started</a></li>
-                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#"><span>Home</span></a></li>
+                    <li><a href="#"><span>About</span></a></li>
+                    <li><a href="#"><span>Get started</span></a></li>
+                    <li><a href="#"><span>FAQ</span></a></li>
                 </ul>
             </div>
             <div class="col-lg-2 col-md-6">
                 <h5 class="text-white mb-3">Quick links</h5>
                 <ul class="list-unstyled text-muted">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Get started</a></li>
-                    <li><a href="#">FAQ</a></li>
+                <li><a href="#"><span>Home</span></a></li>
+                    <li><a href="#"><span>About</span></a></li>
+                    <li><a href="#"><span>Get started</span></a></li>
+                    <li><a href="#"><span>FAQ</span></a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-md-6">
