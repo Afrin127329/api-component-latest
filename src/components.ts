@@ -134,28 +134,6 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
     },
   });
 
-  // For Product Title
-  // Components.addType(typeText, {
-  //   isComponent: (el) => el.tagName == "H1",
-  //   model: {
-  //     defaults: {
-  //       tagName: "h1",
-  //       highlightable: false,
-  //       attributes: { class: ` ${productPrefix}-idTitle` },
-  //       styles:
-  //         opts.style ||
-  //         `
-  //         .${productPrefix}-idTitle {
-  //           font-size: 2.5rem;
-  //           font-weight: 900;
-  //           margin-bottom: 0rem;
-  //           text-align: center;
-  //           width: 100%;
-  //         }
-  //         `,
-  //     },
-  //   },
-  // });
   // For Input  Label
   Components.addType(typeLabel, {
     isComponent: (el) => el.tagName == "LABEL",
@@ -387,41 +365,12 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
       defaults: {
         name: "Text Sect",
         tagName: "p",
+        draggable: true, // Make the component draggable
+        droppable: true,
         class: "gjs-droppable",
       },
     },
   });
-  // For single link block
-  // Components.addType("link", {
-  //   isComponent: (el) => el.tagName == "A",
-
-  //   model: {
-  //     defaults: {
-  //       name: "Link Sect",
-  //       tagName: "a",
-  //       class: "gjs-droppable",
-  //       attributes: { editable: true },
-  //     },
-  //   },
-
-  //   // view: {
-  //   //   events: {
-  //   //     dblclick: "onActive",
-  //   //     focusout: "onDisable",
-  //   //   } as any,
-  //   //   onActive() {
-  //   //     this.el.contentEditable = "true";
-  //   //     // console.log(this.el.innerHTML);
-  //   //   },
-  //   //   onDisable() {
-  //   //     const { el, model } = this;
-  //   //     el.contentEditable = "false";
-  //   //     // const elem: any = el.innerText ? el.innerText : el.innerHTML;
-  //   //     // console.log(elem);
-  //   //     // model.set("content", elem);
-  //   //   },
-  //   // },
-  // });
 
   // For single text block
   Components.addType("customer-review", {
