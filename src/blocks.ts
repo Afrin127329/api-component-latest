@@ -13,6 +13,7 @@ import {
   typeText,
   typeWrapper,
 } from "./components";
+import { carousel } from "./helper/custom-components";
 
 export default async (editor: Editor, opts: RequiredPluginOptions) => {
   const { block, label, id } = opts;
@@ -193,11 +194,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     media: `<svg viewBox="0 0 24 24">
       <path fill="currentColor" d="M3.9,12C3.9,10.29 5.29,8.9 7,8.9H11V7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H11V15.1H7C5.29,15.1 3.9,13.71 3.9,12M8,13H16V11H8V13M17,7H13V8.9H17C18.71,8.9 20.1,10.29 20.1,12C20.1,13.71 18.71,15.1 17,15.1H13V17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7Z"></path>
     </svg>`,
-    content: {
-      type: "link",
-      attributes: { class: "btn btn-warning" },
-      content: `<a class="fs-6 link-block-span" href="#"><span>Link</span></a>`,
-    },
+    content: `<a href="#" class="btn btn-outline-secondary p-2"><span>Link</span></a>`,
   });
 
   // Quote
@@ -1102,46 +1099,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
     media: `<svg class="bi bi-sliders" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/>
   </svg>`,
-    content: `
-    <div id="carouselExample" class="carousel slide slideDivClass">
-    <div class="carousel-inner" style="">
-      <div class="carousel-item active">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://via.placeholder.com/250x150/78c5d6/fff/" class="d-block w-100 imgClass" alt="...">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-
-  <style>
-  .slideDivClass{
-    width: 600px;
-  }
-.imgClass{
-  height: 366px;
-}
-  @media only screen and (max-width: 600px) {
-    .slideDivClass{
-      width: 100% !important;
-    }
-    .imgClass{
-      height: 15rem;
-    }
-  }
-  </style>
-    `,
+    content: carousel,
   });
 
   // collapse using bootstrap component
@@ -1277,6 +1235,16 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   </style>
     `,
   });
+
+  // Carousel with card
+  // editor.BlockManager.add("CarouselCard", {
+  //   label: "Carousel Card",
+  //   category: "Extra",
+  //   media: `<svg class="bi bi-calendar2-check-fill" viewBox="0 0 16 16">
+  //     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5m9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5m-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"/>
+  //   </svg>`,
+  //   content: carouselSlider,
+  // });
 
   // Vertically centered Modal Active component using bootstrap --> Will add later
   //   editor.BlockManager.add("bootstrapModal", {
