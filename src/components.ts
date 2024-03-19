@@ -59,7 +59,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         attributes: {
           class: `${productPrefix} ${productPrefix}-container`,
           method: "post",
-          action: "https://chepapest.com/checkout",
+          action: `${document.location.protocol+"//"+document.location.host}/checkout`,
         },
         traits: [
           {

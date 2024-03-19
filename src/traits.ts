@@ -2,7 +2,7 @@ import { Editor } from "grapesjs";
 import { typeForm } from "./components";
 
 export default async (editor: Editor) => {
-  const url = "https://chepapest.com/api/dev/products";
+  const url = `${document.location.protocol+"//"+document.location.host}/api/dev/products`;
   let productData: any = null;
   try {
     // API request when the block is added

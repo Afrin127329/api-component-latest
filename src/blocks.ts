@@ -41,7 +41,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // }
 
   if (block) {
-    const url = "https://chepapest.com/api/dev/products";
+    const url = document.location.protocol+"//"+document.location.host+"/api/dev/products";
     let productData = null;
     try {
       // API request when the block is added

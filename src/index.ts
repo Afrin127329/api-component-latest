@@ -63,7 +63,7 @@ const plugin: Plugin<PluginOptions> = async (editor: Editor, opts = {}) => {
     async function getData() {
       try {
         const response = await fetch(
-          `https://chepapest.com/api/dev/user/landing-page/${id}`,
+          `${document.location.protocol+"//"+document.location.host}/api/dev/user/landing-page/${id}`,
           {
             method: "GET",
             headers: {
