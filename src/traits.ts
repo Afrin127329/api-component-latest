@@ -63,6 +63,7 @@ export default async (editor: Editor) => {
         // Match the selected data object from the data got from the server
         for (let i = 0; i < remoteData.length; i++) {
           if (remoteData[i].id == productId.value) {
+            remoteData[i].value == productId.value;
             selectedData = remoteData[i];
           }
         }

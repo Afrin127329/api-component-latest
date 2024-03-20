@@ -157,18 +157,18 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 
                     {
                       type: typeInput,
-                      attributes: { type: "hidden", id: "productId" },
-                      name: "productId",
+                      attributes: { type: "hidden", id: "productId",name: "productId", },
+                      
                     },
                     {
                       type: typeInput,
-                      attributes: { type: "hidden", id: "productPrice" },
-                      name: "productPrice",
+                      attributes: { type: "hidden", id: "productPrice" ,name: "productPrice",},
+                      
                     },
                     {
                       type: typeInput,
-                      attributes: { type: "hidden", id: "productQuantity" },
-                      name: "productQuantity",
+                      attributes: { type: "hidden", id: "productQuantity",name: "productQuantity", },
+                      
                     },
                   ],
                 },
