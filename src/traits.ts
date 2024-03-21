@@ -2,7 +2,10 @@ import { Editor } from "grapesjs";
 import { typeForm } from "./components";
 
 export default async (editor: Editor) => {
-  const url = `${document.location.protocol+"//"+document.location.host}/api/dev/products`;
+  // const url = `${
+  //   document.location.protocol + "//" + document.location.host
+  // }/api/dev/products`;
+  const url = "https://test2.chepapest.com/api/dev/products";
   let productData: any = null;
   try {
     // API request when the block is added
@@ -15,6 +18,7 @@ export default async (editor: Editor) => {
     // storing the response in variable
     const data = await response.json();
     productData = data.data;
+    // console.log(productData);
 
     editor.TraitManager.addType(typeForm, {
       events: {
@@ -55,20 +59,23 @@ export default async (editor: Editor) => {
 
       // Fires while clicking on the gear icon
       onEvent({ elInput, component }) {
-        const remoteData = component.attributes.data;
+        // const remoteData = component.attributes.data;
+        // console.log(remoteData);
 
         const productId: any = elInput.querySelector(".products");
         let selectedData;
 
         // Match the selected data object from the data got from the server
-        for (let i = 0; i < remoteData.length; i++) {
-          if (remoteData[i].id == productId.value) {
-            remoteData[i].value == productId.value;
-            selectedData = remoteData[i];
+        for (let i = 0; i < productData.length; i++) {
+          if (productData[i].id == productId.value) {
+            productData[i].value == productId.value;
+            selectedData = productData[i];
+            console.log(selectedData);
           }
         }
         component.addAttributes({ selectedData: selectedData });
         component.attributes.selectedData = selectedData;
+        console.log(component);
       },
     });
   } catch (error) {

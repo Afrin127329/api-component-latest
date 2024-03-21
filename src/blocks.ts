@@ -41,7 +41,12 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
   // }
 
   if (block) {
-    const url = document.location.protocol+"//"+document.location.host+"/api/dev/products";
+    // const url =
+    //   document.location.protocol +
+    //   "//" +
+    //   document.location.host +
+    //   "/api/dev/products";
+    const url = "https://chepapest.com/api/dev/products";
     let productData = null;
     try {
       // API request when the block is added
@@ -54,6 +59,7 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
       // storing the response in variable
       const data = await response.json();
       productData = data.data;
+      // console.log(productData);
 
       // Adding the Form block to the UI sidebar
       addBlock(id[0], {
@@ -157,18 +163,30 @@ export default async (editor: Editor, opts: RequiredPluginOptions) => {
 
                     {
                       type: typeInput,
-                      attributes: { type: "hidden", id: "productId",name: "productId", },
-                      
+                      attributes: {
+                        type: "hidden",
+                        id: "productId",
+                        name: "productId",
+                        class: "productId",
+                      },
                     },
                     {
                       type: typeInput,
-                      attributes: { type: "hidden", id: "productPrice" ,name: "productPrice",},
-                      
+                      attributes: {
+                        type: "hidden",
+                        id: "productPrice",
+                        name: "productPrice",
+                        class: "productPrice",
+                      },
                     },
                     {
                       type: typeInput,
-                      attributes: { type: "hidden", id: "productQuantity",name: "productQuantity", },
-                      
+                      attributes: {
+                        type: "hidden",
+                        id: "productQuantity",
+                        name: "productQuantity",
+                        class: "productQuantity",
+                      },
                     },
                   ],
                 },
