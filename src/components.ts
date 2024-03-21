@@ -108,18 +108,21 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
         this.on("change:attributes:selectedData", () => {
           // Take Selected Data object from the traits
           const data = this.getAttributes().selectedData;
-          // console.log(data);
 
           // Testing
           const wrapper: any = editor.getWrapper();
-          const idEl = wrapper.find(".productId")[0].view;
-          const priceEl = wrapper.find(".productPrice")[0].view;
-          const qntyEl = wrapper.find(".productQuantity")[0].view;
+          const idEl = wrapper.find(".productId")[0].view?.attr;
+          const priceEl = wrapper.find(".productPrice")[0].view?.attr;
+          const qntyEl = wrapper.find(".productQuantity")[0].view?.attr;
           console.log(idEl, priceEl, qntyEl);
 
-          idEl.el.innerHTML = data.id;
-          priceEl.el.innerHTML = data.price;
-          qntyEl.el.innerHTML = 1;
+          idEl.value = data.id;
+          priceEl.value = data.price;
+          qntyEl.value = 1;
+
+          // idEl.el.innerHTML = data.id;
+          // priceEl.el.innerHTML = data.price;
+          // qntyEl.el.innerHTML = 1;
 
           // Grab the DOM Elements
           // const idElem: any = Components.getById("productId").view;
