@@ -52,7 +52,7 @@ export default (editor: Editor, opts: RequiredPluginOptions) => {
 
     console.log(dataObj);
 
-    const projectEndpoint = `https://chepapest.com/api/dev/user/landing-page/${id}/save`;
+    const projectEndpoint = `${document.location.protocol+"//"+document.location.host}/api/dev/user/landing-page/${id}/save`;
 
     // Send data to the server
     async function sendData() {
